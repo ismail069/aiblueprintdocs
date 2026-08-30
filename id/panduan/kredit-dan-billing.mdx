@@ -1,0 +1,48 @@
+---
+title: "Credit AI dan billing"
+description: "Pahami credit paket, top-up, harga aksi, biaya pembayaran, dan refund."
+---
+
+Satu Credit AI memiliki nilai publik **Rp1.000**. Saldo total menggabungkan credit paket reguler dan credit add-on, tetapi halaman Billing menampilkan kedua sumber secara terpisah.
+
+## Urutan pemakaian credit
+
+AI Blueprint selalu memakai **credit paket reguler lebih dahulu**. Jika saldo reguler habis atau kurang, sisa kebutuhan otomatis memakai credit add-on.
+
+| Aksi | Harga |
+| --- | ---: |
+| Generasi Blueprint lengkap | 25 credit |
+| Regenerasi cascade besar | 23 credit |
+| Rewrite satu dokumen | 3 credit |
+| Pesan Blueprint Assistant | Minimum 0,2 credit; biaya akhir mengikuti biaya input/output yang diterima dan dibulatkan naik per 0,2 credit |
+| Direct edit literal | Gratis |
+| Melanjutkan paid run yang terinterupsi | Gratis selama entitlement pembayaran awal masih valid |
+
+Retry, fallback, dan repair internal bukan aksi customer terpisah dan tidak ditagihkan terpisah. Run yang tidak memublikasikan output apa pun mendapat refund otomatis.
+
+## Paket dan top-up
+
+| Produk | Harga | Credit | Ketersediaan |
+| --- | ---: | ---: | --- |
+| Starter | Rp50.000 per periode | 50 | Tersedia |
+| Plus | Rp100.000 per periode | 110 | Tersedia |
+| Pro | Harga disembunyikan di produk | — | Coming soon |
+| Top-up | Rp30.000 | 30 | Tersedia untuk semua paket |
+| Top-up | Rp75.000 | 75 | Tersedia untuk semua paket |
+| Top-up | Rp125.000 | 125 | Tersedia untuk semua paket |
+
+Kredit top-up tidak memiliki kedaluwarsa berbasis waktu selama akun tetap aktif. Saldo berakhir ketika akun dihapus permanen. Baca [Kebijakan Retensi](https://www.aiblueprint.web.id/retention-policy) untuk ketentuan lengkap akun dormant dan penghapusan.
+
+## Biaya transaksi Midtrans
+
+Setiap checkout menambahkan biaya transaksi Midtrans yang berlaku ke jumlah yang dibayar customer. Biaya Virtual Account atau bank transfer yang saat ini ditampilkan AI Blueprint adalah **Rp4.000 per transaksi**. Total checkout adalah acuan untuk metode pembayaran yang dipilih.
+
+<Warning>
+  Jangan tutup tab pembayaran sebelum Midtrans menampilkan status akhir. Jika pembayaran berhasil tetapi credit belum masuk setelah refresh yang wajar, simpan referensi order dan hubungi Support. Jangan membayar order yang sama dua kali.
+</Warning>
+
+## Riwayat pembayaran dan credit
+
+**Billing** menampilkan pembayaran berhasil, referensi invoice, grant credit, top-up, debit, dan refund. Riwayat credit dapat difilter berdasarkan tanggal dan diekspor menjadi CSV.
+
+Untuk pembatalan dan kelayakan refund, baca [Terms](https://www.aiblueprint.web.id/terms) dan [Refund Policy](https://www.aiblueprint.web.id/refund-policy).

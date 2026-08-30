@@ -1,0 +1,44 @@
+---
+title: "Status dan approval"
+description: "Pahami arti setiap status dokumen dan langkah berikutnya."
+---
+
+Status menjelaskan kondisi **dokumen**, bukan seberapa jauh seluruh project berjalan.
+
+| Status | Artinya | Tindakan |
+| --- | --- | --- |
+| **Siap** | Dokumen menjawab semua hal yang menjadi tanggung jawabnya. Tidak ada yang menunggu Anda. | Baca lalu sign approve. |
+| **Siap — keputusan Anda dibutuhkan** | Dokumen lengkap dan dapat dibangun, tetapi ada satu keputusan milik Anda. | Buka dokumen, baca item terbuka, dan selesaikan. Approval dapat dilakukan lebih dahulu bila development tidak terhambat. |
+| **Perlu Perbaikan** | Bagian wajib hilang, saling bertentangan, atau tidak dapat dibangun seperti tertulis. | Buat ulang dokumen sebelum approval. |
+| **Terhambat** | Pekerjaan pada subjek ini tidak dapat dimulai sebelum dependensi selesai. | Buka item penghambat dan selesaikan sebelum approval. |
+| **Tertunda** | Dokumen belum dibuat. | Tunggu atau mulai generasi Blueprint. |
+| **Tidak Diperlukan** | Produk Anda tidak membutuhkan dokumen ini. | Tidak ada tindakan. |
+
+## Dokumen ditandatangani dan superseded
+
+Ketika Anda menandatangani dokumen, Anda menerima versi dan catatan yang terlihat saat itu. Jika regenerasi mengubah dokumen, approval lama menjadi **superseded**.
+
+<Steps>
+  <Step title="Buka dokumen yang berubah">
+    Baca isi baru dan alasan regenerasi.
+  </Step>
+  <Step title="Selesaikan item terbuka">
+    Gunakan Assistant jika ada keputusan atau koreksi yang diperlukan.
+  </Step>
+  <Step title="Setujui versi saat ini">
+    Lakukan approval ulang hanya ketika dokumen terbaru sudah sesuai keputusan Anda.
+  </Step>
+</Steps>
+
+## Kesehatan project dan item sebelum go-live
+
+Panel **Kesehatan Project** mengumpulkan warning, blocker, catatan review, dan pekerjaan yang perlu selesai sebelum production:
+
+- catatan review dapat diterima dan dipantau;
+- item sebelum go-live dapat diselesaikan selama development;
+- blocker menghentikan pekerjaan yang bergantung padanya;
+- perbaikan berarti dokumen belum aman untuk disetujui seperti tertulis.
+
+<Warning>
+  Jangan menandatangani dokumen **Terhambat** atau **Perlu Perbaikan** hanya untuk membuat progress berwarna hijau. Approval adalah penerimaan Anda terhadap versi tersebut.
+</Warning>

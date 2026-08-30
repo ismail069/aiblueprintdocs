@@ -1,0 +1,48 @@
+---
+title: "AI credits and billing"
+description: "Understand plan credits, top-ups, action prices, payment fees, and refunds."
+---
+
+One AI credit has a public value of **Rp1,000**. Your balance combines regular plan credits and add-on credits, but the Billing page shows both sources separately.
+
+## Credit order
+
+AI Blueprint always uses **regular plan credits first**. If the regular balance is empty or insufficient, it uses the required remainder from add-on credits.
+
+| Action | Price |
+| --- | ---: |
+| Full Blueprint generation | 25 credits |
+| Major cascade regeneration | 23 credits |
+| Scoped single-document rewrite | 3 credits |
+| Blueprint Assistant message | Minimum 0.2 credit; final charge follows accepted input/output cost and rounds up in 0.2-credit increments |
+| Literal direct edit | Free |
+| Resume a paid interrupted run | Free while the original paid entitlement remains valid |
+
+Internal retries, fallbacks, and repairs are not separate customer actions and are not billed separately. A run that publishes nothing is refunded automatically.
+
+## Plans and top-ups
+
+| Product | Price | Credits | Availability |
+| --- | ---: | ---: | --- |
+| Starter | Rp50,000 per period | 50 | Available |
+| Plus | Rp100,000 per period | 110 | Available |
+| Pro | Price hidden in the product | — | Coming soon |
+| Top-up | Rp30,000 | 30 | Available to all plans |
+| Top-up | Rp75,000 | 75 | Available to all plans |
+| Top-up | Rp125,000 | 125 | Available to all plans |
+
+Top-up credits have no time-based expiry while your account remains active. They end when the account is permanently deleted. Read the public [Retention Policy](https://www.aiblueprint.web.id/retention-policy) for the complete dormant-account and deletion terms.
+
+## Midtrans transaction fee
+
+Each checkout adds the applicable Midtrans transaction fee to the amount paid by the customer. The current Virtual Account or bank-transfer fee shown by AI Blueprint is **Rp4,000 per transaction**. The checkout total is authoritative for the selected payment method.
+
+<Warning>
+  Do not close a payment tab until Midtrans shows a final state. If payment succeeds but credits do not appear after a reasonable refresh, keep the order reference and open Support. Do not pay the same order twice.
+</Warning>
+
+## Payment and credit history
+
+**Billing** shows successful payments, invoice references, credit grants, top-ups, debits, and refunds. You can filter credit history by date and export it as CSV.
+
+For cancellation and refund eligibility, read the public [Terms](https://www.aiblueprint.web.id/terms) and [Refund Policy](https://www.aiblueprint.web.id/refund-policy).

@@ -1,47 +1,52 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Create, review, and approve your first AI Blueprint."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+## Before you begin
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+You need a verified AI Blueprint account and enough AI credits for the action you start. You can register with email and password or continue with Google.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Describe the product idea">
+    On **Dashboard**, explain the product, target users, problem, and desired outcome. Add important constraints such as platform, region, compliance, integrations, or offline use.
 
-    ```bash
-    npm install your-package
-    ```
+    Write in Indonesian or English. AI Blueprint detects the idea language and uses it for generated documents.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+  <Step title="Review the enriched idea">
+    Read the Smart Requirement Summary. Confirm that the product definition matches what you intend to build.
 
-    ```bash
-    your-cli init
-    ```
+    Do not approve a vague or incorrect assumption. Correct it while the context is still being formed.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="Answer critical questions">
+    Resolve decisions that materially change scope, actors, data, security, or delivery. A question may include a suggested answer, but the final decision is yours.
+  </Step>
+  <Step title="Approve the Idea Review / VPC">
+    Sign only when the product context is accurate. This approval automatically starts document generation in the background, and you may safely close the tab.
+  </Step>
+  <Step title="Review generated documents">
+    Check Application Journey, Technical Foundation, Database Schema when relevant, App Map, and every other generated document. There is no second global structure approval.
+  </Step>
+  <Step title="Approve each current document">
+    Use **Blueprint Summary** to inspect open items, project health, and version history. Open each applicable document and use its **Sign Approve** action. The Summary reaches **10/10 Approved** when every current document is signed.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+<Frame caption="Sanitized example of the idea-to-review path.">
+  <img src="/images/idea-to-review.svg" alt="Idea input followed by review, decisions, and Blueprint" />
+</Frame>
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+## A useful idea brief
+
+Include enough information to distinguish your product from a generic app:
+
+- who uses it and what each actor needs;
+- the problem and measurable outcome;
+- the main journey or transaction;
+- data, payment, file, notification, or external-system needs;
+- constraints such as mobile-only, offline-first, multi-tenant, or a launch deadline;
+- what is explicitly outside the first release.
+
+<Warning>
+  Approval records your decision against the current version. If regeneration changes a signed document, read the changes and approve the new version again.
+</Warning>

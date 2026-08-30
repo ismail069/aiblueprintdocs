@@ -1,33 +1,28 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# AI Blueprint documentation instructions
 
-# Documentation project instructions
+## Product and audience
 
-## About this project
+- This is the customer-facing AI Blueprint help centre built with Mintlify.
+- Write for founders, product owners, and operators. Do not assume engineering expertise.
+- Use **Blueprint** for the complete product-planning package and **document** for one output inside it.
+- Use **Idea Review / VPC Sign Approve** for product-context approval. This approval automatically starts document generation.
+- Use **per-document Sign Approve** for approval of each current generated document. There is no second global Structure Review Package gate.
+- Use **Blueprint Summary** for the review centre and its per-document approval progress, such as **10/10 Approved**.
+- Use **Credit AI** in Indonesian copy and **AI credits** in English copy.
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Use the Mintlify MCP server, `https://mcp.mintlify.com`, to edit content and settings via MCP
-- Use the Mintlify docs MCP server, `https://www.mintlify.com/docs/mcp`, to query information about using Mintlify via MCP
+## Writing style
 
-## Terminology
-
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
-
-## Style preferences
-
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+- Use active voice and second person.
+- Keep sentences concise and headings in sentence case.
+- Bold UI labels: Select **Billing**.
+- Put warnings before irreversible actions.
+- Explain what a status means and the next action together.
+- Indonesian and English pages must stay semantically aligned. Do not translate internal identifiers.
 
 ## Content boundaries
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Never document private Control Room pages, provider routing, infrastructure topology, credentials, internal IDs, or raw provider errors.
+- Never publish real customer data or screenshots containing personal information.
+- Use sanitized examples and the mock images in `/images` until reviewed production screenshots are available.
+- Link to the public legal pages instead of paraphrasing them as legal advice.
+- Mark Development Planning, Project Management, Deployment Assist, and Pro as **Coming soon** until the product release flag changes.

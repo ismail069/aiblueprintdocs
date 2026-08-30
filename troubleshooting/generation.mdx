@@ -1,0 +1,49 @@
+---
+title: "Generation troubleshooting"
+description: "Recover a slow, interrupted, or stopped Blueprint safely."
+---
+
+## Generation is still running
+
+Blueprint generation continues on the server. You can close the tab and reopen the project from **My Blueprints**. A running project may show its current stage or a document count that increases as work is published.
+
+<Steps>
+  <Step title="Reopen the same project">
+    Open **My Blueprints** and select the existing card. Do not create a duplicate.
+  </Step>
+  <Step title="Refresh once">
+    Allow the page to reload the stored run status. Repeated rapid refreshes do not make generation faster.
+  </Step>
+  <Step title="Check the status">
+    If the run is active, leave it running. If it is paused, follow the recovery card.
+  </Step>
+</Steps>
+
+## The process is paused
+
+<Frame caption="Sanitized recovery example. The real Support ID is unique to your incident.">
+  <img src="/images/recovery-support.svg" alt="Paused Blueprint process with Retry, Support, and My Blueprints actions" />
+</Frame>
+
+Completed stages remain saved. The recovery card may offer one **Retry**. Select it once and keep the page open long enough to observe the state change. If Retry is unavailable or the process stops again, create a Support ticket with the Support ID.
+
+## Common conditions
+
+<AccordionGroup>
+  <Accordion title="Insufficient credits">
+    Open **Billing** and compare the required action with the regular and add-on balances. Top up if needed, then return to the same project.
+  </Accordion>
+  <Accordion title="A document says Needs Repair">
+    Open that document and regenerate it before approval. This is a document-quality state, not necessarily a failed whole-project run.
+  </Accordion>
+  <Accordion title="A document load error persists">
+    Use the page Retry once. If it still fails, link the Blueprint in Support and name the document and current version.
+  </Accordion>
+  <Accordion title="A resume is offered after interruption">
+    Resume continues missing work. It does not restart completed stages, and a valid paid interrupted run can resume without another generation charge.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Do not repeatedly press Retry, create duplicate projects, or submit the same paid action in multiple tabs. These actions make incident diagnosis and payment reconciliation harder.
+</Warning>

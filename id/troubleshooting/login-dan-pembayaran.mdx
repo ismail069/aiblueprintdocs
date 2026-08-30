@@ -1,0 +1,48 @@
+---
+title: "Troubleshooting login dan pembayaran"
+description: "Atasi masalah email, login Google, verifikasi, dan pembayaran Midtrans."
+---
+
+## Email dan password
+
+1. Pastikan email sama dengan yang dipakai saat registrasi.
+2. Selesaikan verifikasi email jika diminta.
+3. Gunakan **Forgot password** untuk meminta link reset baru. Pakai hanya link terbaru; token reset memiliki masa berlaku dan hanya dapat dipakai sekali.
+4. Jika password diubah dari **Settings**, login kembali karena sesi lama sudah dinonaktifkan.
+
+## Login Google
+
+Mulai login Google dari halaman **Login** atau **Register** AI Blueprint. Selesaikan consent Google dan izinkan browser kembali ke `aiblueprint.web.id`.
+
+Jika Google menampilkan error konfigurasi atau callback:
+
+- kembali ke halaman login AI Blueprint dan coba sekali lagi di browser yang sama;
+- pastikan pembatasan third-party cookie atau popup tidak memblokir redirect;
+- simpan screenshot error yang aman dan waktu kejadian;
+- buat ticket Support tanpa menyertakan OAuth token, cookie browser, atau password akun.
+
+## Pembayaran Midtrans
+
+<Steps>
+  <Step title="Mulai dari Billing">
+    Pilih paket atau top-up di workspace AI Blueprint. Periksa total checkout, termasuk biaya transaksi yang ditampilkan.
+  </Step>
+  <Step title="Selesaikan di Midtrans">
+    Bayar melalui metode yang dipilih dan tunggu hasil akhir. Biaya transaksi dibebankan kepada customer dan dapat berbeda berdasarkan metode; total checkout adalah acuan.
+  </Step>
+  <Step title="Kembali ke AI Blueprint">
+    Halaman finish menginformasikan bahwa status mungkin masih direkonsiliasi. Refresh **Billing** setelah Midtrans memfinalkan transaksi.
+  </Step>
+</Steps>
+
+## Pembayaran berhasil tetapi akses belum berubah
+
+Jangan langsung mengulang pembayaran. Simpan referensi order, metode, nominal, status Midtrans, dan waktu. Refresh satu kali, lalu buat ticket Support jika paket atau credit tetap belum berubah.
+
+## Pembayaran gagal, expired, atau dibatalkan
+
+Paket atau credit tidak diberikan untuk transaksi yang belum settle. Mulai checkout baru dari **Billing**, bukan memakai instruksi pembayaran yang sudah expired.
+
+<Warning>
+  Jangan pernah mengirim nomor kartu lengkap, PIN, CVV, password, OTP, API key, atau cookie browser kepada Support.
+</Warning>

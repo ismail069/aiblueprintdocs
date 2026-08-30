@@ -1,0 +1,44 @@
+---
+title: "Statuses and approval"
+description: "Understand what each document status means and what to do next."
+---
+
+A status describes the **document**, not how far along the whole project is.
+
+| Status | What it means | What to do |
+| --- | --- | --- |
+| **Ready** | The document answers everything it owns. Nothing is waiting on you. | Read it, then sign approve it. |
+| **Ready — your decision needed** | The document is complete and buildable, but one decision is yours. | Open the document, read the open item, and settle it. You may approve first if it does not block development. |
+| **Needs Repair** | A required section is missing, contradictory, or not buildable as written. | Regenerate the document before approving it. |
+| **Blocked** | Work on this subject cannot begin until a dependency is resolved. | Open the blocking item and resolve it before approval. |
+| **Pending** | The document has not been generated yet. | Wait for or start Blueprint generation. |
+| **Not Required** | Your product does not need this document. | No action is required. |
+
+## Signed and superseded documents
+
+When you sign a document, you accept the current version and its visible notes. If a later regeneration changes that document, the earlier approval becomes **superseded**.
+
+<Steps>
+  <Step title="Open the changed document">
+    Read the new content and compare the reason for regeneration.
+  </Step>
+  <Step title="Resolve new open items">
+    Use the Assistant if a decision or correction is needed.
+  </Step>
+  <Step title="Approve the current version">
+    Re-approve only after the current document reflects your decision.
+  </Step>
+</Steps>
+
+## Project health and before-go-live items
+
+The **Project Health** panel collects warnings, blockers, review notes, and tasks that should be completed before production launch. These are not all equal:
+
+- a review note can be accepted and tracked;
+- a before-go-live item may be completed during development;
+- a blocker prevents dependent work;
+- a repair means the document cannot safely be approved as written.
+
+<Warning>
+  Do not sign a **Blocked** or **Needs Repair** document only to make the progress counter turn green. Approval represents your acceptance of that exact version.
+</Warning>

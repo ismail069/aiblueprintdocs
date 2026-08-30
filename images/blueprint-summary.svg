@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Sanitized Blueprint Summary</title><desc id="desc">A mock summary with status cards and a ten-document grid.</desc>
+  <rect width="1200" height="680" rx="28" fill="#F2F5FC"/><rect x="45" y="38" width="1110" height="602" rx="20" fill="#fff" stroke="#C9D5F4"/>
+  <text x="82" y="92" font-family="Arial" font-weight="700" font-size="28" fill="#10254C">Blueprint Summary</text><rect x="930" y="62" width="175" height="38" rx="19" fill="#DDF8E9"/><text x="964" y="87" font-family="Arial" font-weight="700" font-size="15" fill="#087A48">Ready to review</text>
+  <g font-family="Arial"><rect x="82" y="130" width="316" height="94" rx="14" fill="#F8FAFF" stroke="#D7DFF2"/><text x="105" y="165" font-size="14" fill="#7180A0">DOCUMENTS</text><text x="105" y="201" font-size="28" font-weight="700" fill="#10254C">10 / 10 ready</text>
+  <rect x="442" y="130" width="316" height="94" rx="14" fill="#F8FAFF" stroke="#D7DFF2"/><text x="465" y="165" font-size="14" fill="#7180A0">APPROVAL</text><text x="465" y="201" font-size="28" font-weight="700" fill="#10254C">Review needed</text>
+  <rect x="802" y="130" width="303" height="94" rx="14" fill="#F8FAFF" stroke="#D7DFF2"/><text x="825" y="165" font-size="14" fill="#7180A0">PROJECT HEALTH</text><text x="825" y="201" font-size="28" font-weight="700" fill="#10254C">No blockers</text></g>
+  <g font-family="Arial" font-size="16" fill="#10254C"><rect x="82" y="266" width="500" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="108" y="302">Smart Requirement Summary</text><circle cx="548" cy="295" r="10" fill="#19A76F"/>
+  <rect x="622" y="266" width="483" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="648" y="302">Application Journey</text><circle cx="1071" cy="295" r="10" fill="#19A76F"/>
+  <rect x="82" y="344" width="500" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="108" y="380">Technical Foundation</text><circle cx="548" cy="373" r="10" fill="#19A76F"/>
+  <rect x="622" y="344" width="483" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="648" y="380">Database Schema · conditional</text><circle cx="1071" cy="373" r="10" fill="#19A76F"/>
+  <rect x="82" y="422" width="500" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="108" y="458">App Map · Access &amp; Security · Lean Canvas</text><circle cx="548" cy="451" r="10" fill="#19A76F"/>
+  <rect x="622" y="422" width="483" height="58" rx="12" fill="#F7F9FE" stroke="#D7DFF2"/><text x="648" y="458">MVP Scope · Coverage · UI/UX</text><circle cx="1071" cy="451" r="10" fill="#19A76F"/></g>
+  <rect x="82" y="522" width="1023" height="76" rx="14" fill="#EEF3FF"/><text x="108" y="554" font-family="Arial" font-weight="700" font-size="17" fill="#2D5BDF">SANITIZED DOCUMENTATION IMAGE</text><text x="108" y="581" font-family="Arial" font-size="15" fill="#5F7096">No customer, project, provider, or account data is shown.</text>
+</svg>

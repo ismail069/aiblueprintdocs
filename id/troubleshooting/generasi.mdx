@@ -1,0 +1,49 @@
+---
+title: "Troubleshooting generasi"
+description: "Pulihkan Blueprint yang lambat, terinterupsi, atau berhenti dengan aman."
+---
+
+## Generasi masih berjalan
+
+Generasi Blueprint berjalan di server. Anda dapat menutup tab dan membuka kembali project dari **Blueprint Saya**. Project aktif dapat menampilkan tahap saat ini atau jumlah dokumen yang bertambah ketika hasil dipublikasikan.
+
+<Steps>
+  <Step title="Buka kembali project yang sama">
+    Buka **Blueprint Saya** dan pilih kartu yang sudah ada. Jangan membuat duplikat.
+  </Step>
+  <Step title="Refresh satu kali">
+    Izinkan halaman memuat ulang status run yang tersimpan. Refresh berulang dengan cepat tidak mempercepat generasi.
+  </Step>
+  <Step title="Periksa status">
+    Jika run aktif, biarkan proses berjalan. Jika dijeda, ikuti kartu recovery.
+  </Step>
+</Steps>
+
+## Proses dijeda
+
+<Frame caption="Contoh recovery tersanitasi. Support ID sebenarnya unik untuk setiap incident.">
+  <img src="/images/recovery-support.svg" alt="Proses Blueprint dijeda dengan aksi Retry, Support, dan Blueprint Saya" />
+</Frame>
+
+Tahap yang selesai tetap tersimpan. Kartu recovery dapat menawarkan satu kali **Retry**. Pilih sekali dan biarkan halaman terbuka sampai status berubah. Jika Retry tidak tersedia atau proses kembali berhenti, buat ticket Support dengan Support ID.
+
+## Kondisi umum
+
+<AccordionGroup>
+  <Accordion title="Credit tidak cukup">
+    Buka **Billing** dan bandingkan kebutuhan aksi dengan saldo reguler dan add-on. Lakukan top-up jika perlu, lalu kembali ke project yang sama.
+  </Accordion>
+  <Accordion title="Dokumen berstatus Perlu Perbaikan">
+    Buka dokumen tersebut dan buat ulang sebelum approval. Ini adalah status kualitas dokumen, bukan selalu kegagalan seluruh project.
+  </Accordion>
+  <Accordion title="Error memuat dokumen tetap muncul">
+    Gunakan Retry di halaman satu kali. Jika masih gagal, hubungkan Blueprint ke Support dan sebutkan nama serta versi dokumen.
+  </Accordion>
+  <Accordion title="Resume ditawarkan setelah interupsi">
+    Resume melanjutkan pekerjaan yang belum selesai. Tahap yang sudah selesai tidak dimulai ulang, dan paid run yang valid dapat dilanjutkan tanpa biaya generasi kedua.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Jangan menekan Retry berulang, membuat project duplikat, atau mengirim aksi berbayar yang sama dari beberapa tab. Tindakan tersebut menyulitkan diagnosis dan rekonsiliasi pembayaran.
+</Warning>

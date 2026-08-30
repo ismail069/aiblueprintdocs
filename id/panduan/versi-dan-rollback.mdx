@@ -1,0 +1,35 @@
+---
+title: "Versi dan rollback"
+description: "Pulihkan versi Blueprint lengkap tanpa menghapus riwayat berikutnya."
+---
+
+Setiap **Blueprint version** adalah manifest semua dokumen pada kondisi yang sama. Memulihkan versi memindahkan seluruh rangkaian, bukan satu halaman saja.
+
+## Kapan versi dicatat
+
+Versi dapat dicatat setelah generasi pertama, revisi, regenerasi, repair, atau rollback. Daftar versi menampilkan pemicu, waktu, dokumen yang berubah, dan versi yang sedang digunakan.
+
+## Pulihkan versi lama
+
+<Steps>
+  <Step title="Buka Versions">
+    Dari **Blueprint Summary**, pilih **Versions**.
+  </Step>
+  <Step title="Periksa versi target">
+    Baca deskripsi, pemicu, tanggal, dan daftar dokumen yang berubah.
+  </Step>
+  <Step title="Pilih Restore">
+    Restore dinonaktifkan ketika dokumen sedang ditulis ulang. Tunggu regenerasi selesai sebelum mencoba lagi.
+  </Step>
+  <Step title="Tinjau dan setujui kembali">
+    Restore membuat entry baru dalam riwayat append-only. Baca isi hasil pemulihan dan sign approve versi saat ini lagi.
+  </Step>
+</Steps>
+
+<Note>
+  Restore tidak menghapus versi yang Anda tinggalkan. Anda dapat kembali maju dengan memulihkan versi yang lebih baru.
+</Note>
+
+## Jika riwayat versi tidak dapat dimuat
+
+Refresh satu kali. Jika error tetap muncul, buat ticket Support dan hubungkan Blueprint. Jangan membuat project baru sebagai pengganti proses recovery.

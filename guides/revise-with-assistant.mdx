@@ -1,0 +1,49 @@
+---
+title: "Revise with the Blueprint Assistant"
+description: "Ask questions, stage one or several proposals, and regenerate only affected documents."
+---
+
+The Blueprint Assistant uses the approved context for the current project. A chat response does not silently change your documents. Changes are staged as proposals for your review.
+
+## Ask, review, apply
+
+<Steps>
+  <Step title="Ask a question or request a change">
+    Be explicit about the outcome and constraint. You can ask for a recommendation first, then say **draft this as a proposal**.
+  </Step>
+  <Step title="Review the proposal card">
+    Check the rationale, proposed actions, and affected documents. Nothing changes at this stage.
+  </Step>
+  <Step title="Decline or keep it pending">
+    Decline proposals you do not want. You can leave valid proposals pending while you add related changes.
+  </Step>
+  <Step title="Apply one or apply all">
+    Use **Apply** for one proposal. When two or more proposals are waiting, use **Apply all** so affected documents regenerate once as a consistent batch.
+  </Step>
+  <Step title="Review regenerated documents">
+    Affected approvals may be superseded. Read each changed document and re-approve the current version.
+  </Step>
+</Steps>
+
+<Frame caption="Sanitized example: two proposals are staged before one regeneration.">
+  <img src="/images/assistant-proposals.svg" alt="Blueprint Assistant with two pending proposals and Apply all" />
+</Frame>
+
+## Single and multiple proposals
+
+Use a single proposal for an isolated change, such as renaming an actor or correcting one rule. Stack proposals when decisions are related, such as changing an approval flow, permissions, and acceptance criteria together.
+
+<Tip>
+  Batch related proposals before applying them. One batch keeps the document set aligned and avoids separate regeneration cycles.
+</Tip>
+
+## Direct edits and AI-backed revisions
+
+A literal direct edit that does not call AI is free. An AI proposal or rewrite can use credits. The interface shows the applicable action before you commit it.
+
+## Two kinds of history
+
+- **Revision history** inside the Assistant records conversation-level context revisions.
+- **Blueprint versions** records the whole set of generated documents as one recoverable version.
+
+Use Blueprint versions when you need to restore the complete document set to an earlier consistent state.

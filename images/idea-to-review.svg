@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Sanitized AI Blueprint idea workflow</title><desc id="desc">A mock product screen with an idea field and three workflow steps.</desc>
+  <rect width="1200" height="650" rx="28" fill="#EEF3FF"/><rect x="58" y="52" width="1084" height="546" rx="24" fill="#fff" stroke="#C9D5F4"/>
+  <rect x="58" y="52" width="1084" height="68" rx="24" fill="#10254C"/><circle cx="98" cy="86" r="11" fill="#4B7BFF"/><text x="123" y="94" font-family="Arial" font-weight="700" font-size="24" fill="#fff">AI Blueprint · New idea</text>
+  <text x="108" y="178" font-family="Arial" font-weight="700" font-size="18" fill="#2D5BDF">DESCRIBE YOUR PRODUCT</text>
+  <rect x="108" y="202" width="984" height="128" rx="16" fill="#F8FAFF" stroke="#AFC0EE"/><text x="136" y="248" font-family="Arial" font-size="19" fill="#33466D">A booking platform for a small service business…</text><text x="136" y="282" font-family="Arial" font-size="15" fill="#7888AA">Sanitized example — replace with your own product idea</text>
+  <rect x="855" y="350" width="237" height="54" rx="12" fill="#2D5BDF"/><text x="897" y="384" font-family="Arial" font-weight="700" font-size="18" fill="#fff">Start from idea →</text>
+  <line x1="179" y1="488" x2="986" y2="488" stroke="#C9D5F4" stroke-width="5"/><circle cx="179" cy="488" r="27" fill="#2D5BDF"/><circle cx="582" cy="488" r="27" fill="#2D5BDF"/><circle cx="986" cy="488" r="27" fill="#fff" stroke="#2D5BDF" stroke-width="5"/>
+  <text x="132" y="545" font-family="Arial" font-weight="700" font-size="16" fill="#10254C">Idea review</text><text x="513" y="545" font-family="Arial" font-weight="700" font-size="16" fill="#10254C">Critical decisions</text><text x="923" y="545" font-family="Arial" font-weight="700" font-size="16" fill="#10254C">Blueprint</text>
+</svg>

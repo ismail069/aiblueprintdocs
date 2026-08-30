@@ -1,72 +1,46 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
+  "name": "AI Blueprint Help Centre",
+  "description": "Customer guides for turning an app idea into a reviewed, development-ready blueprint.",
+  "colors": { "primary": "#2D5BDF", "light": "#4B7BFF", "dark": "#5075F5" },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "languages": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
+        "language": "id",
+        "default": true,
+        "groups": [
+          { "group": "Mulai", "pages": ["id/index", "id/quickstart", "id/konsep/alur-blueprint"] },
+          { "group": "Tinjau dan revisi", "pages": ["id/panduan/status-dan-approval", "id/panduan/revisi-assistant", "id/panduan/versi-dan-rollback"] },
+          { "group": "Kredit dan akun", "pages": ["id/panduan/kredit-dan-billing", "id/akun/pengaturan-keamanan", "id/akun/support"] },
+          { "group": "Referensi", "pages": ["id/referensi/dokumen-output"] },
+          { "group": "Troubleshooting", "pages": ["id/troubleshooting/generasi", "id/troubleshooting/login-dan-pembayaran"] }
+        ]
+      },
+      {
+        "language": "en",
+        "groups": [
+          { "group": "Get started", "pages": ["index", "quickstart", "concepts/blueprint-lifecycle"] },
+          { "group": "Review and revise", "pages": ["guides/statuses-and-approval", "guides/revise-with-assistant", "guides/versions-and-rollback"] },
+          { "group": "Credits and account", "pages": ["guides/credits-and-billing", "account/settings-and-security", "account/support"] },
+          { "group": "Reference", "pages": ["reference/output-documents"] },
+          { "group": "Troubleshooting", "pages": ["troubleshooting/generation", "troubleshooting/login-and-payments"] }
         ]
       }
     ],
     "global": {
       "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+        { "anchor": "AI Blueprint", "href": "https://www.aiblueprint.web.id", "icon": "house" },
+        { "anchor": "Support", "href": "https://www.aiblueprint.web.id/support", "icon": "life-ring" }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": { "light": "/logo/light.svg", "dark": "/logo/dark.svg" },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
+    "links": [{ "label": "Support", "href": "https://www.aiblueprint.web.id/support" }],
+    "primary": { "type": "button", "label": "Open workspace", "href": "https://www.aiblueprint.web.id/dashboard" }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
-  }
+  "contextual": { "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"] },
+  "footer": { "socials": { "github": "https://github.com/ismail069/aiblueprintdocs" } }
 }

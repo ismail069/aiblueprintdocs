@@ -1,0 +1,46 @@
+---
+title: "Alur Blueprint"
+description: "Bagaimana ide menjadi rangkaian dokumen terhubung dan proses apa yang berjalan di background."
+---
+
+## Ringkasan alur
+
+<Steps>
+  <Step title="Ide dan enrichment">
+    AI Blueprint mengubah ide mentah menjadi konteks produk terstruktur dan menampilkan keputusan yang belum lengkap.
+  </Step>
+  <Step title="Approval konteks produk">
+    **Sign Approve pada Idea Review / VPC** mengunci Smart Requirement Summary dan konteks tervalidasi. Aksi ini otomatis memulai generasi dokumen.
+  </Step>
+  <Step title="Generasi struktur">
+    Application Journey, Technical Foundation, Database Schema bila relevan, dan App Map dibuat dari konteks yang disetujui.
+  </Step>
+  <Step title="Generasi Blueprint lengkap">
+    Dokumen lainnya dibuat dan dipublikasikan ke **Blueprint Summary**. Proses tetap berjalan jika browser ditutup.
+  </Step>
+  <Step title="Review, revisi, dan approval per dokumen">
+    Baca status dan item terbuka, siapkan proposal revisi, buat ulang dokumen terdampak, lalu gunakan **Sign Approve** untuk setiap versi dokumen terbaru. Summary mencapai **10/10 Disetujui** ketika semua dokumen yang berlaku sudah ditandatangani.
+  </Step>
+</Steps>
+
+<Note>
+  Alur memiliki dua momen approval: satu approval konteks produk sebelum generasi, lalu approval individual untuk setiap dokumen hasil generasi. Tidak ada gerbang global Structure Review Package kedua.
+</Note>
+
+## Proses background
+
+Status generasi disimpan di server. Menutup tab tidak membatalkan run aktif. Buka kembali **Blueprint Saya** untuk melihat apakah project masih mempersiapkan dokumen, sudah siap, atau berhenti.
+
+<Tip>
+  Jika proses dijeda, buka Blueprint yang sama. Jangan membuat project duplikat. Tahap yang sudah selesai tetap tersimpan.
+</Tip>
+
+## Arti "siap untuk development"
+
+Blueprint yang siap untuk development memberi developer konteks, scope, behaviour, acceptance criteria, dan arah engineering yang saling terhubung. Status ini tidak berarti semua vendor, credential, keputusan hukum, atau pekerjaan go-live sudah selesai.
+
+Item **Sebelum Go-Live** dapat diselesaikan selama implementasi. Dokumen **Terhambat** atau **Perlu Perbaikan** harus ditangani sebelum tim mengandalkan bagian tersebut.
+
+## Output kondisional
+
+Database Schema hanya dibuat ketika persistence relevan. Dokumen **Tidak Diperlukan** adalah hasil yang disengaja, bukan kegagalan generasi.

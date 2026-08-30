@@ -1,0 +1,48 @@
+---
+title: "Login and payment troubleshooting"
+description: "Resolve email, Google sign-in, verification, and Midtrans payment issues."
+---
+
+## Email and password
+
+1. Confirm you are using the same email address used at registration.
+2. Complete email verification when required.
+3. Use **Forgot password** to request a new reset link. Use only the newest link; reset tokens expire and are single-use.
+4. If you changed your password in **Settings**, sign in again because existing sessions are invalidated.
+
+## Google sign-in
+
+Start Google sign-in from the AI Blueprint **Login** or **Register** page. Complete the Google consent flow and allow the browser to return to `aiblueprint.web.id`.
+
+If Google returns a configuration or callback error:
+
+- return to the AI Blueprint login page and try once more in the same browser;
+- confirm third-party cookie or popup restrictions did not block the redirect;
+- capture the safe error page and time;
+- create a Support ticket without including OAuth tokens, browser cookies, or account passwords.
+
+## Midtrans payment
+
+<Steps>
+  <Step title="Start from Billing">
+    Choose a plan or top-up in the AI Blueprint workspace. Review the checkout total, including the displayed transaction fee.
+  </Step>
+  <Step title="Finish in Midtrans">
+    Complete the selected method and wait for a final result. The transaction fee is paid by the customer and varies by method; the checkout total is authoritative.
+  </Step>
+  <Step title="Return to AI Blueprint">
+    The finish page confirms that payment status may still be reconciling. Refresh **Billing** after Midtrans has finalized the transaction.
+  </Step>
+</Steps>
+
+## Payment succeeded but access did not update
+
+Do not repeat the payment immediately. Record the order reference, payment method, amount, Midtrans status, and time. Refresh once, then create a Support ticket if the plan or credits remain unchanged.
+
+## Payment failed, expired, or was cancelled
+
+No plan or credit grant is expected for a non-settled transaction. Start a new checkout from **Billing** instead of reusing an expired payment instruction.
+
+<Warning>
+  Never send a full card number, PIN, CVV, password, OTP, API key, or copied browser cookie to Support.
+</Warning>

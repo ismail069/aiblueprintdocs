@@ -1,0 +1,35 @@
+---
+title: "Versions and rollback"
+description: "Restore a complete Blueprint version without deleting later history."
+---
+
+Each **Blueprint version** is a manifest of all documents as they existed together. Restoring a version moves the complete set, not just one page.
+
+## When a version is recorded
+
+A version can be recorded after the first generation, a revision, regeneration, repair, or rollback. The version list shows the trigger, time, changed documents, and the version currently in use.
+
+## Restore an earlier version
+
+<Steps>
+  <Step title="Open Versions">
+    From **Blueprint Summary**, select **Versions**.
+  </Step>
+  <Step title="Inspect the target version">
+    Check its description, trigger, date, and changed-document list.
+  </Step>
+  <Step title="Select Restore">
+    Restore is disabled while documents are being rewritten. Wait for regeneration to finish before retrying.
+  </Step>
+  <Step title="Review and re-approve">
+    The restore creates another append-only history entry. Read the restored content and sign approve the current version again.
+  </Step>
+</Steps>
+
+<Note>
+  Restore does not delete the version you are leaving. You can move forward again by restoring a later version.
+</Note>
+
+## If version history does not load
+
+Refresh once. If the error remains, create a Support ticket and link the Blueprint. Do not start a new project as a substitute for recovery.
