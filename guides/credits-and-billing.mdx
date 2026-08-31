@@ -33,9 +33,20 @@ Internal retries, fallbacks, and repairs are not separate customer actions and a
 
 Top-up credits have no time-based expiry while your account remains active. They end when the account is permanently deleted. Read the public [Retention Policy](https://www.aiblueprint.web.id/retention-policy) for the complete dormant-account and deletion terms.
 
+AI actions require an active paid plan even when add-on credits remain. Ending or not renewing a plan does not delete the add-on balance; reactivate Starter or Plus before using it. The first-plan selector appears after sign-in until the account completes its first plan purchase. Later plan refreshes and every top-up are available from **Billing**.
+
+## Campaign coupons
+
+AI Blueprint has two campaign-coupon types:
+
+- A **checkout-discount coupon** reduces the eligible product price before the Midtrans transaction fee is calculated. Enter it in the first-plan selector or an eligible Billing checkout, review the updated total, and then continue to Midtrans.
+- A **regular-credit coupon** adds the campaign's regular AI credits. Redeem it from **Settings**, or enter it in the first-plan selector when onboarding. These are regular credits, not add-on credits, and AI actions still require an active paid plan.
+
+Each account can use only **one campaign coupon in total**. After a checkout-discount coupon or regular-credit coupon has been successfully redeemed, another campaign coupon cannot be used on the same account. Codes may also have a usage limit, expiry date, or disabled status. A coupon attached to a payment that is still pending remains unavailable until Midtrans reports a final result; a terminal failed or cancelled payment releases it without granting the benefit.
+
 ## Midtrans transaction fee
 
-Each checkout adds the applicable Midtrans transaction fee to the amount paid by the customer. The current Virtual Account or bank-transfer fee shown by AI Blueprint is **Rp4,000 per transaction**. The checkout total is authoritative for the selected payment method.
+Each checkout adds the applicable Midtrans transaction fee to the amount paid by the customer. The fee can vary by payment method and is itemised in checkout before confirmation. The checkout total is authoritative for the selected method.
 
 <Warning>
   Do not close a payment tab until Midtrans shows a final state. If payment succeeds but credits do not appear after a reasonable refresh, keep the order reference and open Support. Do not pay the same order twice.

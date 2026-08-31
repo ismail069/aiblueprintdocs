@@ -33,9 +33,20 @@ Retry, fallback, dan repair internal bukan aksi customer terpisah dan tidak dita
 
 Kredit top-up tidak memiliki kedaluwarsa berbasis waktu selama akun tetap aktif. Saldo berakhir ketika akun dihapus permanen. Baca [Kebijakan Retensi](https://www.aiblueprint.web.id/retention-policy) untuk ketentuan lengkap akun dormant dan penghapusan.
 
+Semua aksi AI memerlukan paket berbayar aktif walaupun credit add-on masih tersisa. Mengakhiri atau tidak memperpanjang paket tidak menghapus saldo add-on; aktifkan kembali Starter atau Plus sebelum memakainya. Pilihan paket pertama muncul setelah login sampai akun menyelesaikan pembelian paket pertama. Refresh paket berikutnya dan semua top-up tersedia melalui **Billing**.
+
+## Coupon campaign
+
+AI Blueprint memiliki dua jenis coupon campaign:
+
+- **Coupon discount checkout** mengurangi harga produk yang memenuhi syarat sebelum biaya transaksi Midtrans dihitung. Masukkan kode pada pilihan paket pertama atau checkout Billing yang mendukungnya, periksa total terbaru, lalu lanjutkan ke Midtrans.
+- **Coupon credit reguler** menambahkan Credit AI reguler sesuai campaign. Tukarkan melalui **Settings**, atau masukkan pada pilihan paket pertama saat onboarding. Credit ini adalah credit reguler, bukan credit add-on, dan aksi AI tetap memerlukan paket berbayar aktif.
+
+Setiap akun hanya dapat memakai **satu coupon campaign secara total**. Setelah coupon discount checkout atau coupon credit reguler berhasil dipakai, akun yang sama tidak dapat memakai coupon campaign lain. Kode juga dapat memiliki batas pemakaian, tanggal kedaluwarsa, atau status nonaktif. Coupon yang terkait pembayaran berstatus pending tetap tidak tersedia sampai Midtrans memberikan hasil final; pembayaran gagal atau dibatalkan secara terminal melepaskan coupon tanpa memberikan benefit.
+
 ## Biaya transaksi Midtrans
 
-Setiap checkout menambahkan biaya transaksi Midtrans yang berlaku ke jumlah yang dibayar customer. Biaya Virtual Account atau bank transfer yang saat ini ditampilkan AI Blueprint adalah **Rp4.000 per transaksi**. Total checkout adalah acuan untuk metode pembayaran yang dipilih.
+Setiap checkout menambahkan biaya transaksi Midtrans yang berlaku ke jumlah yang dibayar customer. Biaya dapat berbeda menurut metode pembayaran dan dirinci di checkout sebelum konfirmasi. Total checkout adalah acuan untuk metode yang dipilih.
 
 <Warning>
   Jangan tutup tab pembayaran sebelum Midtrans menampilkan status akhir. Jika pembayaran berhasil tetapi credit belum masuk setelah refresh yang wajar, simpan referensi order dan hubungi Support. Jangan membayar order yang sama dua kali.

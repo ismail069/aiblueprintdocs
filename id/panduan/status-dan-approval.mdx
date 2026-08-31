@@ -34,10 +34,18 @@ Ketika Anda menandatangani dokumen, Anda menerima versi dan catatan yang terliha
 
 Panel **Kesehatan Project** mengumpulkan warning, blocker, catatan review, dan pekerjaan yang perlu selesai sebelum production:
 
-- catatan review dapat diterima dan dipantau;
+- **catatan review** adalah asumsi, keputusan, risiko, atau warning yang terlihat dan memerlukan perhatian; catatan dapat diterima serta dipantau dan tidak otomatis berarti dokumen rusak;
 - item sebelum go-live dapat diselesaikan selama development;
 - blocker menghentikan pekerjaan yang bergantung padanya;
 - perbaikan berarti dokumen belum aman untuk disetujui seperti tertulis.
+
+Angka Catatan Review menghitung item review yang sedang terlihat di seluruh Blueprint. Buka dokumen terkait untuk membaca setiap item. Menandatangani dokumen berarti menerima catatan yang terlihat pada versi tersebut; tindakan itu tidak menghapus catatan secara diam-diam.
+
+## Masalah yang dilaporkan pada App Structure
+
+**Masalah yang Dilaporkan** adalah temuan konsistensi yang belum selesai pada App Structure, misalnya link navigasi yang mengarah ke fitur yang tidak ada pada map. Badge menampilkan jumlah seluruh temuan pada daftar, bukan jumlah card fitur. Temuan tersebut tidak otomatis terselesaikan hanya karena canvas berhasil ditampilkan.
+
+Tinjau setiap temuan sebelum approval. Perbaiki keputusan produk atau konteks sumber bila diperlukan, lalu gunakan proposal Assistant dan regenerate dokumen yang terdampak. Temuan yang sudah diperbaiki tidak lagi muncul pada daftar masalah aktif.
 
 <Warning>
   Jangan menandatangani dokumen **Terhambat** atau **Perlu Perbaikan** hanya untuk membuat progress berwarna hijau. Approval adalah penerimaan Anda terhadap versi tersebut.

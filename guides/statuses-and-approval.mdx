@@ -34,10 +34,18 @@ When you sign a document, you accept the current version and its visible notes. 
 
 The **Project Health** panel collects warnings, blockers, review notes, and tasks that should be completed before production launch. These are not all equal:
 
-- a review note can be accepted and tracked;
+- a **review note** is a visible assumption, decision, risk, or warning that deserves your attention; it can be accepted and tracked and does not automatically mean the document is broken;
 - a before-go-live item may be completed during development;
 - a blocker prevents dependent work;
 - a repair means the document cannot safely be approved as written.
+
+The Review Notes number counts the currently visible review-note items across the Blueprint. Open the related document to read each item. Signing a document accepts the notes visible in that version; it does not silently remove them.
+
+## Reported Problems in App Structure
+
+**Reported Problems** are unresolved consistency findings returned with the App Structure, such as a navigation link that references a feature missing from the map. The badge is the total number of findings in the list, not the number of feature cards. These findings are not automatically resolved just because the canvas rendered successfully.
+
+Review every finding before approval. Correct the product decision or source context when necessary, then use the Assistant proposal and regenerate the affected document. A repaired finding no longer appears in the current unresolved list.
 
 <Warning>
   Do not sign a **Blocked** or **Needs Repair** document only to make the progress counter turn green. Approval represents your acceptance of that exact version.

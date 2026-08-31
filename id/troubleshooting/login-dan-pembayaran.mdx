@@ -24,8 +24,8 @@ Jika Google menampilkan error konfigurasi atau callback:
 ## Pembayaran Midtrans
 
 <Steps>
-  <Step title="Mulai dari Billing">
-    Pilih paket atau top-up di workspace AI Blueprint. Periksa total checkout, termasuk biaya transaksi yang ditampilkan.
+  <Step title="Pilih pembelian">
+    Untuk akun yang belum pernah menyelesaikan pembelian paket, pilih Starter atau Plus pada popup setelah login. Untuk pembelian paket berikutnya, refresh paket, atau top-up, buka **Billing**. Top-up memerlukan paket aktif.
   </Step>
   <Step title="Selesaikan di Midtrans">
     Bayar melalui metode yang dipilih dan tunggu hasil akhir. Biaya transaksi dibebankan kepada customer dan dapat berbeda berdasarkan metode; total checkout adalah acuan.
@@ -42,6 +42,8 @@ Jangan langsung mengulang pembayaran. Simpan referensi order, metode, nominal, s
 ## Pembayaran gagal, expired, atau dibatalkan
 
 Paket atau credit tidak diberikan untuk transaksi yang belum settle. Mulai checkout baru dari **Billing**, bukan memakai instruksi pembayaran yang sudah expired.
+
+Jika transaksi yang gagal adalah percobaan paket pertama akun, pilihan Starter/Plus muncul kembali pada login berikutnya karena belum ada pembelian paket yang berhasil.
 
 <Warning>
   Jangan pernah mengirim nomor kartu lengkap, PIN, CVV, password, OTP, API key, atau cookie browser kepada Support.

@@ -24,8 +24,8 @@ If Google returns a configuration or callback error:
 ## Midtrans payment
 
 <Steps>
-  <Step title="Start from Billing">
-    Choose a plan or top-up in the AI Blueprint workspace. Review the checkout total, including the displayed transaction fee.
+  <Step title="Choose the purchase">
+    On an account with no completed plan purchase, choose Starter or Plus in the selector that opens after sign-in. For a later plan purchase, plan refresh, or top-up, open **Billing**. Top-up requires an active plan.
   </Step>
   <Step title="Finish in Midtrans">
     Complete the selected method and wait for a final result. The transaction fee is paid by the customer and varies by method; the checkout total is authoritative.
@@ -42,6 +42,8 @@ Do not repeat the payment immediately. Record the order reference, payment metho
 ## Payment failed, expired, or was cancelled
 
 No plan or credit grant is expected for a non-settled transaction. Start a new checkout from **Billing** instead of reusing an expired payment instruction.
+
+If the failed transaction was the account's first plan attempt, the Starter/Plus selector appears again on a later sign-in because no plan purchase has completed yet.
 
 <Warning>
   Never send a full card number, PIN, CVV, password, OTP, API key, or copied browser cookie to Support.
