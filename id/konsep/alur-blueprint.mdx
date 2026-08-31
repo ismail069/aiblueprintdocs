@@ -16,15 +16,18 @@ description: "Bagaimana ide menjadi rangkaian dokumen terhubung dan proses apa y
     Application Journey, Technical Foundation, Database Schema bila relevan, dan App Map dibuat dari konteks yang disetujui.
   </Step>
   <Step title="Generasi Blueprint lengkap">
-    Dokumen lainnya dibuat dan dipublikasikan ke **Blueprint Summary**. Proses tetap berjalan jika browser ditutup.
+    Dokumen lainnya dibuat dan dipublikasikan ke **Blueprint Summary**. Kartu yang masih diproses menampilkan spinner **Generating**, dan **Project Health** menampilkan **Generating** selama masih ada pekerjaan aktif. Proses tetap berjalan jika browser ditutup.
   </Step>
-  <Step title="Review, revisi, dan approval per dokumen">
-    Baca status dan item terbuka, siapkan proposal revisi, buat ulang dokumen terdampak, lalu gunakan **Sign Approve** untuk setiap versi dokumen terbaru. Summary mencapai **10/10 Disetujui** ketika semua dokumen yang berlaku sudah ditandatangani.
+  <Step title="Review dan revisi dokumen">
+    Buka setiap kartu dokumen saat ini untuk mengubah **Belum ditinjau** menjadi **Ditinjau**. Baca status serta item terbuka, siapkan proposal revisi, dan buat ulang dokumen yang terdampak bila diperlukan. Stub **Tidak Diperlukan** juga perlu dibuka sekali agar review tercatat, tetapi tidak memerlukan konten atau perbaikan. Membuka dokumen mencatat review, bukan approval.
+  </Step>
+  <Step title="Approval Blueprint lengkap">
+    Setelah generasi selesai, seluruh dokumen saat ini sudah ditinjau, dan tidak ada status **Perlu Perbaikan** atau **Terhambat**, pilih **Sign Approve Blueprint** di bagian **Blueprint Documents**. Approval global menerima seluruh set versi saat ini dan membuka **Project ZIP**.
   </Step>
 </Steps>
 
 <Note>
-  Alur memiliki dua momen approval: satu approval konteks produk sebelum generasi, lalu approval individual untuk setiap dokumen hasil generasi. Tidak ada gerbang global Structure Review Package kedua.
+  Alur memiliki dua momen approval: approval konteks produk sebelum generasi dan satu approval global untuk seluruh Blueprint setelah review. Tidak ada approval individual per dokumen.
 </Note>
 
 ## Proses background
@@ -40,6 +43,8 @@ Status generasi disimpan di server. Menutup tab tidak membatalkan run aktif. Buk
 Blueprint yang siap untuk development memberi developer konteks, scope, behaviour, acceptance criteria, dan arah engineering yang saling terhubung. Status ini tidak berarti semua vendor, credential, keputusan hukum, atau pekerjaan go-live sudah selesai.
 
 Item **Sebelum Go-Live** dapat diselesaikan selama implementasi. Dokumen **Terhambat** atau **Perlu Perbaikan** harus ditangani sebelum tim mengandalkan bagian tersebut.
+
+Approval global terikat ke set versi yang Anda tinjau. Regenerasi, restore, atau versi baru dapat membuat dokumen perlu ditinjau kembali dan mengunci Project ZIP sampai **Sign Approve Blueprint** dilakukan ulang.
 
 ## Output kondisional
 

@@ -8,7 +8,7 @@ Customer-facing documentation for [AI Blueprint](https://www.aiblueprint.web.id)
 npx mintlify dev
 ```
 
-The default locale is Bahasa Indonesia. English pages live at the repository root and Indonesian pages under `id/`.
+The default locale is English. English pages live at the repository root and Indonesian pages under `id/`.
 
 ## Content safety
 

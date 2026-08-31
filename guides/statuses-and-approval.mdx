@@ -1,52 +1,68 @@
 ---
 title: "Statuses and approval"
-description: "Understand what each document status means and what to do next."
+description: "Understand generation, review, and global Blueprint approval."
 ---
 
-A status describes the **document**, not how far along the whole project is.
+A document has a content status and a review state. The Blueprint also has one global approval state.
+
+## Document content statuses
 
 | Status | What it means | What to do |
 | --- | --- | --- |
-| **Ready** | The document answers everything it owns. Nothing is waiting on you. | Read it, then sign approve it. |
-| **Ready — your decision needed** | The document is complete and buildable, but one decision is yours. | Open the document, read the open item, and settle it. You may approve first if it does not block development. |
-| **Needs Repair** | A required section is missing, contradictory, or not buildable as written. | Regenerate the document before approving it. |
-| **Blocked** | Work on this subject cannot begin until a dependency is resolved. | Open the blocking item and resolve it before approval. |
-| **Pending** | The document has not been generated yet. | Wait for or start Blueprint generation. |
-| **Not Required** | Your product does not need this document. | No action is required. |
+| **Generating** | The current document is still being created. Its card shows a spinner. | Wait. You may close the tab and return later. |
+| **Ready** | The document answers everything it owns. Nothing is waiting on you. | Open it and read the current version. |
+| **Ready — your decision needed** | The document is buildable, but one decision is yours. | Open and read the item. Settle it now if the current Blueprint must include the answer; otherwise track the non-blocking decision. |
+| **Needs Repair** | A required section is missing, contradictory, or not buildable as written. | Correct the context or proposal, then regenerate the document. |
+| **Blocked** | Work on this subject cannot begin until a dependency is resolved. | Open the blocking item and resolve it before global approval. |
+| **Pending** | The document has not started generating yet. | Wait for the active Blueprint run. |
+| **Not Required** | Your product does not need content or remediation for this document. | Open the stub once so its current version becomes **Reviewed**. |
 
-## Signed and superseded documents
+While any document is being created, **Project Health** shows **Generating** instead of its normal review badge.
 
-When you sign a document, you accept the current version and its visible notes. If a later regeneration changes that document, the earlier approval becomes **superseded**.
+## Not yet reviewed and Reviewed
+
+- **Not yet reviewed** means you have not opened the current version of one of the 10 document cards.
+- **Reviewed** means you opened that current document page. It records review only; it is not an approval signature.
+- A regenerated, restored, or newly published version can return a document to **Not yet reviewed**.
+
+## Sign Approve Blueprint
+
+There is one approval for the complete current document set. There is no per-document Sign Approve action.
 
 <Steps>
-  <Step title="Open the changed document">
-    Read the new content and compare the reason for regeneration.
+  <Step title="Finish generation">
+    Wait until the document spinners stop and **Project Health** no longer shows **Generating**.
   </Step>
-  <Step title="Resolve new open items">
-    Use the Assistant if a decision or correction is needed.
+  <Step title="Review all 10 current documents">
+    Open every current document card until each shows **Reviewed**. This includes opening a **Not Required** stub once.
   </Step>
-  <Step title="Approve the current version">
-    Re-approve only after the current document reflects your decision.
+  <Step title="Clear approval blockers">
+    Resolve any **Needs Repair** or **Blocked** item. Regenerate affected documents and review their new versions.
+  </Step>
+  <Step title="Approve the current set">
+    In **Blueprint Documents**, select **Sign Approve Blueprint**. This accepts the current Blueprint as one connected package.
   </Step>
 </Steps>
 
+**Project ZIP** remains locked until global approval succeeds. If regeneration, restore, or a new version changes the current set, review it and approve again before exporting another ZIP.
+
 ## Project health and before-go-live items
 
-The **Project Health** panel collects warnings, blockers, review notes, and tasks that should be completed before production launch. These are not all equal:
+The **Project Health** panel collects blockers, review notes, and work that should be completed before production launch. These are not all equal:
 
-- a **review note** is a visible assumption, decision, risk, or warning that deserves your attention; it can be accepted and tracked and does not automatically mean the document is broken;
-- a before-go-live item may be completed during development;
+- a **review note** is a visible assumption, decision, risk, or warning that deserves attention; it does not automatically mean a document is broken;
+- a **Before go-live** item may be completed during implementation;
 - a blocker prevents dependent work;
-- a repair means the document cannot safely be approved as written.
+- a repair means the current document cannot safely join an approved Blueprint.
 
-The Review Notes number counts the currently visible review-note items across the Blueprint. Open the related document to read each item. Signing a document accepts the notes visible in that version; it does not silently remove them.
+The Review Notes number counts visible review-note items across the Blueprint. Open the related document to read each item. Global approval accepts the notes visible in the complete current set; it does not silently remove them.
 
 ## Reported Problems in App Structure
 
-**Reported Problems** are unresolved consistency findings returned with the App Structure, such as a navigation link that references a feature missing from the map. The badge is the total number of findings in the list, not the number of feature cards. These findings are not automatically resolved just because the canvas rendered successfully.
+**Reported Problems** are unresolved consistency findings returned with App Structure, such as a navigation link that references a feature missing from the map. The badge is the total number of findings, even when the panel shows only a shorter preview. These findings are not automatically resolved because the canvas rendered successfully.
 
-Review every finding before approval. Correct the product decision or source context when necessary, then use the Assistant proposal and regenerate the affected document. A repaired finding no longer appears in the current unresolved list.
+Review every finding before global approval. Correct the product decision or source context when necessary, then use an Assistant proposal and regenerate the affected document. A repaired finding no longer appears in the current unresolved list.
 
 <Warning>
-  Do not sign a **Blocked** or **Needs Repair** document only to make the progress counter turn green. Approval represents your acceptance of that exact version.
+  Do not approve a Blueprint with a **Blocked** or **Needs Repair** document. Approval represents your acceptance of the complete current document set.
 </Warning>

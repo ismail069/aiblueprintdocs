@@ -5,7 +5,7 @@ description: "Pulihkan Blueprint yang lambat, terinterupsi, atau berhenti dengan
 
 ## Generasi masih berjalan
 
-Generasi Blueprint berjalan di server. Anda dapat menutup tab dan membuka kembali project dari **Blueprint Saya**. Project aktif dapat menampilkan tahap saat ini atau jumlah dokumen yang bertambah ketika hasil dipublikasikan.
+Generasi Blueprint berjalan di server. Anda dapat menutup tab dan membuka kembali project dari **Blueprint Saya**. Kartu dokumen yang masih dikerjakan menampilkan spinner **Generating**, sedangkan panel **Project Health** menampilkan badge **Generating** selama setidaknya satu proses masih aktif.
 
 <Steps>
   <Step title="Buka kembali project yang sama">
@@ -15,9 +15,11 @@ Generasi Blueprint berjalan di server. Anda dapat menutup tab dan membuka kembal
     Izinkan halaman memuat ulang status run yang tersimpan. Refresh berulang dengan cepat tidak mempercepat generasi.
   </Step>
   <Step title="Periksa status">
-    Jika run aktif, biarkan proses berjalan. Jika dijeda, ikuti kartu recovery.
+    Jika spinner atau badge **Generating** masih aktif, biarkan proses berjalan. Setelah semua proses selesai, Project Health kembali menampilkan kondisi sebenarnya. Jika dijeda, ikuti kartu recovery.
   </Step>
 </Steps>
+
+Selama proses aktif, **Sign Approve Blueprint** belum tersedia dan **Project ZIP** tetap terkunci. Ini adalah perlindungan agar Anda tidak menyetujui atau mengunduh set dokumen yang belum lengkap.
 
 ## Proses dijeda
 
@@ -44,13 +46,19 @@ Support ID berbeda dari nomor ticket. Saat Anda memilih **Buka Support**, projec
     Buka **Billing** dan bandingkan kebutuhan aksi dengan saldo reguler dan add-on. Lakukan top-up jika perlu, lalu kembali ke project yang sama.
   </Accordion>
   <Accordion title="Dokumen berstatus Perlu Perbaikan">
-    Buka dokumen tersebut dan buat ulang sebelum approval. Ini adalah status kualitas dokumen, bukan selalu kegagalan seluruh project.
+    Buka dokumen tersebut dan regenerate sebelum approval global. Ini adalah status kualitas dokumen, bukan selalu kegagalan seluruh project.
   </Accordion>
   <Accordion title="Error memuat dokumen tetap muncul">
     Gunakan Retry di halaman satu kali. Jika masih gagal, hubungkan Blueprint ke Support dan sebutkan nama serta versi dokumen.
   </Accordion>
   <Accordion title="Resume ditawarkan setelah interupsi">
     Resume melanjutkan pekerjaan yang belum selesai. Tahap yang sudah selesai tidak dimulai ulang, dan paid run yang valid dapat dilanjutkan tanpa biaya generasi kedua.
+  </Accordion>
+  <Accordion title="Sign Approve Blueprint masih nonaktif">
+    Pastikan tidak ada spinner **Generating**, seluruh kartu dokumen saat ini sudah dibuka dan berstatus **Ditinjau**, serta tidak ada **Perlu Perbaikan** atau **Terhambat**. Stub **Tidak Diperlukan** juga dihitung; buka sekali agar review tercatat, tanpa membuat konten atau perbaikan.
+  </Accordion>
+  <Accordion title="Project ZIP kembali terkunci">
+    Regenerasi, restore, atau versi baru mengubah set yang sebelumnya disetujui. Tinjau kembali set versi saat ini, lalu lakukan **Sign Approve Blueprint** ulang.
   </Accordion>
 </AccordionGroup>
 

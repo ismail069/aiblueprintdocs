@@ -5,6 +5,8 @@ description: "Pulihkan versi Blueprint lengkap tanpa menghapus riwayat berikutny
 
 Setiap **Blueprint version** adalah manifest semua dokumen pada kondisi yang sama. Memulihkan versi memindahkan seluruh rangkaian, bukan satu halaman saja.
 
+Status **Ditinjau** dan approval global berlaku terhadap versi dokumen yang saat ini aktif. Karena itu, perubahan set versi dapat meminta review dan approval ulang.
+
 ## Kapan versi dicatat
 
 Versi dapat dicatat setelah generasi pertama, revisi, regenerasi, repair, atau rollback. Daftar versi menampilkan pemicu, waktu, dokumen yang berubah, dan versi yang sedang digunakan.
@@ -22,13 +24,17 @@ Versi dapat dicatat setelah generasi pertama, revisi, regenerasi, repair, atau r
     Restore dinonaktifkan ketika dokumen sedang ditulis ulang. Tunggu regenerasi selesai sebelum mencoba lagi.
   </Step>
   <Step title="Tinjau dan setujui kembali">
-    Restore membuat entry baru dalam riwayat append-only. Baca isi hasil pemulihan dan sign approve versi saat ini lagi.
+    Restore membuat entry baru dalam riwayat append-only dan membatalkan approval global set sebelumnya. Buka setiap kartu dokumen saat ini sampai seluruh set berstatus **Ditinjau**, termasuk stub **Tidak Diperlukan**, lalu pilih **Sign Approve Blueprint**.
   </Step>
 </Steps>
 
 <Note>
-  Restore tidak menghapus versi yang Anda tinggalkan. Anda dapat kembali maju dengan memulihkan versi yang lebih baru.
+  Restore tidak menghapus versi yang Anda tinggalkan. Anda dapat kembali maju dengan memulihkan versi yang lebih baru, tetapi set hasil restore tetap perlu ditinjau dan disetujui kembali.
 </Note>
+
+## Dampak terhadap Project ZIP
+
+Project ZIP merepresentasikan set dokumen yang sudah menerima approval global. Setelah regeneration, restore, atau publikasi versi baru, tombol download terkunci sampai set aktif memenuhi review lengkap dan **Sign Approve Blueprint** dilakukan ulang. Dengan demikian, bundle yang diunduh selalu mengacu pada versi yang benar-benar Anda terima.
 
 ## Jika riwayat versi tidak dapat dimuat
 

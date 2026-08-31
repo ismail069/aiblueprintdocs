@@ -3,32 +3,59 @@ title: "Status dan approval"
 description: "Pahami arti setiap status dokumen dan langkah berikutnya."
 ---
 
-Status menjelaskan kondisi **dokumen**, bukan seberapa jauh seluruh project berjalan.
+Status kualitas menjelaskan kondisi **dokumen**, bukan seberapa jauh seluruh project berjalan. Status review menjelaskan apakah Anda sudah membuka versi dokumen yang sedang aktif.
 
 | Status | Artinya | Tindakan |
 | --- | --- | --- |
-| **Siap** | Dokumen menjawab semua hal yang menjadi tanggung jawabnya. Tidak ada yang menunggu Anda. | Baca lalu sign approve. |
-| **Siap — keputusan Anda dibutuhkan** | Dokumen lengkap dan dapat dibangun, tetapi ada satu keputusan milik Anda. | Buka dokumen, baca item terbuka, dan selesaikan. Approval dapat dilakukan lebih dahulu bila development tidak terhambat. |
-| **Perlu Perbaikan** | Bagian wajib hilang, saling bertentangan, atau tidak dapat dibangun seperti tertulis. | Buat ulang dokumen sebelum approval. |
-| **Terhambat** | Pekerjaan pada subjek ini tidak dapat dimulai sebelum dependensi selesai. | Buka item penghambat dan selesaikan sebelum approval. |
+| **Generating** | Versi dokumen sedang dibuat atau ditulis ulang. | Tunggu proses selesai. Spinner pada kartu akan berhenti ketika hasil sudah dipublikasikan. |
+| **Siap** | Dokumen menjawab semua hal yang menjadi tanggung jawabnya. Tidak ada yang menunggu Anda. | Buka dan baca versi saat ini agar tercatat sebagai **Ditinjau**. |
+| **Siap — keputusan Anda dibutuhkan** | Dokumen lengkap dan dapat dibangun, tetapi ada satu keputusan milik Anda. | Buka dokumen, baca item terbuka, dan selesaikan keputusan tersebut. |
+| **Perlu Perbaikan** | Bagian wajib hilang, saling bertentangan, atau tidak dapat dibangun seperti tertulis. | Gunakan proposal revisi dan regenerate sebelum approval global. |
+| **Terhambat** | Pekerjaan pada subjek ini tidak dapat dimulai sebelum dependensi selesai. | Buka item penghambat dan selesaikan sebelum approval global. |
 | **Tertunda** | Dokumen belum dibuat. | Tunggu atau mulai generasi Blueprint. |
-| **Tidak Diperlukan** | Produk Anda tidak membutuhkan dokumen ini. | Tidak ada tindakan. |
+| **Tidak Diperlukan** | Produk Anda tidak membutuhkan isi dokumen ini; sistem memublikasikan stub sebagai bagian dari sepuluh dokumen saat ini. | Buka stub sekali agar versi saat ini tercatat sebagai **Ditinjau**. Tidak ada konten atau perbaikan yang perlu dibuat. |
 
-## Dokumen ditandatangani dan superseded
+## Belum ditinjau dan Ditinjau
 
-Ketika Anda menandatangani dokumen, Anda menerima versi dan catatan yang terlihat saat itu. Jika regenerasi mengubah dokumen, approval lama menjadi **superseded**.
+Setiap kartu dokumen saat ini memiliki status review terhadap versi yang aktif:
+
+- **Belum ditinjau** berarti Anda belum membuka versi yang sedang aktif;
+- **Ditinjau** berarti halaman versi saat ini sudah pernah Anda buka.
+
+Membuka halaman mencatat review secara otomatis. Review bukan approval dan tidak menerima Blueprint secara individual. Stub **Tidak Diperlukan** tetap menunggu review karena termasuk dalam set sepuluh dokumen saat ini; cukup buka stub tersebut sekali.
+
+## Sign Approve Blueprint
+
+Gunakan satu tombol **Sign Approve Blueprint** di bagian **Blueprint Documents** untuk menerima seluruh set versi dokumen saat ini. Tombol tersedia hanya ketika:
+
+- seluruh generasi atau regenerasi sudah selesai;
+- setiap kartu dokumen saat ini berstatus **Ditinjau**, termasuk stub **Tidak Diperlukan**;
+- tidak ada dokumen **Perlu Perbaikan**; dan
+- tidak ada dokumen **Terhambat**.
+
+Setelah approval global berhasil, **Project ZIP** dapat diunduh. Approval tersebut terikat ke set versi yang saat itu aktif.
 
 <Steps>
-  <Step title="Buka dokumen yang berubah">
-    Baca isi baru dan alasan regenerasi.
+  <Step title="Buka semua kartu dokumen saat ini">
+    Baca versi saat ini sampai setiap kartu menunjukkan **Ditinjau**.
   </Step>
   <Step title="Selesaikan item terbuka">
-    Gunakan Assistant jika ada keputusan atau koreksi yang diperlukan.
+    Gunakan Assistant dan regenerate jika ada keputusan, status **Perlu Perbaikan**, atau status **Terhambat** yang perlu diselesaikan.
   </Step>
-  <Step title="Setujui versi saat ini">
-    Lakukan approval ulang hanya ketika dokumen terbaru sudah sesuai keputusan Anda.
+  <Step title="Setujui set Blueprint saat ini">
+    Pilih **Sign Approve Blueprint** sekali untuk menerima seluruh versi yang sudah ditinjau.
   </Step>
 </Steps>
+
+<Warning>
+  Regenerasi, restore, atau versi baru dapat membuat review dan approval sebelumnya tidak berlaku untuk set saat ini. Tinjau kembali versi yang aktif dan lakukan approval global ulang. Project ZIP tetap terkunci sampai proses ini selesai.
+</Warning>
+
+## Indikator generasi
+
+Saat dokumen sedang dibuat atau ditulis ulang, kartu dokumen menampilkan spinner **Generating**. Panel **Project Health** juga mengganti badge ringkasannya menjadi **Generating** selama masih ada pekerjaan aktif. Setelah seluruh proses selesai, badge kembali menampilkan kondisi project yang sebenarnya.
+
+Jangan menganggap spinner sebagai error. Jika proses benar-benar berhenti, halaman menampilkan kartu recovery atau Support ID yang dapat digunakan untuk bantuan.
 
 ## Kesehatan project dan item sebelum go-live
 
@@ -37,16 +64,16 @@ Panel **Kesehatan Project** mengumpulkan warning, blocker, catatan review, dan p
 - **catatan review** adalah asumsi, keputusan, risiko, atau warning yang terlihat dan memerlukan perhatian; catatan dapat diterima serta dipantau dan tidak otomatis berarti dokumen rusak;
 - item sebelum go-live dapat diselesaikan selama development;
 - blocker menghentikan pekerjaan yang bergantung padanya;
-- perbaikan berarti dokumen belum aman untuk disetujui seperti tertulis.
+- perbaikan berarti dokumen belum aman untuk dimasukkan ke approval global seperti tertulis.
 
-Angka Catatan Review menghitung item review yang sedang terlihat di seluruh Blueprint. Buka dokumen terkait untuk membaca setiap item. Menandatangani dokumen berarti menerima catatan yang terlihat pada versi tersebut; tindakan itu tidak menghapus catatan secara diam-diam.
+Angka Catatan Review menghitung item review yang sedang terlihat di seluruh Blueprint. Buka dokumen terkait untuk membaca setiap item. Approval global menerima set versi beserta catatan yang terlihat; tindakan itu tidak menghapus catatan secara diam-diam.
 
 ## Masalah yang dilaporkan pada App Structure
 
 **Masalah yang Dilaporkan** adalah temuan konsistensi yang belum selesai pada App Structure, misalnya link navigasi yang mengarah ke fitur yang tidak ada pada map. Badge menampilkan jumlah seluruh temuan pada daftar, bukan jumlah card fitur. Temuan tersebut tidak otomatis terselesaikan hanya karena canvas berhasil ditampilkan.
 
-Tinjau setiap temuan sebelum approval. Perbaiki keputusan produk atau konteks sumber bila diperlukan, lalu gunakan proposal Assistant dan regenerate dokumen yang terdampak. Temuan yang sudah diperbaiki tidak lagi muncul pada daftar masalah aktif.
+Tinjau setiap temuan sebelum approval global. Perbaiki keputusan produk atau konteks sumber bila diperlukan, lalu gunakan proposal Assistant dan regenerate dokumen yang terdampak. Temuan yang sudah diperbaiki tidak lagi muncul pada daftar masalah aktif.
 
 <Warning>
-  Jangan menandatangani dokumen **Terhambat** atau **Perlu Perbaikan** hanya untuk membuat progress berwarna hijau. Approval adalah penerimaan Anda terhadap versi tersebut.
+  Jangan mencoba melewati dokumen **Terhambat** atau **Perlu Perbaikan** hanya untuk membuka Project ZIP. Selesaikan masalahnya, tinjau set versi terbaru, lalu lakukan **Sign Approve Blueprint**.
 </Warning>

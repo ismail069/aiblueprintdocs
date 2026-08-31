@@ -6,8 +6,9 @@
 - Write for founders, product owners, and operators. Do not assume engineering expertise.
 - Use **Blueprint** for the complete product-planning package and **document** for one output inside it.
 - Use **Idea Review / VPC Sign Approve** for product-context approval. This approval automatically starts document generation.
-- Use **per-document Sign Approve** for approval of each current generated document. There is no second global Structure Review Package gate.
-- Use **Blueprint Summary** for the review centre and its per-document approval progress, such as **10/10 Approved**.
+- Use **Not yet reviewed / Reviewed** for whether the customer has opened the current version of an applicable document. Opening a page records review; it is not an approval signature.
+- Use **Sign Approve Blueprint** for the single global approval of the current reviewed document set. It is available only after generation finishes, every applicable current document is reviewed, and no repair or blocker prevents approval.
+- Use **Blueprint Summary** for the review centre. Explain that **Project ZIP** stays locked until the current Blueprint has global approval, and that regeneration or restore can require review and approval again.
 - Use **Credit AI** in Indonesian copy and **AI credits** in English copy.
 
 ## Writing style

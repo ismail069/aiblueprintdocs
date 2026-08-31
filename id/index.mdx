@@ -30,6 +30,9 @@ AI Blueprint membantu Anda memperjelas ide aplikasi, menyelesaikan keputusan pen
   <Card title="Atasi proses yang berhenti" icon="triangle-exclamation" href="./troubleshooting/generasi">
     Lanjutkan dengan aman tanpa membuat project duplikat atau membayar retry internal.
   </Card>
+  <Card title="Mulai coding dari Project ZIP" icon="file-zipper" href="./panduan/project-zip-dan-coding-agent">
+    Pahami isi bundle, lima prompt coding-agent, konfigurasi lokal, dan cara merge yang aman.
+  </Card>
 </CardGroup>
 
 <Note>
@@ -38,10 +41,12 @@ AI Blueprint membantu Anda memperjelas ide aplikasi, menyelesaikan keputusan pen
 
 ## Dua momen approval
 
-1. **Sign Approve pada Idea Review / VPC** mengunci Smart Requirement Summary dan konteks produk tervalidasi. Aksi ini otomatis memulai generasi dokumen.
-2. **Sign Approve per dokumen** mencatat penerimaan Anda terhadap setiap dokumen terbaru. Blueprint Summary mencapai **10/10 Disetujui** ketika semua dokumen saat ini sudah ditandatangani.
+1. **Idea Review / VPC Sign Approve** mengunci Smart Requirement Summary dan konteks produk tervalidasi. Aksi ini otomatis memulai generasi dokumen.
+2. **Sign Approve Blueprint** menerima seluruh set versi dokumen saat ini dalam satu tindakan global.
 
-Keduanya adalah dua tipe approval, bukan dua gerbang global. Tidak ada approval global Structure Review Package setelah generasi.
+Di antara keduanya, buka setiap kartu dokumen saat ini. Membuka versi saat ini mengubah status review dari **Belum ditinjau** menjadi **Ditinjau**; tindakan ini bukan tanda tangan approval. Stub **Tidak Diperlukan** tetap dihitung sebagai satu dokumen saat ini, jadi buka stub tersebut sekali walaupun tidak ada konten atau perbaikan yang perlu dibuat. Tombol global tersedia setelah generasi selesai, seluruh dokumen saat ini sudah ditinjau, serta tidak ada dokumen **Perlu Perbaikan** atau **Terhambat**.
+
+**Project ZIP** tetap terkunci sampai approval global selesai. Regenerasi, restore, atau versi baru dapat membatalkan approval set sebelumnya. Tinjau kembali set versi saat ini, lalu lakukan **Sign Approve Blueprint** lagi.
 
 <Tip>
   Perlu bantuan untuk project tertentu? Buka **Support** di workspace dan hubungkan Blueprint terkait. Percakapan dilanjutkan melalui email.

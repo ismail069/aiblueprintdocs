@@ -16,20 +16,23 @@ description: "How an idea becomes a connected document set, and what can continu
     Application Journey, Technical Foundation, conditional Database Schema, and App Map are generated from the approved context.
   </Step>
   <Step title="Complete Blueprint generation">
-    The remaining documents are generated and published to **Blueprint Summary**. Work continues in the background if you close the browser.
+    The remaining documents are generated and published to **Blueprint Summary**. Each active document card shows a spinner, and **Project Health** shows **Generating**. Work continues if you close the browser.
   </Step>
-  <Step title="Review, revise, and approve each document">
-    Read statuses and open items, stage revision proposals, regenerate affected documents, and use per-document **Sign Approve** for each current version. The Summary reaches **10/10 Approved** when every applicable current document is signed.
+  <Step title="Review the current document set">
+    Read statuses and open items, then open all 10 current document cards. Open a **Not Required** stub once as well; it has no content to remediate, but its current version still needs review. Stage revision proposals and regenerate affected documents when needed.
+  </Step>
+  <Step title="Approve and export the complete Blueprint">
+    When generation has finished, all 10 current documents are **Reviewed**, and no repair or blocker remains, select **Sign Approve Blueprint** in **Blueprint Documents**. This unlocks **Project ZIP** for the approved current set.
   </Step>
 </Steps>
 
 <Note>
-  The lifecycle has two approval moments: one product-context approval before generation, then individual approvals for generated documents. There is no second global Structure Review Package gate.
+  The lifecycle has two approval moments: product-context approval before generation, then one global approval of the complete current document set. Opening a document records review, not approval.
 </Note>
 
 ## Background work
 
-Generation state is stored on the server. Closing the tab does not cancel an active run. Reopen **My Blueprints** to see whether the project is still preparing documents, ready, or stopped.
+Generation state is stored on the server. Closing the tab does not cancel an active run. Reopen **My Blueprints** to see whether the project is still generating, ready for review, or stopped.
 
 <Tip>
   If a run is paused, reopen the same Blueprint. Do not create a duplicate project. Completed stages remain saved.
@@ -40,6 +43,8 @@ Generation state is stored on the server. Closing the tab does not cancel an act
 A development-ready Blueprint gives a developer connected context, scope, behaviour, acceptance criteria, and engineering direction. It does not mean every vendor, credential, legal decision, or go-live operation is already complete.
 
 Project-health items labelled **Before go-live** can be resolved during implementation. A **Blocked** or **Needs Repair** document requires attention before a team relies on that subject.
+
+Regeneration, restore, or a new current version can return documents to **Not yet reviewed** and invalidate the previous global approval. Review the changed set and select **Sign Approve Blueprint** again before exporting a new **Project ZIP**.
 
 ## Conditional outputs
 

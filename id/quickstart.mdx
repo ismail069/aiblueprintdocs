@@ -31,11 +31,14 @@ Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billin
   <Step title="Setujui Idea Review / VPC">
     Tanda tangani hanya ketika konteks produk sudah akurat. Approval ini otomatis memulai generasi dokumen di background, dan tab boleh ditutup.
   </Step>
-  <Step title="Tinjau dokumen hasil generasi">
-    Periksa Application Journey, Technical Foundation, Database Schema bila relevan, App Map, dan semua dokumen lainnya. Tidak ada approval struktur global kedua.
+  <Step title="Pantau generasi dokumen">
+    Setiap kartu dokumen yang sedang diproses menampilkan spinner **Generating**. Panel **Project Health** juga menampilkan **Generating** selama masih ada proses aktif. Anda boleh menutup tab karena pekerjaan tetap berjalan di server.
   </Step>
-  <Step title="Setujui setiap dokumen terbaru">
-    Gunakan **Blueprint Summary** untuk melihat item terbuka, kesehatan project, dan riwayat versi. Buka setiap dokumen yang berlaku dan gunakan **Sign Approve** pada dokumen tersebut. Summary mencapai **10/10 Disetujui** ketika semua dokumen saat ini sudah ditandatangani.
+  <Step title="Tinjau setiap dokumen saat ini">
+    Periksa Application Journey, Technical Foundation, Database Schema bila relevan, App Map, dan semua dokumen lainnya. Membuka versi dokumen saat ini mengubah statusnya dari **Belum ditinjau** menjadi **Ditinjau**. Ini mencatat review, bukan approval individual. Jika sebuah kartu berstatus **Tidak Diperlukan**, buka stub tersebut sekali; tidak ada konten atau perbaikan yang perlu dibuat, tetapi stub tetap termasuk dalam sepuluh dokumen saat ini.
+  </Step>
+  <Step title="Setujui Blueprint lengkap">
+    Setelah seluruh dokumen saat ini berstatus **Ditinjau**, generasi sudah selesai, dan tidak ada **Perlu Perbaikan** atau **Terhambat**, pilih **Sign Approve Blueprint** di bagian **Blueprint Documents**. Satu tindakan ini menerima seluruh set versi saat ini dan membuka akses **Project ZIP**.
   </Step>
 </Steps>
 
@@ -55,5 +58,5 @@ Sertakan informasi yang membedakan produk Anda dari aplikasi generik:
 - hal yang sengaja tidak masuk rilis pertama.
 
 <Warning>
-  Approval mencatat keputusan Anda terhadap versi saat ini. Jika regenerasi mengubah dokumen yang sudah ditandatangani, baca perubahannya dan setujui kembali versi baru.
+  Approval global berlaku untuk set versi saat ini. Regenerasi, restore, atau versi baru dapat menguncinya kembali. Buka dan tinjau set dokumen saat ini, lalu lakukan **Sign Approve Blueprint** ulang sebelum mengunduh Project ZIP terbaru.
 </Warning>

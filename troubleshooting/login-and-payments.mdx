@@ -45,6 +45,10 @@ No plan or credit grant is expected for a non-settled transaction. Start a new c
 
 If the failed transaction was the account's first plan attempt, the Starter/Plus selector appears again on a later sign-in because no plan purchase has completed yet.
 
+## A campaign coupon says checkout pending
+
+The coupon is reserved by an earlier Midtrans checkout that has not reached a terminal status. Reopen or finish that checkout when it is still valid, then wait for Midtrans reconciliation. Do not create or pay a second order for the same purchase. If the earlier payment is already failed, cancelled, or expired but the message remains, keep its order reference and open Support.
+
 <Warning>
   Never send a full card number, PIN, CVV, password, OTP, API key, or copied browser cookie to Support.
 </Warning>

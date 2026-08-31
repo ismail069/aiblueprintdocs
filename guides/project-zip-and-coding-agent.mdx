@@ -1,0 +1,76 @@
+---
+title: "Project ZIP and coding-agent workflow"
+description: "Move an approved Blueprint into a code repository and run the included prompts safely."
+---
+
+**Project ZIP** packages the approved current Blueprint for implementation. It remains locked until all 10 current document cards, including any **Not Required** stub, are **Reviewed** and you complete **Sign Approve Blueprint**.
+
+## What the ZIP contains
+
+- the PRD Markdown file and connected Blueprint documents under `docs/`;
+- `README.md` with project-specific setup and workflow instructions;
+- `.env.example` and `.env.local.example` with stack-aware parameter names and safe placeholders;
+- canonical coding-agent rules in `AGENTS.md`, plus `AGENT.md` as a compatibility pointer;
+- five ordered prompts under `ai-coding-agent-prompts/`;
+- optional working-document templates under `templates/`;
+- a manifest that lists the package contents, prompt order, environment parameters, and implementation-kit paths.
+
+<Warning>
+  Environment templates contain no real credentials. Add secrets only to ignored local files or your deployment secret manager. Never paste secrets into a coding-agent prompt, commit, log, or screenshot.
+</Warning>
+
+## Merge the package safely
+
+<Steps>
+  <Step title="Extract into a separate folder">
+    Inspect the package before copying files into a repository.
+  </Step>
+  <Step title="Preserve existing project rules">
+    In a new repository, place `AGENTS.md` and `AGENT.md` at the root. In an existing repository, ask the coding agent to merge relevant bundle rules into the existing `AGENTS.md`. Do not overwrite human instructions, source code, configuration, or local changes.
+  </Step>
+  <Step title="Copy the product inputs">
+    Add the PRD, `docs/`, `ai-coding-agent-prompts/`, `templates/`, and the environment examples. Reconcile an existing `README.md` instead of replacing it.
+  </Step>
+  <Step title="Prepare local configuration">
+    Reconcile `.env.example`. Create `.env.local` from `.env.local.example` only when local development needs it, preserve existing values, add missing names, and keep the file ignored by Git.
+  </Step>
+  <Step title="Check Git">
+    Use the repository's current remote when one exists. Provide a Git URL only when the repository has no remote; never replace an existing remote without explicit approval.
+  </Step>
+</Steps>
+
+`AGENTS.md` is the single canonical agent contract. `AGENT.md` intentionally contains only a pointer, so two copies of the rules cannot drift.
+
+## Run the five prompts in order
+
+| Step | Prompt | When to use it |
+| --- | --- | --- |
+| 1 | `01-analyze-and-create-development-foundation.md` | Run once. The agent analyzes the PRD and repository, reconciles the working documents, and creates the implementation foundation and sole active `PLAN.md`. It must stop before coding. |
+| 2 | `02-build-prototype.md` | Run after you review the plan. The agent builds and verifies a bounded prototype, then stops for review before production work. |
+| 3 | `03-start-or-resume-one-production-task.md` | Run repeatedly. Each run resumes the current **In Progress** task or starts the first eligible **Ready** task, completes one production vertical slice, updates state, and stops. |
+| 4 | `04-optional-multi-agent-execution.md` | Optional. Use only when the platform supports multiple agents and independent Ready tasks can be assigned safely. |
+| 5 | `05-resume-after-interruption-or-failure.md` | Conditional recovery. Use after an agent failure, interruption, or computer restart to inspect state and continue unfinished work without repeating completed work. |
+
+Do not run Step 4 merely to make work appear faster. Keep one coordinator, explicit ownership, and an integration order whenever multi-agent mode is active.
+
+## Working-document templates
+
+The `templates/` directory provides starting structures for:
+
+- `PLAN.md`, the only active implementation plan;
+- `STATUS.md`, the latest concise project snapshot;
+- `LOG.md`, an append-only work history;
+- `CONSOLIDATION_AGENT.md`, used only during real multi-agent execution;
+- minimum Git-ignore patterns for local environment files.
+
+Step 1 creates or reconciles active root documents from these templates. It must preserve useful existing content. A legacy `IMPLEMENTATION_PLAN.md` is migration input, not a second active plan.
+
+## Before the first coding run
+
+1. Read the packaged `README.md` and PRD.
+2. Confirm that `AGENTS.md` preserves the repository's human rules.
+3. Fill required local configuration without committing secrets.
+4. Confirm the Git remote, or provide a repository URL only if no remote exists.
+5. Give the coding agent the Step 1 prompt first, then review `PLAN.md` before Step 2.
+
+If global Blueprint approval is invalidated by regeneration, restore, or a new version, review and approve the current set again before downloading a replacement ZIP.

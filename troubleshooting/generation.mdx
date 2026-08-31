@@ -5,7 +5,7 @@ description: "Recover a slow, interrupted, or stopped Blueprint safely."
 
 ## Generation is still running
 
-Blueprint generation continues on the server. You can close the tab and reopen the project from **My Blueprints**. A running project may show its current stage or a document count that increases as work is published.
+Blueprint generation continues on the server. You can close the tab and reopen the project from **My Blueprints**. Active document cards show a spinner, and **Project Health** shows **Generating** until the current run finishes.
 
 <Steps>
   <Step title="Reopen the same project">
@@ -15,9 +15,11 @@ Blueprint generation continues on the server. You can close the tab and reopen t
     Allow the page to reload the stored run status. Repeated rapid refreshes do not make generation faster.
   </Step>
   <Step title="Check the status">
-    If the run is active, leave it running. If it is paused, follow the recovery card.
+    If document cards still show spinners and **Project Health** shows **Generating**, leave the run active. If it is paused, follow the recovery card.
   </Step>
 </Steps>
+
+You cannot select **Sign Approve Blueprint** or export **Project ZIP** while generation is active. After generation finishes, open all 10 current document cards, including any **Not Required** stub, until each shows **Reviewed**.
 
 ## The process is paused
 
@@ -44,7 +46,7 @@ The Support ID is not a ticket number. Selecting **Open Support** carries the pr
     Open **Billing** and compare the required action with the regular and add-on balances. Top up if needed, then return to the same project.
   </Accordion>
   <Accordion title="A document says Needs Repair">
-    Open that document and regenerate it before approval. This is a document-quality state, not necessarily a failed whole-project run.
+    Open that document and regenerate it before global approval. Review the new current version after regeneration. This is a document-quality state, not necessarily a failed whole-project run.
   </Accordion>
   <Accordion title="A document load error persists">
     Use the page Retry once. If it still fails, link the Blueprint in Support and name the document and current version.

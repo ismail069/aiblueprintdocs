@@ -31,11 +31,17 @@ Top-ups are not shown in the first-plan selector. They become available from **B
   <Step title="Approve the Idea Review / VPC">
     Sign only when the product context is accurate. This approval automatically starts document generation in the background, and you may safely close the tab.
   </Step>
-  <Step title="Review generated documents">
-    Check Application Journey, Technical Foundation, Database Schema when relevant, App Map, and every other generated document. There is no second global structure approval.
+  <Step title="Wait for generation to finish">
+    Each document card shows a spinner while it is being generated. **Project Health** shows **Generating** until the current run finishes.
   </Step>
-  <Step title="Approve each current document">
-    Use **Blueprint Summary** to inspect open items, project health, and version history. Open each applicable document and use its **Sign Approve** action. The Summary reaches **10/10 Approved** when every current document is signed.
+  <Step title="Review every current document">
+    Use **Blueprint Summary** to inspect open items and project health. Open all 10 current document cards, including a **Not Required** stub. Opening a current document changes its review state from **Not yet reviewed** to **Reviewed**; it does not approve the Blueprint.
+  </Step>
+  <Step title="Approve the complete Blueprint">
+    After all 10 current documents are **Reviewed** and no repair or blocker remains, select **Sign Approve Blueprint** in **Blueprint Documents**. This single action approves the current document set.
+  </Step>
+  <Step title="Download the Project ZIP">
+    **Export Project ZIP** unlocks after global approval. Read [Project ZIP and coding-agent workflow](/guides/project-zip-and-coding-agent) before moving the files into a code repository.
   </Step>
 </Steps>
 
@@ -55,5 +61,5 @@ Include enough information to distinguish your product from a generic app:
 - what is explicitly outside the first release.
 
 <Warning>
-  Approval records your decision against the current version. If regeneration changes a signed document, read the changes and approve the new version again.
+  Global approval applies only to the current document set. Regeneration, restore, or a new version can return affected documents to **Not yet reviewed**, revoke the current approval, and lock **Project ZIP** until you review and approve again.
 </Warning>

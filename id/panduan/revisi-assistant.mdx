@@ -21,7 +21,7 @@ Blueprint Assistant memakai konteks yang sudah disetujui untuk project saat ini.
     Gunakan **Apply** untuk satu proposal. Jika ada dua atau lebih, gunakan **Apply all** agar dokumen terdampak dibuat ulang sekali sebagai satu batch konsisten.
   </Step>
   <Step title="Tinjau dokumen hasil regenerasi">
-    Approval lama pada dokumen terdampak dapat superseded. Baca dokumen yang berubah dan setujui kembali versi terbaru.
+    Regenerasi membuat approval seluruh Blueprint menjadi superseded dan mengunci Project ZIP. Buka setiap versi terbaru yang berubah sampai berstatus **Ditinjau**, lalu kembali ke Blueprint Summary dan gunakan **Sign Approve Blueprint** satu kali untuk seluruh set saat ini.
   </Step>
 </Steps>
 
@@ -47,3 +47,7 @@ Direct edit literal yang tidak memanggil AI gratis. Proposal atau rewrite berbas
 - **Blueprint versions** mencatat seluruh rangkaian dokumen sebagai satu versi yang dapat dipulihkan.
 
 Gunakan Blueprint versions ketika Anda perlu mengembalikan seluruh dokumen ke kondisi lama yang konsisten.
+
+<Warning>
+  Menerapkan proposal dapat mengubah beberapa dokumen downstream. Jangan approve Blueprint kembali sebelum generasi selesai dan semua versi terbaru yang berubah sudah ditinjau.
+</Warning>

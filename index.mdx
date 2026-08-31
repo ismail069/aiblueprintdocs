@@ -30,6 +30,9 @@ AI Blueprint helps you clarify an app idea, settle critical decisions, and produ
   <Card title="Troubleshoot a stopped run" icon="triangle-exclamation" href="/troubleshooting/generation">
     Resume safely without duplicating the project or paying for internal retries.
   </Card>
+  <Card title="Use the Project ZIP" icon="file-zipper" href="/guides/project-zip-and-coding-agent">
+    Prepare the approved Blueprint for a coding agent without exposing secrets.
+  </Card>
 </CardGroup>
 
 <Note>
@@ -39,9 +42,11 @@ AI Blueprint helps you clarify an app idea, settle critical decisions, and produ
 ## The two approval moments
 
 1. **Idea Review / VPC Sign Approve** locks the Smart Requirement Summary and validated product context. This action automatically starts document generation.
-2. **Per-document Sign Approve** records your acceptance of each current generated document. Blueprint Summary reaches **10/10 Approved** when every applicable current document is signed.
+2. **Sign Approve Blueprint** records your acceptance of the complete current document set. It becomes available after generation finishes, all 10 current document cards are **Reviewed**, and no repair or blocker prevents approval.
 
-These are two approval types, not two global gates. There is no global Structure Review Package approval after generation.
+Opening a current document changes its review state from **Not yet reviewed** to **Reviewed**. This is not a signature. While generation is active, document cards show a spinner and **Project Health** shows **Generating**.
+
+The **Project ZIP** remains locked until the current Blueprint has global approval. Regeneration, restore, or a new document version can require review and **Sign Approve Blueprint** again.
 
 <Tip>
   Need help with a specific project? Open **Support** in the workspace and link the relevant Blueprint. The conversation continues by email.

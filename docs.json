@@ -12,7 +12,7 @@
         "default": true,
         "groups": [
           { "group": "Get started", "pages": ["index", "quickstart", "concepts/blueprint-lifecycle"] },
-          { "group": "Review and revise", "pages": ["guides/statuses-and-approval", "guides/revise-with-assistant", "guides/versions-and-rollback"] },
+          { "group": "Review and revise", "pages": ["guides/statuses-and-approval", "guides/revise-with-assistant", "guides/versions-and-rollback", "guides/project-zip-and-coding-agent"] },
           { "group": "Credits and account", "pages": ["guides/credits-and-billing", "account/settings-and-security", "account/support"] },
           { "group": "Reference", "pages": ["reference/output-documents"] },
           { "group": "Troubleshooting", "pages": ["troubleshooting/generation", "troubleshooting/login-and-payments"] }
@@ -26,7 +26,7 @@
         },
         "groups": [
           { "group": "Mulai", "pages": ["id/index", "id/quickstart", "id/konsep/alur-blueprint"] },
-          { "group": "Tinjau dan revisi", "pages": ["id/panduan/status-dan-approval", "id/panduan/revisi-assistant", "id/panduan/versi-dan-rollback"] },
+          { "group": "Tinjau dan revisi", "pages": ["id/panduan/status-dan-approval", "id/panduan/revisi-assistant", "id/panduan/versi-dan-rollback", "id/panduan/project-zip-dan-coding-agent"] },
           { "group": "Kredit dan akun", "pages": ["id/panduan/kredit-dan-billing", "id/akun/pengaturan-keamanan", "id/akun/support"] },
           { "group": "Referensi", "pages": ["id/referensi/dokumen-output"] },
           { "group": "Troubleshooting", "pages": ["id/troubleshooting/generasi", "id/troubleshooting/login-dan-pembayaran"] }

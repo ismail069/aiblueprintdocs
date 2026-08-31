@@ -21,7 +21,7 @@ The Blueprint Assistant uses the approved context for the current project. A cha
     Use **Apply** for one proposal. When two or more proposals are waiting, use **Apply all** so affected documents regenerate once as a consistent batch.
   </Step>
   <Step title="Review regenerated documents">
-    Affected approvals may be superseded. Read each changed document and re-approve the current version.
+    Regeneration supersedes the whole-Blueprint approval and locks Project ZIP. Open every changed current version so it becomes **Reviewed**, then return to Blueprint Summary and use **Sign Approve Blueprint** once for the complete current set.
   </Step>
 </Steps>
 
@@ -47,3 +47,7 @@ A literal direct edit that does not call AI is free. An AI proposal or rewrite c
 - **Blueprint versions** records the whole set of generated documents as one recoverable version.
 
 Use Blueprint versions when you need to restore the complete document set to an earlier consistent state.
+
+<Warning>
+  Applying a proposal can change more than one downstream document. Do not approve the Blueprint again until generation finishes and every changed current version has been reviewed.
+</Warning>
