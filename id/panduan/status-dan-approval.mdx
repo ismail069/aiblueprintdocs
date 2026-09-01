@@ -9,7 +9,7 @@ Status kualitas menjelaskan kondisi **dokumen**, bukan seberapa jauh seluruh pro
 | --- | --- | --- |
 | **Generating** | Versi dokumen sedang dibuat atau ditulis ulang. | Tunggu proses selesai. Spinner pada kartu akan berhenti ketika hasil sudah dipublikasikan. |
 | **Siap** | Dokumen menjawab semua hal yang menjadi tanggung jawabnya. Tidak ada yang menunggu Anda. | Buka dan baca versi saat ini agar tercatat sebagai **Ditinjau**. |
-| **Siap — keputusan Anda dibutuhkan** | Dokumen lengkap dan dapat dibangun, tetapi ada satu keputusan milik Anda. | Buka dokumen, baca item terbuka, dan selesaikan keputusan tersebut. |
+| **Siap — keputusan Anda dibutuhkan** | Dokumen lengkap dan dapat dibangun, serta halaman pemiliknya memuat keputusan eksplisit yang dapat ditindaklanjuti. Badge ini tidak boleh muncul hanya karena ada catatan review umum atau item tanpa langkah yang terlihat. | Buka dokumen pemilik dan baca keputusan beserta langkah berikutnya pada **Apa yang terbuka pada dokumen ini**. Selesaikan sekarang jika jawabannya harus masuk ke Blueprint saat ini; jika tidak, catat sebagai keputusan non-blocking. |
 | **Perlu Perbaikan** | Bagian wajib hilang, saling bertentangan, atau tidak dapat dibangun seperti tertulis. | Gunakan proposal revisi dan regenerate sebelum approval global. |
 | **Terhambat** | Pekerjaan pada subjek ini tidak dapat dimulai sebelum dependensi selesai. | Buka item penghambat dan selesaikan sebelum approval global. |
 | **Tertunda** | Dokumen belum dibuat. | Tunggu atau mulai generasi Blueprint. |
@@ -23,6 +23,8 @@ Setiap kartu dokumen saat ini memiliki status review terhadap versi yang aktif:
 - **Ditinjau** berarti halaman versi saat ini sudah pernah Anda buka.
 
 Membuka halaman mencatat review secara otomatis. Review bukan approval dan tidak menerima Blueprint secara individual. Stub **Tidak Diperlukan** tetap menunggu review karena termasuk dalam set sepuluh dokumen saat ini; cukup buka stub tersebut sekali.
+
+Review tidak otomatis menyelesaikan keputusan eksplisit. Setelah keputusan benar-benar diselesaikan dan dokumen pemilik tidak lagi memiliki item yang dapat ditindaklanjuti, status kontennya kembali menjadi hijau **Siap**. Dokumen yang sudah ditinjau dan tidak mempunyai keputusan terbuka yang nyata tidak boleh tetap berstatus **Siap — keputusan Anda dibutuhkan**.
 
 ## Sign Approve Blueprint
 
@@ -53,7 +55,7 @@ Setelah approval global berhasil, **Project ZIP** dapat diunduh. Approval terseb
 
 ## Indikator generasi
 
-Saat dokumen sedang dibuat atau ditulis ulang, kartu dokumen menampilkan spinner **Generating**. Panel **Project Health** juga mengganti badge ringkasannya menjadi **Generating** selama masih ada pekerjaan aktif. Setelah seluruh proses selesai, badge kembali menampilkan kondisi project yang sebenarnya.
+Saat dokumen sedang dibuat atau ditulis ulang, kartu dokumen menampilkan spinner **Generating**. Panel **Project Health** juga mengganti badge ringkasannya menjadi **Generating** selama masih ada pekerjaan aktif. Blueprint Summary melakukan polling terhadap state run yang tersimpan selama halaman terbuka, sehingga kartu yang selesai dan Project Health diperbarui tanpa refresh seluruh halaman. Setelah seluruh proses selesai, badge kembali menampilkan kondisi project yang sebenarnya.
 
 Jangan menganggap spinner sebagai error. Jika proses benar-benar berhenti, halaman menampilkan kartu recovery atau Support ID yang dapat digunakan untuk bantuan.
 

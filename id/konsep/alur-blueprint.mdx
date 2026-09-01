@@ -16,7 +16,7 @@ description: "Bagaimana ide menjadi rangkaian dokumen terhubung dan proses apa y
     Application Journey, Technical Foundation, Database Schema bila relevan, dan App Map dibuat dari konteks yang disetujui.
   </Step>
   <Step title="Generasi Blueprint lengkap">
-    Dokumen lainnya dibuat dan dipublikasikan ke **Blueprint Summary**. Kartu yang masih diproses menampilkan spinner **Generating**, dan **Project Health** menampilkan **Generating** selama masih ada pekerjaan aktif. Proses tetap berjalan jika browser ditutup.
+    Dokumen lainnya dibuat dan dipublikasikan ke **Blueprint Summary**. Kartu yang masih diproses menampilkan spinner **Generating**, dan **Project Health** menampilkan **Generating** selama masih ada pekerjaan aktif. Selama Blueprint Summary terbuka, polling memperbarui kartu yang selesai dan Project Health tanpa refresh seluruh halaman. Proses tetap berjalan jika browser ditutup.
   </Step>
   <Step title="Review dan revisi dokumen">
     Buka setiap kartu dokumen saat ini untuk mengubah **Belum ditinjau** menjadi **Ditinjau**. Baca status serta item terbuka, siapkan proposal revisi, dan buat ulang dokumen yang terdampak bila diperlukan. Stub **Tidak Diperlukan** juga perlu dibuka sekali agar review tercatat, tetapi tidak memerlukan konten atau perbaikan. Membuka dokumen mencatat review, bukan approval.
@@ -33,6 +33,8 @@ description: "Bagaimana ide menjadi rangkaian dokumen terhubung dan proses apa y
 ## Proses background
 
 Status generasi disimpan di server. Menutup tab tidak membatalkan run aktif. Buka kembali **Blueprint Saya** untuk melihat apakah project masih mempersiapkan dokumen, sudah siap, atau berhenti.
+
+Jika Blueprint Summary tetap terbuka, halaman membaca state server tersebut secara berkala. Dokumen yang selesai otomatis berubah dari spinner ke status hasil publikasi; Anda tidak perlu refresh seluruh halaman untuk mengetahui bahwa generasi telah selesai.
 
 <Tip>
   Jika proses dijeda, buka Blueprint yang sama. Jangan membuat project duplikat. Tahap yang sudah selesai tetap tersimpan.

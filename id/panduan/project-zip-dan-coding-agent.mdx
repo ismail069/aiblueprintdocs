@@ -1,106 +1,94 @@
 ---
 title: "Project ZIP dan coding agent"
-description: "Gunakan bundle Blueprint untuk memulai implementasi dengan coding agent secara aman dan bertahap."
+description: "Pahami implementation kit statis yang sesuai bahasa dan pindahkan Blueprint yang sudah disetujui ke repository code dengan aman."
 ---
 
-**Project ZIP** adalah paket handoff untuk memulai implementasi. Tombol download tetap terkunci sampai seluruh kartu dokumen saat ini sudah **Ditinjau**—termasuk stub **Tidak Diperlukan**—dan set versi tersebut menerima **Sign Approve Blueprint**.
-
-<Warning>
-  Regenerasi, restore, atau versi baru dapat membatalkan approval global dan mengunci Project ZIP kembali. Tinjau set dokumen yang aktif, lalu lakukan **Sign Approve Blueprint** ulang sebelum mengunduh bundle terbaru.
-</Warning>
+**Project ZIP** adalah paket handoff untuk memulai implementasi. Tombol download tetap terkunci sampai seluruh 10 kartu dokumen saat ini berstatus **Ditinjau**—termasuk stub **Tidak Diperlukan**—dan set versi tersebut menerima **Sign Approve Blueprint**.
 
 ## Isi Project ZIP
 
-Bundle menyertakan:
+ZIP tetap menyertakan input produk dari Blueprint:
 
-- PRD Markdown sebagai sumber requirement utama;
-- folder `docs/` berisi dokumen Blueprint dalam urutan yang mudah dibaca;
-- `README.md` dengan langkah awal khusus project;
-- `.env.example` dan `.env.local.example` berisi nama parameter serta placeholder lokal atau sandbox, tanpa secret;
-- `AGENTS.md` sebagai kontrak kerja kanonik untuk coding agent;
-- `AGENT.md` sebagai pointer kompatibilitas ke `AGENTS.md`, bukan salinan aturan kedua;
-- folder `ai-coding-agent-prompts/` berisi lima prompt bernomor;
-- folder `templates/` untuk memulai `PLAN.md`, `STATUS.md`, `LOG.md`, koordinasi multi-agent bila diperlukan, dan pola minimum Git-ignore untuk file environment lokal; serta
-- `manifest.json` untuk memetakan dokumen, konfigurasi, workflow, dan file yang disertakan.
+- file Markdown PRD terkonsolidasi;
+- file dokumen Blueprint yang terhubung di dalam `docs/`; dan
+- manifest yang mencantumkan isi paket hasil export.
 
-Nama parameter environment menyesuaikan keputusan teknologi dalam Technical Foundation. Nilai nyata tidak pernah dimasukkan ke ZIP.
+Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 
-## Siapkan repository dengan aman
+| # | File | Kegunaan |
+| --- | --- | --- |
+| 1 | `AGENT.md` | Pointer kompatibilitas ke kontrak agent kanonik. |
+| 2 | `AGENTS.md` | Aturan kerja permanen untuk coding agent. |
+| 3 | `PROMPT_1.md` | Menganalisis PRD dan repository, lalu membuat atau merekonsiliasi development foundation dan plan. |
+| 4 | `PROMPT_2.md` | Membangun prototype yang sudah ditinjau tanpa memulai full production implementation. |
+| 5 | `PROMPT_3.md` | Memulai atau melanjutkan satu task production yang memenuhi syarat per run. |
+| 6 | `PROMPT_4.md` | Mengoordinasikan multi-agent opsional ketika pekerjaan independen dapat dijalankan secara paralel dengan aman. |
+| 7 | `PROMPT_5.md` | Melanjutkan pekerjaan yang terputus dari state yang tercatat di repository. |
+| 8 | `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` atau `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` | Panduan pemula dalam bahasa Blueprint/PRD. Setiap ZIP hanya berisi file yang sesuai, bukan keduanya. |
+
+Root juga berisi `.env.local` sebagai template placeholder yang aman. File ini tidak berisi credential nyata dan tidak termasuk dalam hitungan delapan file Markdown.
+
+<Warning>
+  Jangan pernah commit nilai nyata dari `.env.local`. Pastikan file tetap diabaikan oleh Git, tambahkan secret hanya ke environment lokal atau deployment, dan jangan menempelkannya ke prompt coding agent, log, atau screenshot.
+</Warning>
+
+## Cara bahasa dipilih
+
+Implementation kit memiliki varian bahasa Inggris dan Indonesia yang sudah ditinjau. Proses export memilih satu varian lengkap hanya berdasarkan bahasa dokumen Blueprint/PRD:
+
+- Blueprint/PRD berbahasa Indonesia menerima file agent, prompt, dan `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` dalam bahasa Indonesia; dan
+- Blueprint/PRD berbahasa Inggris menerima file agent, prompt, dan `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` dalam bahasa Inggris.
+
+Mengubah bahasa interface tidak menulis ulang paket. Bahasa PRD menentukan output.
+
+Prompt bersifat statis dan universal. Prompt tidak dibuat ulang, tidak disisipi detail project, dan tidak ditulis ulang untuk use case tertentu pada setiap download. Prompt yang sama dapat digunakan untuk berbagai produk karena coding agent membaca PRD dan repository saat Anda menjalankannya.
+
+## Blueprint existing menerima kit yang sama
+
+Format paket ini berlaku untuk Blueprint baru maupun Blueprint yang sudah dibuat sebelum implementation kit tersedia. Anda tidak perlu meregenerasi PRD atau dokumen Blueprint hanya untuk mendapatkan kit.
+
+Export ulang Blueprint existing setelah syarat review dan approval saat ini terpenuhi. ZIP baru menyertakan delapan file Markdown sesuai bahasa dan template `.env.local`, sekaligus mempertahankan PRD terkonsolidasi, dokumen Blueprint, dan manifest. ZIP yang sudah tersimpan di perangkat tidak diperbarui secara otomatis.
+
+## Gabungkan paket dengan aman
 
 <Steps>
   <Step title="Ekstrak ke folder terpisah">
-    Jangan langsung mengekstrak di atas repository yang sedang digunakan. Buka `README.md` di dalam bundle dan periksa isinya terlebih dahulu.
+    Periksa isi ZIP sebelum menyalin apa pun ke repository aktif. Mulai dengan membaca panduan implementasi sesuai bahasa.
   </Step>
-  <Step title="Merge, jangan menimpa">
-    Salin PRD, `docs/`, `ai-coding-agent-prompts/`, `templates/`, dan template environment ke workspace target. Jika repository sudah memiliki README, source, dokumentasi, konfigurasi, atau aturan manusia, pertahankan file tersebut dan rekonsiliasikan tambahan yang relevan.
+  <Step title="Pertahankan aturan project yang sudah ada">
+    Pada repository baru, letakkan `AGENTS.md` dan `AGENT.md` di root. Pada repository existing, rekonsiliasikan aturan yang relevan dengan instruksi agent yang sudah tersedia. Jangan menimpa instruksi manusia, source code, konfigurasi, atau perubahan lokal.
   </Step>
-  <Step title="Pertahankan kontrak manusia">
-    Untuk repository baru, Anda dapat memakai `AGENTS.md` dari bundle. Untuk repository existing, minta coding agent membaca kontrak bundle dan menggabungkan aturan yang relevan ke `AGENTS.md` yang sudah ada. Jangan mengganti aturan manusia secara otomatis. Biarkan `AGENT.md` hanya menunjuk ke `AGENTS.md`.
+  <Step title="Salin input produk">
+    Tambahkan PRD terkonsolidasi dan dokumen Blueprint ke workspace target agar coding agent dapat menggunakannya sebagai sumber kebenaran produk.
   </Step>
-  <Step title="Siapkan environment lokal">
-    Rekonsiliasikan nama parameter dari `.env.example`. Buat `.env.local` dari `.env.local.example` hanya jika local run memerlukannya. Jika `.env.local` sudah ada, pertahankan semua nilainya dan tambahkan hanya nama yang belum tersedia.
+  <Step title="Rekonsiliasikan konfigurasi lokal">
+    Jika repository sudah mempunyai `.env.local`, pertahankan seluruh nilai yang ada. Gunakan file dari ZIP hanya sebagai referensi aman untuk nama yang belum tersedia, lalu pastikan file lokal tetap diabaikan oleh Git.
   </Step>
-  <Step title="Periksa Git remote">
-    Coding agent akan mencari Git root dan remote dari folder aktif. Berikan URL repository, misalnya GitHub, hanya jika remote belum ada dan operasi jaringan memang diperlukan.
+  <Step title="Periksa Git">
+    Gunakan remote repository yang sudah ada. Berikan URL Git hanya jika repository belum memiliki remote; jangan pernah mengganti remote existing tanpa persetujuan eksplisit.
   </Step>
 </Steps>
 
-<Warning>
-  Jangan menaruh password, token, private key, credential production, atau connection string nyata di chat, file bundle, atau Git. Pastikan `.env`, `.env.local`, dan `.env.*.local` diabaikan. Gunakan secret manager untuk environment production.
-</Warning>
+`AGENTS.md` adalah kontrak agent kanonik. `AGENT.md` sengaja menunjuk ke file tersebut agar dua salinan aturan kerja tidak berbeda.
 
 ## Jalankan lima prompt secara berurutan
 
-### Langkah 1 — foundation dan PLAN
+| Langkah | Prompt | Waktu penggunaan |
+| --- | --- | --- |
+| 1 | `PROMPT_1.md` | Jalankan satu kali saat memulai, atau ketika development foundation belum tersedia. Tinjau plan yang dihasilkan sebelum melanjutkan. |
+| 2 | `PROMPT_2.md` | Jalankan setelah foundation dan plan ditinjau untuk membangun prototype yang terbatas. |
+| 3 | `PROMPT_3.md` | Jalankan berulang kali. Setiap run hanya menyelesaikan atau melanjutkan satu task production yang memenuhi syarat. |
+| 4 | `PROMPT_4.md` | Opsional. Gunakan hanya jika platform mendukung beberapa agent dan task yang dipilih benar-benar independen. |
+| 5 | `PROMPT_5.md` | Recovery kondisional. Gunakan setelah interupsi, kegagalan agent, atau perangkat restart. |
 
-Jalankan `01-analyze-and-create-development-foundation.md` terlebih dahulu. Prompt ini membaca PRD, repository, dan aturan agent; menilai gap serta risiko; lalu membuat atau merekonsiliasi `PLAN.md`, `STATUS.md`, dan `LOG.md` dari template bila diperlukan.
-
-`PLAN.md` menjadi satu-satunya plan development aktif. Jika ada `IMPLEMENTATION_PLAN.md` lama, coding agent memperlakukannya sebagai sumber migrasi dan tidak memperbarui dua plan secara paralel. Langkah 1 harus berhenti setelah foundation dan plan selesai, tanpa memulai prototype atau production coding.
-
-### Langkah 2 — prototype
-
-Setelah Anda meninjau `PLAN.md`, jalankan `02-build-prototype.md`. Prompt ini membangun prototype sesuai batas yang sudah direncanakan, memakai mock, local service, atau sandbox. Prototype membantu memvalidasi alur dan interface; prototype bukan bukti bahwa authorization, pembayaran, persistence, audit, atau keamanan production sudah selesai.
-
-Tinjau hasil prototype sebelum melanjutkan.
-
-### Langkah 3 — satu task production
-
-Jalankan `03-start-or-resume-one-production-task.md` berulang kali. Setiap run hanya mengerjakan satu task production:
-
-- jika `STATUS.md` memiliki task **In Progress**, agent melanjutkannya;
-- jika tidak, agent memilih satu task **Ready** paling awal yang seluruh dependensinya sudah selesai;
-- agent menjalankan check yang relevan, memperbarui `PLAN.md`, `STATUS.md`, dan `LOG.md`, lalu berhenti sebelum task berikutnya.
-
-Pola satu vertical slice per run membuat progres lebih mudah ditinjau, diuji, dihentikan, dan dilanjutkan.
-
-### Langkah 4 — multi-agent opsional
-
-Gunakan `04-optional-multi-agent-execution.md` hanya jika platform mendukung beberapa agent dan beberapa task **Ready** benar-benar independen. Saat mode ini digunakan, salin `templates/CONSOLIDATION_AGENT.md` menjadi file aktif di root dan tetapkan satu coordinator.
-
-Jangan memakai mode ini untuk task yang saling bergantung atau mengubah shared contract yang sama tanpa ownership dan urutan integrasi yang jelas.
-
-### Langkah 5 — recovery kondisional
-
-Gunakan `05-resume-after-interruption-or-failure.md` hanya ketika agent, terminal, atau perangkat berhenti di tengah task. Prompt ini membaca state yang tersimpan, memeriksa perubahan yang belum selesai, lalu melanjutkan task aktif tanpa mengulang pekerjaan yang sudah selesai.
-
-Langkah 5 bukan langkah rutin setelah setiap task. Untuk pekerjaan normal berikutnya, ulangi Langkah 3.
-
-## Cara menggunakan folder templates
-
-File dalam `templates/` adalah struktur awal, bukan state project yang langsung aktif. Coding agent hanya membuat file root seperti `PLAN.md`, `STATUS.md`, atau `LOG.md` bila belum ada, atau merekonsiliasikan file yang sudah ada tanpa menghapus informasi valid.
-
-`templates/CONSOLIDATION_AGENT.md` tetap tidak aktif untuk workflow single-agent. Aktifkan hanya ketika Langkah 4 benar-benar digunakan.
+Jangan menjalankan Langkah 4 hanya agar pekerjaan terlihat lebih cepat. Pertahankan satu koordinator, ownership yang eksplisit, dan urutan integrasi yang jelas ketika mode multi-agent aktif.
 
 ## Sebelum memberi prompt pertama
 
-Pastikan Anda sudah:
+1. Baca panduan implementasi sesuai bahasa, PRD terkonsolidasi, dan `AGENTS.md`.
+2. Pastikan aturan repository dan perubahan lokal yang ada akan dipertahankan.
+3. Rekonsiliasikan `.env.local` tanpa menambahkan atau mengekspos secret nyata.
+4. Konfirmasikan Git remote, atau berikan URL repository hanya jika remote belum tersedia.
+5. Berikan `PROMPT_1.md` kepada coding agent, lalu tinjau development foundation dan plan sebelum memakai `PROMPT_2.md`.
 
-- membuka repository target di coding agent;
-- menyimpan PRD dan folder dokumen Blueprint di workspace;
-- membaca `README.md` bundle;
-- memeriksa bahwa konfigurasi lokal tidak mengandung secret yang akan di-commit; dan
-- menyiapkan URL Git hanya jika repository belum mempunyai remote.
-
-<Tip>
-  Mulai dengan Langkah 1 meskipun repository sudah berisi code. Prompt tersebut terlebih dahulu memeriksa kondisi repository dan mempertahankan perubahan yang sudah ada sebelum menyusun plan implementasi.
-</Tip>
+Jika regenerasi, restore, atau versi baru membatalkan approval global Blueprint, tinjau dan setujui kembali set saat ini sebelum mengunduh ZIP pengganti.

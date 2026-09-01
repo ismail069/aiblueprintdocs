@@ -11,19 +11,21 @@ A document has a content status and a review state. The Blueprint also has one g
 | --- | --- | --- |
 | **Generating** | The current document is still being created. Its card shows a spinner. | Wait. You may close the tab and return later. |
 | **Ready** | The document answers everything it owns. Nothing is waiting on you. | Open it and read the current version. |
-| **Ready — your decision needed** | The document is buildable, but one decision is yours. | Open and read the item. Settle it now if the current Blueprint must include the answer; otherwise track the non-blocking decision. |
+| **Ready — your decision needed** | The document is buildable and its owning page contains an explicit, actionable decision. The badge must not appear for a generic review note or an item with no visible next action. | Open the owning document and use **What is open on this document** to read the decision and next action. Settle it now if the current Blueprint must include the answer; otherwise track the non-blocking decision. |
 | **Needs Repair** | A required section is missing, contradictory, or not buildable as written. | Correct the context or proposal, then regenerate the document. |
 | **Blocked** | Work on this subject cannot begin until a dependency is resolved. | Open the blocking item and resolve it before global approval. |
 | **Pending** | The document has not started generating yet. | Wait for the active Blueprint run. |
 | **Not Required** | Your product does not need content or remediation for this document. | Open the stub once so its current version becomes **Reviewed**. |
 
-While any document is being created, **Project Health** shows **Generating** instead of its normal review badge.
+While any document is being created, **Project Health** shows **Generating** instead of its normal review badge. Blueprint Summary polls the stored run state while it is open, so finished cards and Project Health update without reloading the whole page.
 
 ## Not yet reviewed and Reviewed
 
 - **Not yet reviewed** means you have not opened the current version of one of the 10 document cards.
 - **Reviewed** means you opened that current document page. It records review only; it is not an approval signature.
 - A regenerated, restored, or newly published version can return a document to **Not yet reviewed**.
+
+Review does not automatically settle an explicit decision. After the decision is genuinely resolved and the owning document has no remaining actionable item, its content status returns to the green **Ready** state. A reviewed document with no genuine open decision must not remain **Ready — your decision needed**.
 
 ## Sign Approve Blueprint
 

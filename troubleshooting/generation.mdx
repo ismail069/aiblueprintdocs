@@ -5,14 +5,14 @@ description: "Recover a slow, interrupted, or stopped Blueprint safely."
 
 ## Generation is still running
 
-Blueprint generation continues on the server. You can close the tab and reopen the project from **My Blueprints**. Active document cards show a spinner, and **Project Health** shows **Generating** until the current run finishes.
+Blueprint generation continues on the server. You can close the tab and reopen the project from **My Blueprints**. Active document cards show a spinner, and **Project Health** shows **Generating** until the current run finishes. If Blueprint Summary remains open, it polls the stored run state and updates completed cards without a full-page refresh.
 
 <Steps>
   <Step title="Reopen the same project">
     Open **My Blueprints** and select the existing card. Do not create a duplicate.
   </Step>
-  <Step title="Refresh once">
-    Allow the page to reload the stored run status. Repeated rapid refreshes do not make generation faster.
+  <Step title="Let the live status update">
+    Keep Blueprint Summary open if you want to watch progress. The page checks the server periodically; repeated manual refreshes do not make generation faster.
   </Step>
   <Step title="Check the status">
     If document cards still show spinners and **Project Health** shows **Generating**, leave the run active. If it is paused, follow the recovery card.

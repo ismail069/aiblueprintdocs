@@ -1,76 +1,94 @@
 ---
 title: "Project ZIP and coding-agent workflow"
-description: "Move an approved Blueprint into a code repository and run the included prompts safely."
+description: "Understand the static, language-matched implementation kit and move an approved Blueprint into a code repository safely."
 ---
 
 **Project ZIP** packages the approved current Blueprint for implementation. It remains locked until all 10 current document cards, including any **Not Required** stub, are **Reviewed** and you complete **Sign Approve Blueprint**.
 
 ## What the ZIP contains
 
-- the PRD Markdown file and connected Blueprint documents under `docs/`;
-- `README.md` with project-specific setup and workflow instructions;
-- `.env.example` and `.env.local.example` with stack-aware parameter names and safe placeholders;
-- canonical coding-agent rules in `AGENTS.md`, plus `AGENT.md` as a compatibility pointer;
-- five ordered prompts under `ai-coding-agent-prompts/`;
-- optional working-document templates under `templates/`;
-- a manifest that lists the package contents, prompt order, environment parameters, and implementation-kit paths.
+The ZIP keeps the Blueprint product inputs:
+
+- the consolidated PRD Markdown file;
+- the connected Blueprint document files under `docs/`; and
+- the manifest that lists the exported package contents.
+
+At the archive root, the implementation kit adds exactly eight Markdown files:
+
+| # | File | Purpose |
+| --- | --- | --- |
+| 1 | `AGENT.md` | Compatibility pointer to the canonical agent contract. |
+| 2 | `AGENTS.md` | Permanent working rules for the coding agent. |
+| 3 | `PROMPT_1.md` | Analyze the PRD and repository, then create or reconcile the development foundation and plan. |
+| 4 | `PROMPT_2.md` | Build the reviewed prototype without starting full production implementation. |
+| 5 | `PROMPT_3.md` | Start or resume one eligible production task per run. |
+| 6 | `PROMPT_4.md` | Coordinate optional multi-agent execution when independent work can run safely in parallel. |
+| 7 | `PROMPT_5.md` | Resume interrupted work from the repository's recorded state. |
+| 8 | `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` or `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` | Beginner guide in the Blueprint/PRD language. Each ZIP contains the matching file, not both. |
+
+The root also contains `.env.local` as a safe placeholder template. It contains no real credentials and is separate from the eight Markdown files.
 
 <Warning>
-  Environment templates contain no real credentials. Add secrets only to ignored local files or your deployment secret manager. Never paste secrets into a coding-agent prompt, commit, log, or screenshot.
+  Never commit real values from `.env.local`. Keep the file ignored by Git, add secrets only in your local or deployment environment, and never paste them into a coding-agent prompt, log, or screenshot.
 </Warning>
+
+## How the language is selected
+
+The implementation kit has reviewed English and Indonesian variants. Export selects one complete variant solely from the Blueprint/PRD document language:
+
+- an English Blueprint/PRD receives English agent files, prompts, and `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md`; and
+- an Indonesian Blueprint/PRD receives Indonesian agent files, prompts, and `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md`.
+
+Changing the interface language does not rewrite the package. The PRD language controls the output.
+
+The prompts are static and universal. They are not generated, interpolated with project details, or rewritten for a specific use case on each download. The same reviewed prompts work across products because the coding agent reads the PRD and repository when you run them.
+
+## Existing Blueprints receive the same kit
+
+This package format applies to both new Blueprints and Blueprints that were generated before the implementation kit was introduced. You do not need to regenerate the PRD or Blueprint documents just to receive the kit.
+
+Export the existing Blueprint again after it meets the current review and approval requirements. The new ZIP includes the language-matched eight Markdown files and `.env.local` template while preserving the consolidated PRD, Blueprint documents, and manifest. A ZIP already stored on your device does not update automatically.
 
 ## Merge the package safely
 
 <Steps>
   <Step title="Extract into a separate folder">
-    Inspect the package before copying files into a repository.
+    Inspect the ZIP before copying anything into an active repository. Start with the localized implementation guide.
   </Step>
   <Step title="Preserve existing project rules">
-    In a new repository, place `AGENTS.md` and `AGENT.md` at the root. In an existing repository, ask the coding agent to merge relevant bundle rules into the existing `AGENTS.md`. Do not overwrite human instructions, source code, configuration, or local changes.
+    In a new repository, place `AGENTS.md` and `AGENT.md` at the root. In an existing repository, reconcile relevant rules with its current agent instructions. Do not overwrite human instructions, source code, configuration, or local changes.
   </Step>
   <Step title="Copy the product inputs">
-    Add the PRD, `docs/`, `ai-coding-agent-prompts/`, `templates/`, and the environment examples. Reconcile an existing `README.md` instead of replacing it.
+    Add the consolidated PRD and Blueprint documents to the target workspace so the coding agent can use them as the product source of truth.
   </Step>
-  <Step title="Prepare local configuration">
-    Reconcile `.env.example`. Create `.env.local` from `.env.local.example` only when local development needs it, preserve existing values, add missing names, and keep the file ignored by Git.
+  <Step title="Reconcile local configuration">
+    If the repository already has `.env.local`, preserve every existing value. Use the ZIP file only as a safe reference for missing names, and keep the resulting local file ignored by Git.
   </Step>
   <Step title="Check Git">
     Use the repository's current remote when one exists. Provide a Git URL only when the repository has no remote; never replace an existing remote without explicit approval.
   </Step>
 </Steps>
 
-`AGENTS.md` is the single canonical agent contract. `AGENT.md` intentionally contains only a pointer, so two copies of the rules cannot drift.
+`AGENTS.md` is the canonical agent contract. `AGENT.md` intentionally points to it so two copies of the working rules cannot drift.
 
 ## Run the five prompts in order
 
 | Step | Prompt | When to use it |
 | --- | --- | --- |
-| 1 | `01-analyze-and-create-development-foundation.md` | Run once. The agent analyzes the PRD and repository, reconciles the working documents, and creates the implementation foundation and sole active `PLAN.md`. It must stop before coding. |
-| 2 | `02-build-prototype.md` | Run after you review the plan. The agent builds and verifies a bounded prototype, then stops for review before production work. |
-| 3 | `03-start-or-resume-one-production-task.md` | Run repeatedly. Each run resumes the current **In Progress** task or starts the first eligible **Ready** task, completes one production vertical slice, updates state, and stops. |
-| 4 | `04-optional-multi-agent-execution.md` | Optional. Use only when the platform supports multiple agents and independent Ready tasks can be assigned safely. |
-| 5 | `05-resume-after-interruption-or-failure.md` | Conditional recovery. Use after an agent failure, interruption, or computer restart to inspect state and continue unfinished work without repeating completed work. |
+| 1 | `PROMPT_1.md` | Run once at the start, or when the development foundation is missing. Review the resulting plan before continuing. |
+| 2 | `PROMPT_2.md` | Run after the foundation and plan are reviewed to build the bounded prototype. |
+| 3 | `PROMPT_3.md` | Run repeatedly. Each run completes or advances only one eligible production task. |
+| 4 | `PROMPT_4.md` | Optional. Use only when the platform supports multiple agents and the selected tasks are genuinely independent. |
+| 5 | `PROMPT_5.md` | Conditional recovery. Use after an interruption, failed agent run, or computer restart. |
 
-Do not run Step 4 merely to make work appear faster. Keep one coordinator, explicit ownership, and an integration order whenever multi-agent mode is active.
-
-## Working-document templates
-
-The `templates/` directory provides starting structures for:
-
-- `PLAN.md`, the only active implementation plan;
-- `STATUS.md`, the latest concise project snapshot;
-- `LOG.md`, an append-only work history;
-- `CONSOLIDATION_AGENT.md`, used only during real multi-agent execution;
-- minimum Git-ignore patterns for local environment files.
-
-Step 1 creates or reconciles active root documents from these templates. It must preserve useful existing content. A legacy `IMPLEMENTATION_PLAN.md` is migration input, not a second active plan.
+Do not run Step 4 merely to make work appear faster. Keep one coordinator, explicit ownership, and a clear integration order whenever multi-agent mode is active.
 
 ## Before the first coding run
 
-1. Read the packaged `README.md` and PRD.
-2. Confirm that `AGENTS.md` preserves the repository's human rules.
-3. Fill required local configuration without committing secrets.
+1. Read the localized implementation guide, consolidated PRD, and `AGENTS.md`.
+2. Confirm that existing repository rules and local changes will be preserved.
+3. Reconcile `.env.local` without adding or exposing real secrets.
 4. Confirm the Git remote, or provide a repository URL only if no remote exists.
-5. Give the coding agent the Step 1 prompt first, then review `PLAN.md` before Step 2.
+5. Give the coding agent `PROMPT_1.md`, then review its development foundation and plan before using `PROMPT_2.md`.
 
-If global Blueprint approval is invalidated by regeneration, restore, or a new version, review and approve the current set again before downloading a replacement ZIP.
+If regeneration, restore, or a new version invalidates global Blueprint approval, review and approve the current set again before downloading a replacement ZIP.

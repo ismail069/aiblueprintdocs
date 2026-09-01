@@ -9,7 +9,7 @@ Anda memerlukan akun AI Blueprint yang sudah diverifikasi, periode Starter atau 
 
 - Untuk email dan password, terima Syarat, Kebijakan Privasi, serta Kebijakan Refund, lalu buka link verifikasi sebelum login.
 - Untuk Google, selesaikan login Google dan terima dokumen legal terbaru ketika diminta.
-- Jika akun belum pernah menyelesaikan pembelian paket, pilihan Starter/Plus terbuka setelah login. Popup boleh ditutup untuk sesi saat ini, tetapi muncul kembali pada login berikutnya sampai pembayaran paket pertama berhasil.
+- Jika akun belum pernah menyelesaikan pembelian paket, pilihan Starter/Plus terbuka setelah login. Menutupnya hanya menyembunyikan popup saat itu; popup muncul kembali saat halaman berikutnya dimuat atau setelah login berikutnya sampai pembayaran paket pertama berhasil.
 - Pilihan paket juga menerima kode campaign. Kode discount checkout mengubah harga yang memenuhi syarat; kode credit reguler menambahkan credit ke akun sebelum Anda melanjutkan. Satu akun hanya dapat memakai satu coupon campaign secara total.
 
 Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billing** setelah paket berbayar aktif.
@@ -32,7 +32,7 @@ Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billin
     Tanda tangani hanya ketika konteks produk sudah akurat. Approval ini otomatis memulai generasi dokumen di background, dan tab boleh ditutup.
   </Step>
   <Step title="Pantau generasi dokumen">
-    Setiap kartu dokumen yang sedang diproses menampilkan spinner **Generating**. Panel **Project Health** juga menampilkan **Generating** selama masih ada proses aktif. Anda boleh menutup tab karena pekerjaan tetap berjalan di server.
+    Setiap kartu dokumen yang sedang diproses menampilkan spinner **Generating**. Panel **Project Health** juga menampilkan **Generating** selama masih ada proses aktif. Blueprint Summary memperbarui state tersebut secara berkala tanpa refresh seluruh halaman. Anda boleh menutup tab karena pekerjaan tetap berjalan di server.
   </Step>
   <Step title="Tinjau setiap dokumen saat ini">
     Periksa Application Journey, Technical Foundation, Database Schema bila relevan, App Map, dan semua dokumen lainnya. Membuka versi dokumen saat ini mengubah statusnya dari **Belum ditinjau** menjadi **Ditinjau**. Ini mencatat review, bukan approval individual. Jika sebuah kartu berstatus **Tidak Diperlukan**, buka stub tersebut sekali; tidak ada konten atau perbaikan yang perlu dibuat, tetapi stub tetap termasuk dalam sepuluh dokumen saat ini.

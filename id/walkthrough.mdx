@@ -1,0 +1,128 @@
+---
+title: "Walkthrough customer"
+description: "Ikuti alur customer lengkap dari pembuatan akun sampai Project ZIP disetujui dan pemulihan melalui Support."
+---
+
+Walkthrough ini menunjukkan alur utama customer tanpa mengulang setiap pengaturan secara rinci. Seluruh screenshot menggunakan contoh tersanitasi tanpa data akun, pembayaran, atau project nyata.
+
+<Note>
+  AI Blueprint memiliki dua momen approval: **Idea Review / VPC Sign Approve** memulai generasi dokumen, sedangkan **Sign Approve Blueprint** menerima seluruh set dokumen yang sudah ditinjau dan membuka **Project ZIP**.
+</Note>
+
+## 1. Buat akun dan login
+
+Daftar dengan email dan password atau pilih **Lanjutkan dengan Google**.
+
+- Pendaftaran melalui email mengharuskan Anda membuka link verifikasi sebelum login.
+- Login Google mengembalikan Anda ke AI Blueprint setelah autentikasi Google selesai.
+- Jika diminta, baca dan setujui [Syarat dan Ketentuan](https://www.aiblueprint.web.id/terms), [Kebijakan Privasi](https://www.aiblueprint.web.id/privacy), dan [Kebijakan Refund](https://www.aiblueprint.web.id/refund-policy) yang berlaku.
+
+<Frame caption="Pilihan pendaftaran dan login Google yang sudah disanitasi.">
+  <img src="/images/walkthrough/id/01-register-or-google.png" alt="Halaman pendaftaran tersanitasi dalam bahasa Indonesia yang menampilkan form pendaftaran email dan pilihan login Google" />
+</Frame>
+
+Untuk masalah login, verifikasi, atau callback, buka [Troubleshooting login dan pembayaran](./troubleshooting/login-dan-pembayaran).
+
+## 2. Pilih paket pertama
+
+Jika akun belum pernah menyelesaikan pembelian paket, pilihan Starter/Plus otomatis terbuka setelah login. Anda tidak perlu membuka **Billing** lebih dahulu. Menutupnya hanya menyembunyikan popup saat itu; popup akan muncul lagi saat halaman berikutnya dimuat atau setelah login berikutnya sampai pembayaran paket pertama berhasil.
+
+Pilih paket, masukkan kode campaign yang memenuhi syarat jika tersedia, lalu selesaikan checkout di Midtrans. Top-up tersedia melalui **Billing** hanya setelah paket berbayar aktif.
+
+<Frame caption="Pilihan paket pertama yang otomatis muncul setelah login.">
+  <img src="/images/walkthrough/id/02-first-plan-popup.png" alt="Popup paket pertama tersanitasi yang menampilkan pilihan Starter dan Plus setelah login" />
+</Frame>
+
+Buka [Credit AI dan billing](./panduan/kredit-dan-billing) untuk memahami masa aktif paket, top-up, coupon, dan status pembayaran.
+
+## 3. Jelaskan ide dalam bahasa output yang diinginkan
+
+Di **Dashboard**, jelaskan user, masalah, outcome, alur utama, batasan, dan constraint penting. AI Blueprint mendeteksi bahasa dominan dari ide yang dikirim dan menggunakannya untuk dokumen yang dihasilkan. Toggle ID/EN di workspace hanya mengubah bahasa interface; toggle tersebut bukan pemilih bahasa output ide.
+
+Gunakan satu bahasa utama yang jelas dalam ide. Nama produk atau istilah teknis dalam bahasa lain tetap dapat digunakan selama brief menunjukkan bahasa yang Anda inginkan.
+
+<Frame caption="Input ide menggunakan deteksi bahasa otomatis.">
+  <img src="/images/walkthrough/id/03-idea-input-language-detection.png" alt="Form ide Dashboard tersanitasi dengan satu bahasa utama yang jelas dan tanpa pemilih bahasa output" />
+</Frame>
+
+Buka [Quickstart](/id/quickstart) untuk checklist brief ide yang berguna.
+
+## 4. Tinjau keputusan dan setujui VPC
+
+Baca Smart Requirement Summary dan jawab critical questions. Rekomendasi AI adalah saran; pastikan opsi yang dipilih benar-benar mewakili keputusan Anda.
+
+Pilih **Idea Review / VPC Sign Approve** hanya setelah konteks akurat. Tindakan ini mengunci konteks tervalidasi dan otomatis memulai generasi dokumen.
+
+<Frame caption="Tinjauan konteks produk sebelum generasi dimulai.">
+  <img src="/images/walkthrough/id/04-vpc-sign-approve.png" alt="Halaman Idea Review tersanitasi dengan keputusan penting dan tombol VPC Sign Approve" />
+</Frame>
+
+## 5. Pantau generasi di Blueprint Summary
+
+Setelah VPC disetujui, **Blueprint Summary** terbuka. Setiap dokumen yang sedang diproses menampilkan spinner dan **Project Health** menampilkan **Generating**. Selama halaman ini terbuka, sistem memeriksa state generasi yang tersimpan secara berkala, lalu memperbarui kartu dokumen yang selesai dan Project Health tanpa refresh seluruh halaman. Pekerjaan tetap berjalan di server jika Anda menutup tab.
+
+Tunggu generasi selesai sebelum meninjau versi aktif yang final. Jangan membuat Blueprint duplikat hanya karena satu tahap memerlukan waktu lebih lama.
+
+<Frame caption="Indikator generasi per dokumen dan pada Project Health.">
+  <img src="/images/walkthrough/id/05-blueprint-generating.png" alt="Blueprint Summary tersanitasi saat generasi dengan spinner dokumen dan Project Health berstatus Generating" />
+</Frame>
+
+Buka [Alur Blueprint](./konsep/alur-blueprint) untuk memahami proses background.
+
+## 6. Tinjau setiap dokumen dan review notes
+
+Buka masing-masing dari 10 kartu dokumen saat ini. Status kartu berubah dari **Belum ditinjau** menjadi **Ditinjau** ketika versi saat ini dibuka. Perubahan ini mencatat review, bukan tanda tangan. Buka stub **Tidak Diperlukan** satu kali juga.
+
+**Siap — keputusan Anda dibutuhkan** hanya muncul jika dokumen pemilik memuat keputusan eksplisit yang dapat Anda tindak lanjuti. Buka dokumen tersebut untuk membaca keputusan dan langkah berikutnya. Dokumen yang sudah ditinjau dan tidak mempunyai keputusan terbuka yang nyata menggunakan status hijau **Siap**; status review dan status konten tetap terpisah.
+
+Di **Project Health**, pilih **Lihat review notes** untuk membuka dialog review notes. Note menunjukkan risiko, asumsi, keputusan, atau peringatan perbaikan yang terlihat. Membaca note tidak menyelesaikannya secara otomatis; buka dokumen pemiliknya untuk memahami langkah berikutnya.
+
+<Frame caption="Kartu Ditinjau dan dialog review notes.">
+  <img src="/images/walkthrough/id/06-document-review-and-review-notes.png" alt="Blueprint Summary tersanitasi dengan kartu dokumen Ditinjau dan dialog Lihat review notes terbuka" />
+</Frame>
+
+Buka [Status dan approval](./panduan/status-dan-approval) untuk memahami setiap status dan gate approval.
+
+## 7. Revisi dengan satu atau beberapa proposal Assistant
+
+Gunakan Blueprint Assistant untuk mengajukan pertanyaan atau meminta koreksi. Respons Assistant tidak mengubah dokumen sampai Anda menerapkan proposal.
+
+- Buka **Review proposal**, lalu gunakan **Apply proposal** untuk satu proposal terpisah.
+- Susun beberapa proposal terkait lalu pilih **Apply all** agar dokumen terdampak dibuat ulang sebagai satu batch yang konsisten.
+- Setelah regenerasi, tunggu proses selesai dan tinjau kembali setiap versi aktif yang berubah.
+
+Buka **Proposal and regeneration tips** di Assistant untuk melihat checklist aman bagi satu proposal dan beberapa proposal sebelum menerapkan perubahan.
+
+<Frame caption="Panduan Assistant untuk alur satu dan beberapa proposal.">
+  <img src="/images/walkthrough/id/07-assistant-multiple-proposals.png" alt="Blueprint Assistant berbahasa Indonesia dengan panel Proposal and regeneration tips terbuka untuk panduan satu dan beberapa proposal" />
+</Frame>
+
+Buka [Revisi dengan Blueprint Assistant](./panduan/revisi-assistant) untuk memahami proposal dan perilaku versi.
+
+## 8. Setujui seluruh Blueprint dan buka Project ZIP
+
+Setelah generasi selesai, seluruh dokumen saat ini berstatus **Ditinjau**, serta tidak ada **Perlu Perbaikan** atau **Terhambat** yang mencegah approval, pilih **Sign Approve Blueprint** di **Blueprint Documents**.
+
+Approval global tunggal ini membuka **Export Project ZIP** untuk set dokumen saat ini. Regenerasi, restore, atau versi aktif baru dapat menggantikan approval tersebut dan mengunci export kembali.
+
+<Frame caption="Approval global dan Project ZIP yang sudah tersedia.">
+  <img src="/images/walkthrough/id/08-global-approval-project-zip.png" alt="Blueprint Summary yang sudah disetujui, menampilkan Blueprint disetujui, Project ZIP terbuka, dan tombol Ekspor ZIP Proyek aktif" />
+</Frame>
+
+Sebelum implementasi, baca [Project ZIP dan coding agent](./panduan/project-zip-dan-coding-agent).
+
+## 9. Pulihkan run yang berhenti atau hubungi Support
+
+Jika server mencatat insiden generasi yang berhenti, kartu pemulihan dapat menampilkan Support ID dan satu tindakan **Retry**. Gunakan Retry satu kali. Jika tindakan tidak tersedia atau proses kembali berhenti, pilih **Buka Support**.
+
+Form Support membawa Blueprint dan Support ID jika tersedia. Case yang Anda kirim tampil di riwayat Support, sedangkan percakapan dilanjutkan melalui email.
+
+<Frame caption="Pemulihan proses berhenti dengan Support ID tersanitasi.">
+  <img src="/images/recovery-support.svg" alt="Kartu pemulihan generasi tersanitasi yang menampilkan Support ID, Retry, dan Open Support" />
+</Frame>
+
+Buka [Troubleshooting generasi](./troubleshooting/generasi) dan [Hubungi Support](./akun/support) untuk alur pemulihan aman dan batas attachment.
+
+<Warning>
+  Jangan sertakan password, OTP, API key, private key, detail kartu pembayaran, cookie browser, atau credential production dalam screenshot, attachment Support, prompt, maupun contoh Project ZIP.
+</Warning>

@@ -1,0 +1,128 @@
+---
+title: "Customer walkthrough"
+description: "Follow the complete customer journey from account creation to an approved Project ZIP and recovery support."
+---
+
+This walkthrough shows the main customer journey without repeating every detailed setting. Screenshots use sanitized examples with no real account, payment, or project data.
+
+<Note>
+  AI Blueprint has two approval moments: **Idea Review / VPC Sign Approve** starts document generation, while **Sign Approve Blueprint** accepts the complete reviewed document set and unlocks **Project ZIP**.
+</Note>
+
+## 1. Create an account and sign in
+
+Register with email and password or select **Continue with Google**.
+
+- Email registration requires you to open the verification link before signing in.
+- Google sign-in returns you to AI Blueprint after Google authentication.
+- When prompted, review and accept the current [Terms](https://www.aiblueprint.web.id/terms), [Privacy Policy](https://www.aiblueprint.web.id/privacy), and [Refund Policy](https://www.aiblueprint.web.id/refund-policy).
+
+<Frame caption="Sanitized registration and Google sign-in choices.">
+  <img src="/images/walkthrough/en/01-register-or-google.png" alt="Sanitized registration page showing email registration and Continue with Google options" />
+</Frame>
+
+For sign-in, verification, or callback problems, see [Login and payment troubleshooting](/troubleshooting/login-and-payments).
+
+## 2. Choose the first plan
+
+If the account has never completed a plan purchase, a Starter/Plus selector opens after sign-in. You do not need to find **Billing** first. Closing it dismisses the current popup, but it appears again on a later page load or sign-in until the first plan payment succeeds.
+
+Choose a plan, enter an eligible campaign code when applicable, then complete checkout in Midtrans. Top-ups become available from **Billing** only after a paid plan is active.
+
+<Frame caption="First-plan selector shown automatically after sign-in.">
+  <img src="/images/walkthrough/en/02-first-plan-popup.png" alt="Sanitized first-plan popup showing Starter and Plus choices after sign-in" />
+</Frame>
+
+See [AI credits and billing](/guides/credits-and-billing) for plan activity, top-ups, coupons, and payment status.
+
+## 3. Describe the idea in its intended output language
+
+On **Dashboard**, describe the users, problem, outcome, main workflow, boundaries, and important constraints. AI Blueprint detects the dominant language of the submitted idea and uses it for generated documents. The ID/EN workspace toggle changes the interface language; it is not an output-language selector for the idea.
+
+Use one clear primary language in the idea. Mixed-language product names or technical terms are fine when the surrounding brief makes the intended language clear.
+
+<Frame caption="Idea input uses automatic language detection.">
+  <img src="/images/walkthrough/en/03-idea-input-language-detection.png" alt="Sanitized Dashboard idea form with a clear primary-language idea and no output-language selector" />
+</Frame>
+
+See [Quickstart](/quickstart) for a useful idea-brief checklist.
+
+## 4. Review decisions and approve the VPC
+
+Read the Smart Requirement Summary and answer the critical questions. AI recommendations are suggestions; confirm the option that represents your decision.
+
+Select **Idea Review / VPC Sign Approve** only when the context is accurate. This locks the validated context and automatically starts document generation.
+
+<Frame caption="Product-context review before generation starts.">
+  <img src="/images/walkthrough/en/04-vpc-sign-approve.png" alt="Sanitized Idea Review page with critical decisions and the VPC Sign Approve action" />
+</Frame>
+
+## 5. Follow generation in Blueprint Summary
+
+After VPC approval, **Blueprint Summary** opens. Each document being processed shows a spinner, and **Project Health** shows **Generating**. While this page remains open, it checks the stored generation state periodically and updates completed document cards and Project Health without a full-page refresh. Work continues on the server if you close the tab.
+
+Wait for generation to finish before reviewing the final current versions. Do not create a duplicate Blueprint because one stage takes longer than another.
+
+<Frame caption="Per-document and Project Health generation indicators.">
+  <img src="/images/walkthrough/en/05-blueprint-generating.png" alt="Sanitized Blueprint Summary during generation with document spinners and Project Health showing Generating" />
+</Frame>
+
+See [Blueprint lifecycle](/concepts/blueprint-lifecycle) for background-work behaviour.
+
+## 6. Review every document and its review notes
+
+Open each of the 10 current document cards. The card changes from **Not yet reviewed** to **Reviewed** when the current version opens. This records review; it is not a signature. Open a **Not Required** stub once as well.
+
+**Ready — your decision needed** appears only when the owning document contains an explicit decision you can act on. Open that document to read the decision and its next action. A reviewed document with no genuine open decision uses the green **Ready** status; review state and content status remain separate.
+
+In **Project Health**, select **View review notes** to open the review-notes dialog. A note is a visible risk, assumption, decision, or repair warning. Reading a note does not silently resolve it; use the owning document to understand the next action.
+
+<Frame caption="Reviewed cards and the review-notes dialog.">
+  <img src="/images/walkthrough/en/06-document-review-and-review-notes.png" alt="Sanitized Blueprint Summary showing Reviewed document cards and an open View review notes dialog" />
+</Frame>
+
+See [Statuses and approval](/guides/statuses-and-approval) for every status and approval gate.
+
+## 7. Revise with one or several Assistant proposals
+
+Use the Blueprint Assistant to ask a question or request a correction. A response does not change documents until you apply a proposal.
+
+- Open **Review proposal**, then use **Apply proposal** for one isolated proposal.
+- Stage related proposals and use **Apply all** to regenerate their affected documents as one consistent batch.
+- After regeneration, wait for generation to finish and review each changed current version again.
+
+Open **Proposal and regeneration tips** in the Assistant for the safe single-proposal and multiple-proposal checklist before applying a change.
+
+<Frame caption="Assistant guidance for single and multiple proposal workflows.">
+  <img src="/images/walkthrough/en/07-assistant-multiple-proposals.png" alt="Blueprint Assistant with the Proposal and regeneration tips panel open for single and multiple proposal guidance" />
+</Frame>
+
+See [Revise with the Blueprint Assistant](/guides/revise-with-assistant) for proposal and version behaviour.
+
+## 8. Approve the complete Blueprint and unlock Project ZIP
+
+When generation has finished, all current documents are **Reviewed**, and no **Needs Repair** or **Blocked** item prevents approval, select **Sign Approve Blueprint** in **Blueprint Documents**.
+
+This single global approval unlocks **Export Project ZIP** for the exact current document set. Regeneration, restore, or a new current version can supersede that approval and lock export again.
+
+<Frame caption="Global approval and Project ZIP availability.">
+  <img src="/images/walkthrough/en/08-global-approval-project-zip.png" alt="Approved Blueprint Summary showing Blueprint approved, Project ZIP unlocked, and the enabled Export Project ZIP action" />
+</Frame>
+
+Before implementation, read [Project ZIP and coding-agent workflow](/guides/project-zip-and-coding-agent).
+
+## 9. Recover a stopped run or contact Support
+
+If the server records a stopped generation incident, the recovery card can show a Support ID and one **Retry** action. Use Retry once. If it is unavailable or the process stops again, select **Open Support**.
+
+The Support form carries the Blueprint and Support ID when available. Your submitted case appears in Support history, while the conversation continues by email.
+
+<Frame caption="Stopped-run recovery with a sanitized Support ID.">
+  <img src="/images/recovery-support.svg" alt="Sanitized paused-generation recovery card showing a Support ID, Retry, and Open Support" />
+</Frame>
+
+See [Generation troubleshooting](/troubleshooting/generation) and [Contact Support](/account/support) for the safe recovery path and attachment limits.
+
+<Warning>
+  Never include passwords, OTPs, API keys, private keys, payment-card details, browser cookies, or production credentials in screenshots, Support attachments, prompts, or Project ZIP examples.
+</Warning>
