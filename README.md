@@ -1,6 +1,6 @@
 # AI Blueprint Help Centre
 
-Customer-facing documentation for [AI Blueprint](https://www.aiblueprint.web.id), built with Mintlify.
+Customer-facing documentation for [AI Blueprint Indonesia](https://www.aiblueprint.web.id) and [AI Blueprint Global](https://aiblueprintapp.com), built with Mintlify.
 
 ## Local preview
 

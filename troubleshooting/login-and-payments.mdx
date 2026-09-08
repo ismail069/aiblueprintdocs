@@ -1,54 +1,66 @@
 ---
 title: "Login and payment troubleshooting"
-description: "Resolve email, Google sign-in, verification, and Midtrans payment issues."
+description: "Resolve verification, Google sign-in, Midtrans, PayPal, and pending-payment issues."
 ---
 
-## Email and password
+## Email verification and password
 
 1. Confirm you are using the same email address used at registration.
-2. Complete email verification when required.
-3. Use **Forgot password** to request a new reset link. Use only the newest link; reset tokens expire and are single-use.
-4. If you changed your password in **Settings**, sign in again because existing sessions are invalidated.
+2. Complete the security check before signing in or requesting another verification email.
+3. **Resend verification email** becomes available again after two minutes. You can resend at most three times.
+4. On the fourth request, the button opens a verification-help form instead of sending another email. The form goes to `halo@aiblueprint.web.id` on the Indonesian domain or `hello@aiblueprintapp.com` on the global domain.
+5. Use **Forgot password** for a new reset link. Use only the newest link; reset tokens expire and are single-use.
+
+If the countdown or attempt count looks wrong, refresh once in the same browser. Do not repeatedly switch tabs or addresses to bypass the limit; use the support form after the third resend.
 
 ## Google sign-in
 
-Start Google sign-in from the AI Blueprint **Login** or **Register** page. Complete the Google consent flow and allow the browser to return to `aiblueprint.web.id`.
+Start Google sign-in from the AI Blueprint **Login** or **Register** page. Complete Google consent and allow the browser to return to the AI Blueprint domain you are using: `aiblueprint.web.id` or `aiblueprintapp.com`.
 
-If Google returns a configuration or callback error:
+If Google returns a callback error, try once more in the same browser and confirm that popup or cookie restrictions did not block the return. If it fails again, capture the safe error page and time, then contact Support without sharing OAuth tokens, cookies, or passwords.
 
-- return to the AI Blueprint login page and try once more in the same browser;
-- confirm third-party cookie or popup restrictions did not block the redirect;
-- capture the safe error page and time;
-- create a Support ticket without including OAuth tokens, browser cookies, or account passwords.
+## Select currency and provider
 
-## Midtrans payment
+Use the **IDR / USD** selector on Pricing or **Billing** before checkout:
 
-<Steps>
-  <Step title="Choose the purchase">
-    On an account with no completed plan purchase, choose Starter or Plus in the selector that opens after sign-in. For a later plan purchase, plan refresh, or top-up, open **Billing**. Top-up requires an active plan.
-  </Step>
-  <Step title="Finish in Midtrans">
-    Complete the selected method and wait for a final result. The transaction fee is paid by the customer and varies by method; the checkout total is authoritative.
-  </Step>
-  <Step title="Return to AI Blueprint">
-    The finish page confirms that payment status may still be reconciling. Refresh **Billing** after Midtrans has finalized the transaction.
-  </Step>
-</Steps>
+- IDR uses Midtrans and the Rupiah catalogue;
+- USD uses PayPal and the US-dollar catalogue.
+
+The choice persists in that browser for the active domain. `aiblueprint.web.id` initially selects IDR; `aiblueprintapp.com` initially selects USD. See [AI credits and billing](/guides/credits-and-billing) for current prices.
+
+## Midtrans: close, continue, change, or cancel
+
+Closing Snap does not mean success and does not automatically cancel a pending transaction. AI Blueprint can show **Payment is being verified** while it checks the provider's official status.
+
+| What you want | Action on the payment-result page | Result |
+| --- | --- | --- |
+| Finish the method already selected | **Continue previous method** | Reopens the current valid payment instruction or Snap token. |
+| Pick another bank, QRIS, GoPay, or another available method | **Choose another payment method** | Cancels the previous pending instruction when eligible and opens a fresh Snap checkout at all payment methods. No second confirmation is required. |
+| Stop this purchase | **Cancel transaction** | Requests cancellation of the eligible open transaction and returns to Billing. No plan or credit is granted. |
+| Refresh the official status | **Check again** | Reads the latest verified provider state. |
+
+After you select a VA, QRIS, or e-wallet, Snap may mark the transaction **pending** because customer action is still required. Pending is not success. If the old instruction has expired, start a new checkout; do not transfer to an expired VA or scan an expired QR code.
+
+<Note>
+  Midtrans can send its own reminder for a pending checkout. Follow the reminder only while the order and payment instruction are still valid.
+</Note>
+
+## PayPal checkout
+
+For USD, complete approval in PayPal and return to AI Blueprint. The plan or add-on is granted only after AI Blueprint verifies the PayPal result. If you close or cancel PayPal, return to Billing and start or continue checkout as offered; a browser return by itself is not payment confirmation.
 
 ## Payment succeeded but access did not update
 
-Do not repeat the payment immediately. Record the order reference, payment method, amount, Midtrans status, and time. Refresh once, then create a Support ticket if the plan or credits remain unchanged.
+Do not repeat the payment immediately. Select **Check again** or refresh Billing once after the provider reaches a final successful state. Keep the order reference, provider, amount, payment method, and approximate time. Contact Support if the plan, credits, or invoice still does not appear.
 
-## Payment failed, expired, or was cancelled
+## Failed, cancelled, or expired payment
 
-No plan or credit grant is expected for a non-settled transaction. Start a new checkout from **Billing** instead of reusing an expired payment instruction.
-
-If the failed transaction was the account's first plan attempt, the Starter/Plus selector appears again on a later sign-in because no plan purchase has completed yet.
+No plan or credit grant is expected for a final failed, cancelled, or expired transaction. Start a new checkout from Billing. If this was the first plan attempt, the plan selector can appear again because no purchase has completed.
 
 ## A campaign coupon says checkout pending
 
-The coupon is reserved by an earlier Midtrans checkout that has not reached a terminal status. Reopen or finish that checkout when it is still valid, then wait for Midtrans reconciliation. Do not create or pay a second order for the same purchase. If the earlier payment is already failed, cancelled, or expired but the message remains, keep its order reference and open Support.
+The coupon is reserved by an earlier Midtrans checkout that has not reached a final state. Continue the valid checkout or cancel it before starting again. A final failed, cancelled, or expired order releases the coupon without granting its benefit. If the provider is already final but the reservation remains, keep the order reference and contact Support.
 
 <Warning>
-  Never send a full card number, PIN, CVV, password, OTP, API key, or copied browser cookie to Support.
+  Payment access is granted only after server-side provider verification. Never send a full card number, PIN, CVV, password, OTP, API key, PayPal credential, or browser cookie to Support.
 </Warning>

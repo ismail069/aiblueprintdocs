@@ -7,11 +7,11 @@ description: "Understand the static, language-matched implementation kit and mov
 
 ## What the ZIP contains
 
-The ZIP keeps the Blueprint product inputs:
+The ZIP keeps the Blueprint product inputs. Use the actual `manifest.json` in the archive as the authoritative inventory because conditional project artifacts can vary.
 
 - the consolidated PRD Markdown file;
 - the connected Blueprint document files under `docs/`; and
-- the manifest that lists the exported package contents.
+- `manifest.json`, which lists the exported package contents.
 
 At the archive root, the implementation kit adds exactly eight Markdown files:
 
@@ -26,7 +26,7 @@ At the archive root, the implementation kit adds exactly eight Markdown files:
 | 7 | `PROMPT_5.md` | Resume interrupted work from the repository's recorded state. |
 | 8 | `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` or `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` | Beginner guide in the Blueprint/PRD language. Each ZIP contains the matching file, not both. |
 
-The root also contains `.env.local` as a safe placeholder template. It contains no real credentials and is separate from the eight Markdown files.
+The root also contains `.env.local` as a safe placeholder template and `.gitignore` to keep local secrets out of Git. Neither file is part of the eight Markdown-file implementation kit.
 
 <Warning>
   Never commit real values from `.env.local`. Keep the file ignored by Git, add secrets only in your local or deployment environment, and never paste them into a coding-agent prompt, log, or screenshot.
@@ -53,7 +53,7 @@ Export the existing Blueprint again after it meets the current review and approv
 
 <Steps>
   <Step title="Extract into a separate folder">
-    Inspect the ZIP before copying anything into an active repository. Start with the localized implementation guide.
+    Do not code inside the compressed archive. Extract it into a separate folder, inspect `manifest.json`, then start with the localized implementation guide.
   </Step>
   <Step title="Preserve existing project rules">
     In a new repository, place `AGENTS.md` and `AGENT.md` at the root. In an existing repository, reconcile relevant rules with its current agent instructions. Do not overwrite human instructions, source code, configuration, or local changes.

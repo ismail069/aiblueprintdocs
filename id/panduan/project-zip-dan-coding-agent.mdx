@@ -7,11 +7,11 @@ description: "Pahami implementation kit statis yang sesuai bahasa dan pindahkan 
 
 ## Isi Project ZIP
 
-ZIP tetap menyertakan input produk dari Blueprint:
+ZIP tetap menyertakan input produk dari Blueprint. Gunakan `manifest.json` yang benar-benar ada di arsip sebagai daftar acuan karena artifact kondisional dapat berbeda menurut project.
 
 - file Markdown PRD terkonsolidasi;
 - file dokumen Blueprint yang terhubung di dalam `docs/`; dan
-- manifest yang mencantumkan isi paket hasil export.
+- `manifest.json` yang mencantumkan isi paket hasil export.
 
 Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 
@@ -26,7 +26,7 @@ Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 | 7 | `PROMPT_5.md` | Melanjutkan pekerjaan yang terputus dari state yang tercatat di repository. |
 | 8 | `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` atau `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` | Panduan pemula dalam bahasa Blueprint/PRD. Setiap ZIP hanya berisi file yang sesuai, bukan keduanya. |
 
-Root juga berisi `.env.local` sebagai template placeholder yang aman. File ini tidak berisi credential nyata dan tidak termasuk dalam hitungan delapan file Markdown.
+Root juga berisi `.env.local` sebagai template placeholder yang aman dan `.gitignore` untuk mencegah secret lokal masuk ke Git. Kedua file tersebut tidak termasuk dalam delapan file Markdown implementation kit.
 
 <Warning>
   Jangan pernah commit nilai nyata dari `.env.local`. Pastikan file tetap diabaikan oleh Git, tambahkan secret hanya ke environment lokal atau deployment, dan jangan menempelkannya ke prompt coding agent, log, atau screenshot.
@@ -53,7 +53,7 @@ Export ulang Blueprint existing setelah syarat review dan approval saat ini terp
 
 <Steps>
   <Step title="Ekstrak ke folder terpisah">
-    Periksa isi ZIP sebelum menyalin apa pun ke repository aktif. Mulai dengan membaca panduan implementasi sesuai bahasa.
+    Jangan coding di dalam arsip terkompresi. Ekstrak ke folder terpisah, periksa `manifest.json`, lalu mulai dengan membaca panduan implementasi sesuai bahasa.
   </Step>
   <Step title="Pertahankan aturan project yang sudah ada">
     Pada repository baru, letakkan `AGENTS.md` dan `AGENT.md` di root. Pada repository existing, rekonsiliasikan aturan yang relevan dengan instruksi agent yang sudah tersedia. Jangan menimpa instruksi manusia, source code, konfigurasi, atau perubahan lokal.

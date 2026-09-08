@@ -1,54 +1,66 @@
 ---
 title: "Troubleshooting login dan pembayaran"
-description: "Atasi masalah email, login Google, verifikasi, dan pembayaran Midtrans."
+description: "Atasi masalah verifikasi, login Google, Midtrans, PayPal, dan pembayaran pending."
 ---
 
-## Email dan password
+## Verifikasi email dan password
 
 1. Pastikan email sama dengan yang dipakai saat registrasi.
-2. Selesaikan verifikasi email jika diminta.
-3. Gunakan **Forgot password** untuk meminta link reset baru. Pakai hanya link terbaru; token reset memiliki masa berlaku dan hanya dapat dipakai sekali.
-4. Jika password diubah dari **Settings**, login kembali karena sesi lama sudah dinonaktifkan.
+2. Selesaikan pemeriksaan keamanan sebelum login atau meminta email verifikasi lagi.
+3. Tombol **Kirim ulang email validasi** aktif kembali setelah dua menit. Anda dapat mengirim ulang maksimum tiga kali.
+4. Pada permintaan keempat, tombol membuka form bantuan verifikasi dan tidak mengirim email lagi. Form dikirim ke `halo@aiblueprint.web.id` pada domain Indonesia atau `hello@aiblueprintapp.com` pada domain global.
+5. Gunakan **Forgot password** untuk meminta link reset baru. Pakai hanya link terbaru; token reset memiliki masa berlaku dan hanya dapat dipakai sekali.
+
+Jika countdown atau jumlah percobaan terlihat keliru, refresh satu kali di browser yang sama. Jangan berpindah tab atau alamat berulang untuk melewati batas; gunakan form Support setelah pengiriman ulang ketiga.
 
 ## Login Google
 
-Mulai login Google dari halaman **Login** atau **Register** AI Blueprint. Selesaikan consent Google dan izinkan browser kembali ke `aiblueprint.web.id`.
+Mulai login Google dari halaman **Login** atau **Register** AI Blueprint. Selesaikan consent Google dan izinkan browser kembali ke domain AI Blueprint yang sedang Anda gunakan: `aiblueprint.web.id` atau `aiblueprintapp.com`.
 
-Jika Google menampilkan error konfigurasi atau callback:
+Jika Google menampilkan error callback, coba satu kali lagi di browser yang sama dan pastikan pembatasan popup atau cookie tidak memblokir return. Jika tetap gagal, simpan screenshot error yang aman dan waktu kejadian, lalu hubungi Support tanpa mengirim OAuth token, cookie, atau password.
 
-- kembali ke halaman login AI Blueprint dan coba sekali lagi di browser yang sama;
-- pastikan pembatasan third-party cookie atau popup tidak memblokir redirect;
-- simpan screenshot error yang aman dan waktu kejadian;
-- buat ticket Support tanpa menyertakan OAuth token, cookie browser, atau password akun.
+## Pilih mata uang dan provider
 
-## Pembayaran Midtrans
+Gunakan selector **IDR / USD** di Pricing atau **Billing** sebelum checkout:
 
-<Steps>
-  <Step title="Pilih pembelian">
-    Untuk akun yang belum pernah menyelesaikan pembelian paket, pilih Starter atau Plus pada popup setelah login. Untuk pembelian paket berikutnya, refresh paket, atau top-up, buka **Billing**. Top-up memerlukan paket aktif.
-  </Step>
-  <Step title="Selesaikan di Midtrans">
-    Bayar melalui metode yang dipilih dan tunggu hasil akhir. Biaya transaksi dibebankan kepada customer dan dapat berbeda berdasarkan metode; total checkout adalah acuan.
-  </Step>
-  <Step title="Kembali ke AI Blueprint">
-    Halaman finish menginformasikan bahwa status mungkin masih direkonsiliasi. Refresh **Billing** setelah Midtrans memfinalkan transaksi.
-  </Step>
-</Steps>
+- IDR memakai Midtrans dan katalog Rupiah;
+- USD memakai PayPal dan katalog dolar AS.
+
+Pilihan tersimpan di browser untuk domain aktif. `aiblueprint.web.id` memilih IDR sebagai nilai awal; `aiblueprintapp.com` memilih USD sebagai nilai awal. Buka [Credit AI dan billing](/id/panduan/kredit-dan-billing) untuk harga saat ini.
+
+## Midtrans: tutup, lanjutkan, ganti, atau batalkan
+
+Menutup Snap bukan pembayaran sukses dan tidak otomatis membatalkan transaksi pending. AI Blueprint dapat menampilkan **Payment is being verified** selama memeriksa status resmi provider.
+
+| Tujuan Anda | Aksi di halaman hasil pembayaran | Hasil |
+| --- | --- | --- |
+| Menyelesaikan metode yang sudah dipilih | **Continue previous method** | Membuka kembali instruksi pembayaran atau token Snap yang masih valid. |
+| Memilih bank, QRIS, GoPay, atau metode lain | **Choose another payment method** | Membatalkan instruksi pending sebelumnya jika memenuhi syarat, lalu membuka Snap baru pada semua metode pembayaran. Tidak ada konfirmasi kedua. |
+| Menghentikan pembelian | **Cancel transaction** | Meminta pembatalan transaksi open yang memenuhi syarat dan kembali ke Billing. Paket atau credit tidak diberikan. |
+| Memeriksa status resmi terbaru | **Check again** | Membaca state provider terverifikasi yang terbaru. |
+
+Setelah Anda memilih VA, QRIS, atau e-wallet, Snap dapat memberi status **pending** karena masih ada tindakan customer yang harus diselesaikan. Pending bukan sukses. Jika instruksi lama sudah expired, mulai checkout baru; jangan transfer ke VA atau memindai QR yang sudah expired.
+
+<Note>
+  Midtrans dapat mengirim reminder sendiri untuk checkout pending. Gunakan reminder hanya ketika order dan instruksi pembayarannya masih berlaku.
+</Note>
+
+## Checkout PayPal
+
+Untuk USD, selesaikan approval di PayPal lalu kembali ke AI Blueprint. Paket atau add-on hanya diberikan setelah AI Blueprint memverifikasi hasil PayPal. Jika PayPal ditutup atau dibatalkan, kembali ke Billing dan mulai atau lanjutkan checkout sesuai pilihan yang tersedia; return browser saja bukan konfirmasi pembayaran.
 
 ## Pembayaran berhasil tetapi akses belum berubah
 
-Jangan langsung mengulang pembayaran. Simpan referensi order, metode, nominal, status Midtrans, dan waktu. Refresh satu kali, lalu buat ticket Support jika paket atau credit tetap belum berubah.
+Jangan langsung mengulang pembayaran. Pilih **Check again** atau refresh Billing satu kali setelah provider mencapai status akhir sukses. Simpan referensi order, provider, nominal, metode pembayaran, dan perkiraan waktu. Hubungi Support jika paket, credit, atau invoice tetap belum muncul.
 
-## Pembayaran gagal, expired, atau dibatalkan
+## Pembayaran gagal, dibatalkan, atau expired
 
-Paket atau credit tidak diberikan untuk transaksi yang belum settle. Mulai checkout baru dari **Billing**, bukan memakai instruksi pembayaran yang sudah expired.
-
-Jika transaksi yang gagal adalah percobaan paket pertama akun, pilihan Starter/Plus muncul kembali pada login berikutnya karena belum ada pembelian paket yang berhasil.
+Paket atau credit tidak diberikan untuk transaksi yang berstatus akhir gagal, dibatalkan, atau expired. Mulai checkout baru dari Billing. Jika ini adalah percobaan paket pertama, pilihan paket dapat muncul lagi karena belum ada pembelian yang selesai.
 
 ## Coupon campaign menampilkan checkout pending
 
-Coupon sedang direservasi oleh checkout Midtrans sebelumnya yang belum mencapai status terminal. Buka kembali atau selesaikan checkout tersebut jika masih valid, lalu tunggu rekonsiliasi Midtrans. Jangan membuat atau membayar order kedua untuk pembelian yang sama. Jika pembayaran sebelumnya sudah gagal, dibatalkan, atau expired tetapi pesan tetap muncul, simpan referensi order dan buka Support.
+Coupon direservasi oleh checkout Midtrans lama yang belum mencapai status akhir. Lanjutkan checkout yang masih valid atau batalkan sebelum memulai lagi. Order berstatus akhir gagal, dibatalkan, atau expired melepaskan coupon tanpa memberikan benefit. Jika provider sudah final tetapi reservasi tetap ada, simpan referensi order dan hubungi Support.
 
 <Warning>
-  Jangan pernah mengirim nomor kartu lengkap, PIN, CVV, password, OTP, API key, atau cookie browser kepada Support.
+  Akses pembayaran hanya diberikan setelah verifikasi provider pada server. Jangan pernah mengirim nomor kartu lengkap, PIN, CVV, password, OTP, API key, credential PayPal, atau cookie browser kepada Support.
 </Warning>

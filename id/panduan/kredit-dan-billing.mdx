@@ -1,13 +1,26 @@
 ---
 title: "Credit AI dan billing"
-description: "Pahami credit paket, top-up, harga aksi, biaya pembayaran, dan refund."
+description: "Pahami mata uang, paket, add-on, harga aksi, biaya provider, dan status pembayaran."
 ---
 
-Satu Credit AI memiliki nilai publik **Rp1.000**. Saldo total menggabungkan credit paket reguler dan credit add-on, tetapi halaman Billing menampilkan kedua sumber secara terpisah.
+Credit AI adalah satuan pemakaian internal AI Blueprint. **Billing** menampilkan credit paket reguler dan credit add-on secara terpisah, lalu menggabungkannya sebagai saldo total yang tersedia.
 
-## Urutan pemakaian credit
+## Pilih mata uang katalog
 
-AI Blueprint selalu memakai **credit paket reguler lebih dahulu**. Jika saldo reguler habis atau kurang, sisa kebutuhan otomatis memakai credit add-on.
+Halaman Pricing dan Billing menyediakan selector **IDR / USD**. Pilihan ini mengubah seluruh katalog paket dan add-on sekaligus menentukan provider untuk checkout berikutnya.
+
+| Mata uang | Provider | Starter | Plus | Add-on |
+| --- | --- | ---: | ---: | --- |
+| IDR | Midtrans | Rp50.000 | Rp100.000 | 30 credit Rp30.000 · 75 credit Rp75.000 · 125 credit Rp125.000 |
+| USD | PayPal | US$8 | US$15 | 30 credit US$5 · 75 credit US$10 · 125 credit US$15 |
+
+`aiblueprint.web.id` memakai IDR sebagai pilihan awal. `aiblueprintapp.com` memakai USD sebagai pilihan awal. Anda dapat mengganti kedua situs ke mata uang lainnya. Browser menyimpan preferensi secara terpisah untuk setiap domain dan memakainya pada kunjungan katalog serta checkout berikutnya sampai Anda mengubahnya.
+
+Jika checkout IDR dimulai dari `aiblueprintapp.com`, AI Blueprint mengembalikan browser ke halaman hasil pembayaran pada domain `.com` asal setelah flow Midtrans. Return browser ini bukan konfirmasi pembayaran; AI Blueprint menunggu status provider yang terverifikasi.
+
+## Urutan pemakaian dan harga aksi
+
+AI Blueprint selalu memakai **credit paket reguler lebih dahulu**. Jika saldo tersebut habis atau kurang, sisa kebutuhan memakai credit add-on.
 
 | Aksi | Harga |
 | --- | ---: |
@@ -16,44 +29,42 @@ AI Blueprint selalu memakai **credit paket reguler lebih dahulu**. Jika saldo re
 | Rewrite satu dokumen | 3 credit |
 | Pesan Blueprint Assistant | Minimum 0,2 credit; biaya akhir mengikuti biaya input/output yang diterima dan dibulatkan naik per 0,2 credit |
 | Direct edit literal | Gratis |
-| Melanjutkan paid run yang terinterupsi | Gratis selama entitlement pembayaran awal masih valid |
+| Melanjutkan paid run terinterupsi yang memenuhi syarat | Gratis selama entitlement pembayaran awal masih valid |
 
 Retry, fallback, dan repair internal bukan aksi customer terpisah dan tidak ditagihkan terpisah. Run yang tidak memublikasikan output apa pun mendapat refund otomatis.
 
-## Paket dan top-up
+## Paket dan add-on
 
-| Produk | Harga | Credit | Ketersediaan |
-| --- | ---: | ---: | --- |
-| Starter | Rp50.000 per periode | 50 | Tersedia |
-| Plus | Rp100.000 per periode | 110 | Tersedia |
-| Pro | Harga disembunyikan di produk | — | Coming soon |
-| Top-up | Rp30.000 | 30 | Starter atau Plus aktif |
-| Top-up | Rp75.000 | 75 | Starter atau Plus aktif |
-| Top-up | Rp125.000 | 125 | Starter atau Plus aktif |
+Starter memberikan 50 credit reguler per periode. Plus memberikan 110 credit reguler per periode. Starter dan Plus memakai periode manual dan tidak auto-renew. **Pro masih Coming soon** dan belum mempunyai harga publik aktif.
 
-Starter dan Plus memakai periode manual dan tidak auto-renew. Berhenti memakai layanan atau membiarkan periode berakhir tidak menghapus akun. Kredit top-up tidak memiliki kedaluwarsa berbasis waktu selama akun tetap aktif; pembatalan, tidak diperpanjangnya, atau tidak terbayarnya paket tidak menghapus saldo tersebut. Saldo berakhir ketika penghapusan akun permanen selesai. Baca [Kebijakan Retensi](https://www.aiblueprint.web.id/retention-policy) untuk ketentuan lengkap akun dormant dan penghapusan.
-
-Semua aksi AI memerlukan paket berbayar aktif walaupun credit add-on masih tersisa. Mengakhiri atau tidak memperpanjang paket tidak menghapus saldo add-on; aktifkan kembali Starter atau Plus sebelum memakainya. Pilihan paket pertama muncul setelah login sampai akun menyelesaikan pembelian paket pertama. Refresh paket berikutnya dan semua top-up tersedia melalui **Billing**.
+Add-on memerlukan paket Starter atau Plus aktif. Credit add-on tidak kedaluwarsa hanya karena paket berakhir atau tidak diperpanjang, tetapi aksi AI tetap memerlukan paket berbayar aktif. Penghapusan akun permanen mengakhiri sisa saldo. Baca [Kebijakan Retensi](https://www.aiblueprint.web.id/retention-policy) untuk ketentuan akun dormant dan penghapusan.
 
 ## Coupon campaign
 
-AI Blueprint memiliki dua jenis coupon campaign:
+AI Blueprint mendukung tiga benefit campaign:
 
-- **Coupon discount checkout** mengurangi harga produk yang memenuhi syarat sebelum biaya transaksi Midtrans dihitung. Masukkan kode pada pilihan paket pertama atau checkout Billing yang mendukungnya, periksa total terbaru, lalu lanjutkan ke Midtrans.
-- **Coupon credit reguler** menambahkan Credit AI reguler sesuai campaign. Tukarkan melalui **Settings**, atau masukkan pada pilihan paket pertama saat onboarding. Credit ini adalah credit reguler, bukan credit add-on, dan aksi AI tetap memerlukan paket berbayar aktif.
+- **coupon discount checkout** mengurangi pembelian IDR yang memenuhi syarat sebelum Midtrans menghitung biaya metode pembayaran yang berlaku;
+- **coupon credit reguler** menambahkan Credit AI reguler; dan
+- **coupon Credit AI trial** menambahkan credit promosi yang ditampilkan dan membuka semua fitur workspace selama tujuh hari.
 
-Setiap akun hanya dapat memakai **satu coupon campaign secara total**. Setelah coupon discount checkout atau coupon credit reguler berhasil dipakai, akun yang sama tidak dapat memakai coupon campaign lain. Kode juga dapat memiliki batas pemakaian, tanggal kedaluwarsa, atau status nonaktif. Coupon yang terkait pembayaran berstatus pending tetap tidak tersedia sampai Midtrans memberikan hasil final; pembayaran gagal atau dibatalkan secara terminal melepaskan coupon tanpa memberikan benefit.
+Satu akun hanya dapat memakai **satu coupon campaign secara total**. Kode juga dapat memiliki tanggal kedaluwarsa, batas penggunaan, atau status nonaktif. Coupon checkout pada pembayaran pending tetap direservasi sampai pembayaran mencapai status akhir. Pembayaran gagal, dibatalkan, atau expired secara terminal melepaskannya tanpa memberikan benefit.
 
-## Biaya transaksi Midtrans
+Buka [Free Tier](/id/panduan/free-tier) untuk membedakan free preview biasa dan coupon Credit AI trial.
 
-Setiap checkout menambahkan biaya transaksi Midtrans yang berlaku ke jumlah yang dibayar customer. Biaya dapat berbeda menurut metode pembayaran dan dirinci di checkout sebelum konfirmasi. Total checkout adalah acuan untuk metode yang dipilih.
+## Biaya Midtrans dan PPN 11%
 
-<Warning>
-  Jangan tutup tab pembayaran sebelum Midtrans menampilkan status akhir. Jika pembayaran berhasil tetapi credit belum masuk setelah refresh yang wajar, simpan referensi order dan hubungi Support. Jangan membayar order yang sama dua kali.
-</Warning>
+AI Blueprint mengirim harga katalog IDR ke Snap tanpa menambahkan biaya tetap Rp4.000. Fitur **Split Midtrans fee** yang aktif menghitung nilai yang berlaku berdasarkan metode pembayaran yang dipilih di dalam Snap. Total final yang tampil sebelum konfirmasi adalah acuan.
+
+Midtrans menyatakan biaya layanannya belum termasuk PPN. **PPN 11% dihitung atas biaya Midtrans, bukan atas harga produk.** Sebagai contoh, metode pembayaran dengan biaya provider Rp4.000 mempunyai PPN Rp440 atas biaya tersebut. Tarif dan ketersediaan metode dapat berubah, jadi periksa total yang tampil di Snap dan buka [automatic fee imposition Midtrans](https://docs.midtrans.com/docs/snap-advanced-feature#automatic-fee-imposition) serta [biaya dan PPN Midtrans](https://docs.midtrans.com/docs/berapa-harga-midtrans-payment-service-1) untuk aturan provider terbaru.
 
 ## Riwayat pembayaran dan credit
 
-**Billing** menampilkan pembayaran berhasil, referensi invoice, grant credit, top-up, debit, dan refund. Riwayat credit dapat difilter berdasarkan tanggal dan diekspor menjadi CSV.
+**Billing** menampilkan status pembayaran, invoice, grant paket dan add-on, debit, serta refund. Riwayat credit dapat difilter berdasarkan tanggal dan diekspor menjadi CSV. Invoice hanya dibuat untuk pembayaran yang sudah dikonfirmasi provider.
 
-Anda dapat meminta review refund dalam **3 hari kalender** sejak pembayaran jika seluruh credit pembelian masih belum digunakan. Kelayakan, biaya provider, pengecualian, dan hak wajib mengikuti [Terms](https://www.aiblueprint.web.id/terms) dan [Refund Policy](https://www.aiblueprint.web.id/refund-policy) yang berlaku.
+Menutup Snap bukan pembayaran berhasil dan tidak otomatis membatalkan order. Order Midtrans pending dapat dilanjutkan, diganti ke metode pembayaran lain, atau dibatalkan secara eksplisit dari halaman hasil pembayaran AI Blueprint. Buka [Troubleshooting login dan pembayaran](/id/troubleshooting/login-dan-pembayaran) untuk pilihan yang tepat.
+
+Anda dapat meminta review refund dalam **3 hari kalender** sejak pembayaran jika seluruh alokasi credit pembelian belum digunakan. Kelayakan, biaya provider, pengecualian, dan hak wajib mengikuti [Syarat dan Ketentuan](https://www.aiblueprint.web.id/terms) serta [Kebijakan Refund](https://www.aiblueprint.web.id/refund-policy) yang berlaku.
+
+<Warning>
+  Redirect atau pesan browser bukan bukti pembayaran. Jangan membayar order yang sama dua kali. Jika provider menampilkan sukses tetapi Billing belum berubah setelah refresh yang wajar, simpan referensi order dan hubungi Support.
+</Warning>

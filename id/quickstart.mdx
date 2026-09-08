@@ -5,14 +5,15 @@ description: "Buat, tinjau, dan setujui AI Blueprint pertama Anda."
 
 ## Sebelum mulai
 
-Anda memerlukan akun AI Blueprint yang sudah diverifikasi, periode Starter atau Plus yang aktif, dan saldo Credit AI yang cukup untuk aksi yang dijalankan. Anda dapat mendaftar dengan email dan password atau melanjutkan dengan Google.
+Anda memerlukan akun AI Blueprint yang sudah diverifikasi. Anda dapat memulai dengan free preview satu kali jika memenuhi syarat, coupon Credit AI trial, atau periode Starter/Plus aktif dengan Credit AI yang cukup untuk aksi tersebut.
 
 - Untuk email dan password, terima Syarat, Kebijakan Privasi, serta Kebijakan Refund, lalu buka link verifikasi sebelum login.
 - Untuk Google, selesaikan login Google dan terima dokumen legal terbaru ketika diminta.
-- Jika akun belum pernah menyelesaikan pembelian paket, pilihan Starter/Plus terbuka setelah login. Menutupnya hanya menyembunyikan popup saat itu; popup muncul kembali saat halaman berikutnya dimuat atau setelah login berikutnya sampai pembayaran paket pertama berhasil.
-- Pilihan paket juga menerima kode campaign. Kode discount checkout mengubah harga yang memenuhi syarat; kode credit reguler menambahkan credit ke akun sebelum Anda melanjutkan. Satu akun hanya dapat memakai satu coupon campaign secara total.
+- Dashboard tetap menampilkan input ide seperti biasa. Jika jatah gratis, paket, atau saldo tidak dapat menutup aksi, pengiriman ide membuka informasi pembelian dan link menuju **Blueprint Saya**.
+- Pilihan paket pertama menyediakan selector **IDR / USD**. IDR memakai Midtrans; USD memakai PayPal. Selector yang sama tersedia di Pricing dan Billing.
+- Pilihan paket juga menerima kode campaign yang memenuhi syarat. Satu akun hanya dapat memakai satu coupon campaign secara total.
 
-Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billing** setelah paket berbayar aktif.
+Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billing** setelah paket berbayar aktif. Baca [Free Tier](/id/panduan/free-tier) sebelum mengandalkan akses free preview biasa.
 
 <Steps>
   <Step title="Jelaskan ide produk">
@@ -31,6 +32,9 @@ Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billin
   <Step title="Setujui Idea Review / VPC">
     Tanda tangani hanya ketika konteks produk sudah akurat. Approval ini otomatis memulai generasi dokumen di background, dan tab boleh ditutup.
   </Step>
+  <Step title="Buka Blueprint existing bila diperlukan">
+    **Recent Blueprints** tampil sebagai section tersendiri di antara input ide dan workspace activity. Section ini menampilkan maksimum empat kartu terbaru. Pilih **View all** untuk membuka **Blueprint Saya**.
+  </Step>
   <Step title="Pantau generasi dokumen">
     Setiap kartu dokumen yang sedang diproses menampilkan spinner **Generating**. Panel **Project Health** juga menampilkan **Generating** selama masih ada proses aktif. Blueprint Summary memperbarui state tersebut secara berkala tanpa refresh seluruh halaman. Anda boleh menutup tab karena pekerjaan tetap berjalan di server.
   </Step>
@@ -39,6 +43,9 @@ Top-up tidak muncul pada pilihan paket pertama. Top-up tersedia melalui **Billin
   </Step>
   <Step title="Setujui Blueprint lengkap">
     Setelah seluruh dokumen saat ini berstatus **Ditinjau**, generasi sudah selesai, dan tidak ada **Perlu Perbaikan** atau **Terhambat**, pilih **Sign Approve Blueprint** di bagian **Blueprint Documents**. Satu tindakan ini menerima seluruh set versi saat ini dan membuka akses **Project ZIP**.
+  </Step>
+  <Step title="Download Project ZIP">
+    **Export Project ZIP** terbuka setelah approval global. Baca [Project ZIP dan coding agent](/id/panduan/project-zip-dan-coding-agent) sebelum memindahkan file ke repository code.
   </Step>
 </Steps>
 

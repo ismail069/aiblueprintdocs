@@ -1,59 +1,70 @@
 ---
 title: "AI credits and billing"
-description: "Understand plan credits, top-ups, action prices, payment fees, and refunds."
+description: "Understand currencies, plans, top-ups, action prices, provider fees, and payment states."
 ---
 
-One AI credit has a public value of **Rp1,000**. Your balance combines regular plan credits and add-on credits, but the Billing page shows both sources separately.
+AI credits are AI Blueprint's internal usage unit. **Billing** shows regular plan credits and add-on credits separately, then combines them into the total available balance.
 
-## Credit order
+## Choose the catalogue currency
 
-AI Blueprint always uses **regular plan credits first**. If the regular balance is empty or insufficient, it uses the required remainder from add-on credits.
+The Pricing and Billing pages provide an **IDR / USD** selector. The selection changes the entire plan and add-on catalogue and determines the provider for the next checkout.
+
+| Currency | Provider | Starter | Plus | Add-ons |
+| --- | --- | ---: | ---: | --- |
+| IDR | Midtrans | Rp50,000 | Rp100,000 | 30 credits Rp30,000 · 75 credits Rp75,000 · 125 credits Rp125,000 |
+| USD | PayPal | US$8 | US$15 | 30 credits US$5 · 75 credits US$10 · 125 credits US$15 |
+
+`aiblueprint.web.id` starts with IDR selected. `aiblueprintapp.com` starts with USD selected. You can change either site to the other currency. The browser stores the preference separately for each domain and keeps it for later catalogue and checkout visits until you change it.
+
+When an IDR checkout starts on `aiblueprintapp.com`, AI Blueprint returns the browser to the original `.com` payment-result page after the Midtrans flow. This browser return does not confirm payment; AI Blueprint waits for verified provider status.
+
+## Credit order and action prices
+
+AI Blueprint always uses **regular plan credits first**. If that balance is empty or insufficient, it uses the required remainder from add-on credits.
 
 | Action | Price |
 | --- | ---: |
 | Full Blueprint generation | 25 credits |
 | Major cascade regeneration | 23 credits |
 | Scoped single-document rewrite | 3 credits |
-| Blueprint Assistant message | Minimum 0.2 credit; final charge follows accepted input/output cost and rounds up in 0.2-credit increments |
+| Blueprint Assistant message | Minimum 0.2 credit; the final charge follows accepted input/output cost and rounds up in 0.2-credit increments |
 | Literal direct edit | Free |
-| Resume a paid interrupted run | Free while the original paid entitlement remains valid |
+| Resume an eligible interrupted paid run | Free while the original paid entitlement remains valid |
 
 Internal retries, fallbacks, and repairs are not separate customer actions and are not billed separately. A run that publishes nothing is refunded automatically.
 
-## Plans and top-ups
+## Plans and add-ons
 
-| Product | Price | Credits | Availability |
-| --- | ---: | ---: | --- |
-| Starter | Rp50,000 per period | 50 | Available |
-| Plus | Rp100,000 per period | 110 | Available |
-| Pro | Price hidden in the product | — | Coming soon |
-| Top-up | Rp30,000 | 30 | Active Starter or Plus |
-| Top-up | Rp75,000 | 75 | Active Starter or Plus |
-| Top-up | Rp125,000 | 125 | Active Starter or Plus |
+Starter provides 50 regular credits per period. Plus provides 110 regular credits per period. Starter and Plus use manual periods and do not auto-renew. **Pro is Coming soon** and has no active public price.
 
-Starter and Plus are manual periods and do not auto-renew. Ending service or allowing a period to lapse does not delete your account. Top-up credits have no time-based expiry while your account remains active; cancellation, non-renewal, or non-payment does not remove them. They end when permanent account deletion finishes. Read the public [Retention Policy](https://www.aiblueprint.web.id/retention-policy) for the complete dormant-account and deletion terms.
-
-AI actions require an active paid plan even when add-on credits remain. Ending or not renewing a plan does not delete the add-on balance; reactivate Starter or Plus before using it. The first-plan selector appears after sign-in until the account completes its first plan purchase. Later plan refreshes and every top-up are available from **Billing**.
+Add-ons require an active Starter or Plus plan. Add-on credits do not expire only because a plan ends or is not renewed, but AI actions still require an active paid plan. Permanent account deletion ends the remaining balance. Read the public [Retention Policy](https://www.aiblueprint.web.id/retention-policy) for dormant-account and deletion terms.
 
 ## Campaign coupons
 
-AI Blueprint has two campaign-coupon types:
+AI Blueprint supports three campaign benefits:
 
-- A **checkout-discount coupon** reduces the eligible product price before the Midtrans transaction fee is calculated. Enter it in the first-plan selector or an eligible Billing checkout, review the updated total, and then continue to Midtrans.
-- A **regular-credit coupon** adds the campaign's regular AI credits. Redeem it from **Settings**, or enter it in the first-plan selector when onboarding. These are regular credits, not add-on credits, and AI actions still require an active paid plan.
+- a **checkout-discount coupon** reduces an eligible IDR purchase before Midtrans calculates any applicable payment-method fee;
+- a **regular-credit coupon** adds regular AI credits; and
+- a **trial-credit coupon** adds the displayed promotional credits and unlocks all workspace features for seven days.
 
-Each account can use only **one campaign coupon in total**. After a checkout-discount coupon or regular-credit coupon has been successfully redeemed, another campaign coupon cannot be used on the same account. Codes may also have a usage limit, expiry date, or disabled status. A coupon attached to a payment that is still pending remains unavailable until Midtrans reports a final result; a terminal failed or cancelled payment releases it without granting the benefit.
+One account can redeem only **one campaign coupon in total**. Codes can also have an expiry date, usage limit, or disabled state. A checkout coupon attached to a pending payment remains reserved until the payment reaches a final state. A terminal failed, cancelled, or expired payment releases it without granting the benefit.
 
-## Midtrans transaction fee
+See [Free Tier](/guides/free-tier) for the difference between the ordinary free preview and a trial-credit coupon.
 
-Each checkout adds the applicable Midtrans transaction fee to the amount paid by the customer. The fee can vary by payment method and is itemised in checkout before confirmation. The checkout total is authoritative for the selected method.
+## Midtrans fees and 11% VAT
 
-<Warning>
-  Do not close a payment tab until Midtrans shows a final state. If payment succeeds but credits do not appear after a reasonable refresh, keep the order reference and open Support. Do not pay the same order twice.
-</Warning>
+AI Blueprint sends the IDR catalogue price to Snap without adding a fixed Rp4,000 fee. The enabled **Split Midtrans fee** setting calculates the applicable amount from the payment method selected inside Snap. The final amount shown before confirmation is authoritative.
+
+Midtrans states that its service fees exclude VAT. **11% VAT is calculated on the Midtrans fee, not on the product price.** A payment method with a Rp4,000 provider fee, for example, has Rp440 VAT on that fee. Rates and method availability can change, so confirm the total displayed by Snap and consult [Midtrans automatic fee imposition](https://docs.midtrans.com/docs/snap-advanced-feature#automatic-fee-imposition) and [Midtrans fees and VAT](https://docs.midtrans.com/docs/how-much-does-midtrans-charge-for-its-payment-service) when you need the current provider rules.
 
 ## Payment and credit history
 
-**Billing** shows successful payments, invoice references, credit grants, top-ups, debits, and refunds. You can filter credit history by date and export it as CSV.
+**Billing** lists payment status, invoices, plan and add-on grants, debits, and refunds. You can filter credit history by date and export it as CSV. An invoice is created only for a payment confirmed by the provider.
+
+Closing Snap is not a successful payment and does not automatically cancel an order. A pending Midtrans order can be continued, changed to another payment method, or explicitly cancelled from the AI Blueprint payment-result page. See [Login and payment troubleshooting](/troubleshooting/login-and-payments) for the exact choices.
 
 You may request refund review within **3 calendar days** of payment when the entire purchased credit allocation remains unused. Eligibility, provider fees, exceptions, and statutory rights follow the current public [Terms](https://www.aiblueprint.web.id/terms) and [Refund Policy](https://www.aiblueprint.web.id/refund-policy).
+
+<Warning>
+  A redirect or browser message is not proof of payment. Do not pay the same order twice. If the provider shows success but Billing does not update after a reasonable refresh, keep the order reference and contact Support.
+</Warning>
