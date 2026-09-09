@@ -5,13 +5,25 @@ description: "Understand the static, language-matched implementation kit and mov
 
 **Project ZIP** packages the approved current Blueprint for implementation. It remains locked until all 10 current document cards, including any **Not Required** stub, are **Reviewed** and you complete **Sign Approve Blueprint**.
 
+<Frame caption="Download the approved package from Blueprint Summary with Export Project ZIP.">
+  <img src="/images/blueprint-summary-export-project-zip.png" alt="Blueprint Summary with PDF, DOCX, and Export Project ZIP actions" />
+</Frame>
+
 ## What the ZIP contains
 
-The ZIP keeps the Blueprint product inputs. Use the actual `manifest.json` in the archive as the authoritative inventory because conditional project artifacts can vary.
+The ZIP keeps the product decisions, document versions, implementation handoff, and agent workflow together. Project-specific filenames include a safe form of the Blueprint title. Use the actual `manifest.json` in the archive as the authoritative inventory because conditional implementation-source artifacts can vary.
 
-- the consolidated PRD Markdown file;
-- the connected Blueprint document files under `docs/`; and
-- `manifest.json`, which lists the exported package contents.
+### Product and document files
+
+| File or folder | Purpose and authority |
+| --- | --- |
+| `Blueprint-PRD-<Project>.md` | Consolidated implementation PRD in pipeline order. Use it as the primary source for approved scope, requirements, acceptance criteria, and traceability. |
+| `Complete-Human-PRD-<Project>.md` or `PRD-Human-Lengkap-<Project>.md` | Human-readable PRD with an App Map tree. Use it for product review; it must not silently override the consolidated PRD. |
+| `Complete-Database-Schema.md` or `Skema-Database-Lengkap.md` | Complete persistence contract. Use it for tables, fields, constraints, indexes, relationships, and migrations. |
+| `UI-MOCKUP-DIRECTION-SUMMARY-<Project>.md` or `RINGKASAN-ARAHAN-MOCKUP-UI-<Project>.md` | Concise brief for UI mockup direction. It controls visual exploration, not business scope. |
+| `docs/01-....md` through the current document set | Individual Blueprint documents, numbered in pipeline order for focused reading and traceability. |
+| `docs/implementation-sources/`, when present | Stable intermediate decisions and implementation-source records used for audit and consistency checks. |
+| `manifest.json` | Machine-readable index of the package, document versions and statuses, paths, language, environment parameter names, and prompt sequence. Read this first instead of guessing filenames. |
 
 At the archive root, the implementation kit adds exactly eight Markdown files:
 
@@ -27,6 +39,10 @@ At the archive root, the implementation kit adds exactly eight Markdown files:
 | 8 | `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` or `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` | Beginner guide in the Blueprint/PRD language. Each ZIP contains the matching file, not both. |
 
 The root also contains `.env.local` as a safe placeholder template and `.gitignore` to keep local secrets out of Git. Neither file is part of the eight Markdown-file implementation kit.
+
+<Note>
+  Project ZIP contains specifications and workflow files, not a finished application repository. The coding agent creates or reconciles source code after it has read the package and you have reviewed its plan.
+</Note>
 
 <Warning>
   Never commit real values from `.env.local`. Keep the file ignored by Git, add secrets only in your local or deployment environment, and never paste them into a coding-agent prompt, log, or screenshot.
@@ -83,12 +99,25 @@ Export the existing Blueprint again after it meets the current review and approv
 
 Do not run Step 4 merely to make work appear faster. Keep one coordinator, explicit ownership, and a clear integration order whenever multi-agent mode is active.
 
+## Source-of-truth order for the coding agent
+
+1. `manifest.json` identifies the files, versions, and workflow included in this exact package.
+2. `Blueprint-PRD-<Project>.md` defines approved implementation scope and acceptance criteria.
+3. The complete database schema defines persistence and migration constraints.
+4. Files under `docs/` provide focused domain detail and traceability.
+5. The Human PRD supports review, while the UI Mockup Direction file supports visual exploration.
+6. `AGENTS.md`, the localized implementation guide, and the five prompts control how the coding work is performed; they do not add product features.
+
+If two authoritative product files conflict, stop before implementation, show the filenames and impact, and ask for a decision. Do not let the coding agent invent a resolution.
+
 ## Before the first coding run
 
-1. Read the localized implementation guide, consolidated PRD, and `AGENTS.md`.
-2. Confirm that existing repository rules and local changes will be preserved.
-3. Reconcile `.env.local` without adding or exposing real secrets.
-4. Confirm the Git remote, or provide a repository URL only if no remote exists.
-5. Give the coding agent `PROMPT_1.md`, then review its development foundation and plan before using `PROMPT_2.md`.
+1. Extract the archive into a normal folder and read `manifest.json`.
+2. Read the localized implementation guide, `AGENTS.md`, consolidated PRD, complete schema, and relevant `docs/` files.
+3. Confirm that existing repository rules, source code, configuration, and local changes will be preserved.
+4. Reconcile `.env.local` without adding or exposing real secrets, then confirm that it remains ignored by Git.
+5. Create or verify a Git baseline before the coding agent edits files.
+6. Give the coding agent `PROMPT_1.md`. Review its product explanation, conflicts, risks, acceptance criteria, development foundation, and plan before using `PROMPT_2.md`.
+7. After each later prompt, run the repository checks, inspect the UI where applicable, review `git diff`, and commit only verified work before moving to the next stage.
 
 If regeneration, restore, or a new version invalidates global Blueprint approval, review and approve the current set again before downloading a replacement ZIP.

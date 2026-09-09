@@ -5,13 +5,25 @@ description: "Pahami implementation kit statis yang sesuai bahasa dan pindahkan 
 
 **Project ZIP** adalah paket handoff untuk memulai implementasi. Tombol download tetap terkunci sampai seluruh 10 kartu dokumen saat ini berstatus **Ditinjau**—termasuk stub **Tidak Diperlukan**—dan set versi tersebut menerima **Sign Approve Blueprint**.
 
+<Frame caption="Unduh paket yang sudah disetujui dari Blueprint Summary melalui Export Project ZIP.">
+  <img src="/images/blueprint-summary-export-project-zip.png" alt="Blueprint Summary dengan tindakan PDF, DOCX, dan Export Project ZIP" />
+</Frame>
+
 ## Isi Project ZIP
 
-ZIP tetap menyertakan input produk dari Blueprint. Gunakan `manifest.json` yang benar-benar ada di arsip sebagai daftar acuan karena artifact kondisional dapat berbeda menurut project.
+ZIP menyatukan keputusan produk, versi dokumen, handoff implementasi, dan workflow agent. Nama file yang spesifik untuk project memakai bentuk aman dari judul Blueprint. Gunakan `manifest.json` yang benar-benar ada di arsip sebagai daftar acuan karena artifact implementation source kondisional dapat berbeda menurut project.
 
-- file Markdown PRD terkonsolidasi;
-- file dokumen Blueprint yang terhubung di dalam `docs/`; dan
-- `manifest.json` yang mencantumkan isi paket hasil export.
+### File produk dan dokumen
+
+| File atau folder | Kegunaan dan otoritas |
+| --- | --- |
+| `Blueprint-PRD-<Project>.md` | PRD implementasi terkonsolidasi dalam urutan pipeline. Gunakan sebagai sumber utama untuk scope, requirement, acceptance criteria, dan traceability yang disetujui. |
+| `PRD-Human-Lengkap-<Project>.md` atau `Complete-Human-PRD-<Project>.md` | PRD yang mudah dibaca dengan App Map berbentuk tree. Gunakan untuk review produk; file ini tidak boleh diam-diam mengganti PRD terkonsolidasi. |
+| `Skema-Database-Lengkap.md` atau `Complete-Database-Schema.md` | Kontrak persistence lengkap. Gunakan untuk table, field, constraint, index, relationship, dan migration. |
+| `RINGKASAN-ARAHAN-MOCKUP-UI-<Project>.md` atau `UI-MOCKUP-DIRECTION-SUMMARY-<Project>.md` | Brief ringkas untuk arah mockup UI. File ini mengarahkan eksplorasi visual, bukan business scope. |
+| `docs/01-....md` sampai set dokumen saat ini | Dokumen Blueprint individual yang diberi nomor sesuai urutan pipeline agar mudah dibaca dan ditelusuri. |
+| `docs/implementation-sources/`, jika ada | Keputusan antara dengan ID stabil dan catatan sumber implementasi untuk audit serta pemeriksaan konsistensi. |
+| `manifest.json` | Index yang dapat dibaca mesin untuk file paket, versi dan status dokumen, path, bahasa, nama parameter environment, dan urutan prompt. Baca file ini terlebih dahulu, bukan menebak nama file. |
 
 Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 
@@ -27,6 +39,10 @@ Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 | 8 | `PANDUAN_IMPLEMENTASI_AI_CODING_AGENT_UNTUK_USER.md` atau `AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md` | Panduan pemula dalam bahasa Blueprint/PRD. Setiap ZIP hanya berisi file yang sesuai, bukan keduanya. |
 
 Root juga berisi `.env.local` sebagai template placeholder yang aman dan `.gitignore` untuk mencegah secret lokal masuk ke Git. Kedua file tersebut tidak termasuk dalam delapan file Markdown implementation kit.
+
+<Note>
+  Project ZIP berisi specification dan file workflow, bukan repository aplikasi yang sudah selesai. Coding agent membuat atau merekonsiliasi source code setelah membaca paket dan Anda meninjau plan yang dibuatnya.
+</Note>
 
 <Warning>
   Jangan pernah commit nilai nyata dari `.env.local`. Pastikan file tetap diabaikan oleh Git, tambahkan secret hanya ke environment lokal atau deployment, dan jangan menempelkannya ke prompt coding agent, log, atau screenshot.
@@ -83,12 +99,25 @@ Export ulang Blueprint existing setelah syarat review dan approval saat ini terp
 
 Jangan menjalankan Langkah 4 hanya agar pekerjaan terlihat lebih cepat. Pertahankan satu koordinator, ownership yang eksplisit, dan urutan integrasi yang jelas ketika mode multi-agent aktif.
 
+## Urutan source of truth untuk coding agent
+
+1. `manifest.json` mengidentifikasi file, versi, dan workflow dalam paket ini.
+2. `Blueprint-PRD-<Project>.md` menentukan scope implementasi dan acceptance criteria yang disetujui.
+3. Skema database lengkap menentukan constraint persistence dan migration.
+4. File di dalam `docs/` memberi detail domain dan traceability yang terfokus.
+5. Human PRD membantu review, sedangkan file arahan mockup UI membantu eksplorasi visual.
+6. `AGENTS.md`, panduan implementasi sesuai bahasa, dan lima prompt mengatur cara pekerjaan coding dilakukan; file tersebut tidak menambahkan fitur produk.
+
+Jika dua file produk otoritatif benar-benar bertentangan, berhenti sebelum implementasi, tampilkan nama file dan dampaknya, lalu minta keputusan. Jangan biarkan coding agent mengarang penyelesaiannya.
+
 ## Sebelum memberi prompt pertama
 
-1. Baca panduan implementasi sesuai bahasa, PRD terkonsolidasi, dan `AGENTS.md`.
-2. Pastikan aturan repository dan perubahan lokal yang ada akan dipertahankan.
-3. Rekonsiliasikan `.env.local` tanpa menambahkan atau mengekspos secret nyata.
-4. Konfirmasikan Git remote, atau berikan URL repository hanya jika remote belum tersedia.
-5. Berikan `PROMPT_1.md` kepada coding agent, lalu tinjau development foundation dan plan sebelum memakai `PROMPT_2.md`.
+1. Ekstrak arsip ke folder normal, lalu baca `manifest.json`.
+2. Baca panduan implementasi sesuai bahasa, `AGENTS.md`, PRD terkonsolidasi, skema lengkap, dan file `docs/` yang relevan.
+3. Pastikan aturan repository, source code, konfigurasi, dan perubahan lokal yang ada akan dipertahankan.
+4. Rekonsiliasikan `.env.local` tanpa menambahkan atau mengekspos secret nyata, lalu pastikan file tersebut tetap diabaikan oleh Git.
+5. Buat atau verifikasi Git baseline sebelum coding agent mengubah file.
+6. Berikan `PROMPT_1.md` kepada coding agent. Tinjau penjelasan produk, conflict, risk, acceptance criteria, development foundation, dan plan sebelum memakai `PROMPT_2.md`.
+7. Setelah setiap prompt berikutnya, jalankan pemeriksaan repository, tinjau UI jika relevan, periksa `git diff`, dan commit hanya pekerjaan yang sudah diverifikasi sebelum melanjutkan ke tahap berikutnya.
 
 Jika regenerasi, restore, atau versi baru membatalkan approval global Blueprint, tinjau dan setujui kembali set saat ini sebelum mengunduh ZIP pengganti.

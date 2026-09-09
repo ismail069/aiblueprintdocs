@@ -3,39 +3,57 @@ title: "Revisi dengan Blueprint Assistant"
 description: "Ajukan pertanyaan, susun satu atau beberapa proposal, dan buat ulang hanya dokumen terdampak."
 ---
 
-Blueprint Assistant memakai konteks yang sudah disetujui untuk project saat ini. Jawaban chat tidak mengubah dokumen secara diam-diam. Perubahan disiapkan sebagai proposal untuk Anda tinjau.
+Blueprint Assistant memakai konteks Blueprint otoritatif saat ini. Jawaban chat hanya berupa saran dan tidak pernah mengubah dokumen secara diam-diam. Setiap perubahan yang diminta disiapkan lebih dahulu sebagai proposal yang dapat Anda periksa, decline, atau apply.
 
 <Note>
   Free preview biasa bersifat hanya-baca dan tidak menyertakan Blueprint Assistant. Paket berbayar aktif atau akses coupon Credit AI trial yang masih berlaku diperlukan. Direct edit tetap gratis ketika akses workspace tersebut aktif.
 </Note>
 
+<Frame caption="Panduan revisi di dalam produk merangkum lima jalur revisi dan pemeriksaan sebelum Apply.">
+  <img src="/images/assistant-safe-revision-workflow.png" alt="Panduan revisi Blueprint untuk proposal, direct edit, rewrite, revisi besar, dan regenerasi" />
+</Frame>
+
 ## Tanya, tinjau, terapkan
 
 <Steps>
   <Step title="Tanyakan atau minta perubahan">
-    Jelaskan hasil dan batasan dengan spesifik. Anda dapat meminta rekomendasi, lalu balas **buatkan proposalnya**.
+    Jelaskan hasil, dokumen atau fitur target, alasan, dan hal yang harus tetap dipertahankan. Jika Assistant hanya memberi saran tanpa kartu proposal, balas **buatkan ini sebagai proposal**.
   </Step>
   <Step title="Tinjau kartu proposal">
-    Periksa alasan, tindakan yang diusulkan, dan dokumen terdampak. Belum ada dokumen yang berubah pada tahap ini.
+    Buka **Review proposal**. Periksa ringkasan, scope, dampak, jenis tindakan, dokumen terdampak, dan biaya Credit AI yang ditampilkan. Belum ada dokumen yang berubah pada tahap ini.
   </Step>
   <Step title="Decline atau biarkan pending">
     Decline proposal yang tidak diinginkan. Proposal valid dapat dibiarkan pending saat Anda menambahkan perubahan terkait.
   </Step>
   <Step title="Apply satu atau Apply all">
-    Buka **Review proposal** lalu gunakan **Apply proposal** untuk satu proposal. Jika ada dua atau lebih, gunakan **Apply all** agar dokumen terdampak dibuat ulang sekali sebagai satu batch konsisten.
+    Gunakan **Apply proposal** untuk satu proposal yang benar. Jika ada beberapa proposal terkait, tinjau setiap kartu, decline item yang tidak diinginkan, lalu gunakan **Apply all** agar set yang diterima dijalankan sebagai satu batch konsisten.
   </Step>
   <Step title="Tinjau dokumen hasil regenerasi">
     Regenerasi membuat approval seluruh Blueprint menjadi superseded dan mengunci Project ZIP. Buka setiap versi terbaru yang berubah sampai berstatus **Ditinjau**, lalu kembali ke Blueprint Summary dan gunakan **Sign Approve Blueprint** satu kali untuk seluruh set saat ini.
   </Step>
 </Steps>
 
-<Frame caption="Contoh tersanitasi: dua proposal disiapkan sebelum satu regenerasi.">
-  <img src="/images/assistant-proposals.svg" alt="Blueprint Assistant dengan dua proposal pending dan Apply all" />
-</Frame>
+## Pilih jalur revisi yang tepat
+
+| Jalur revisi | Gunakan untuk | Pemeriksaan sebelum Apply |
+| --- | --- | --- |
+| **Buat proposal** | Perubahan dengan hasil yang sudah jelas tetapi belum boleh mengubah dokumen. | Proposal sesuai dengan hasil, target, alasan, dan scope yang harus dipertahankan. |
+| **Revisi minor (direct edit)** | Satu nilai, label, typo, durasi, atau warna yang presisi pada satu dokumen leaf. | Kartu menyatakan **Direct edit**, memuat nilai lama dan pengganti secara tepat, serta tidak menulis ulang dokumen lain. |
+| **Rewrite satu dokumen** | Redaksi atau reasoning baru dalam satu dokumen yang disebutkan. | Daftar dampak sesuai harapan dan proposal menjelaskan bagian yang harus diperbaiki serta yang harus tetap sama. |
+| **Revisi besar dan regenerasi** | Perubahan aktor, fitur, business rule, integration, atau scope produk. | Proposal terkait ditinjau bersama; kartu yang tidak diinginkan di-decline sebelum **Apply all**. |
+| **Regenerasi dari proposal** | Menulis ulang target yang sudah disetujui—seperti Application Journey, App Map, dokumen downstream terdampak, atau seluruh set—dari otoritas Blueprint saat ini. | Target dan dokumen terdampak sudah tepat sebelum Apply satu kali. |
+
+### Verifikasi direct edit
+
+Setelah direct edit selesai, buka dokumen saat ini dan pastikan nilai lama sudah hilang dari teks yang dibaca serta field terstruktur yang ditampilkan workspace. Direct edit sengaja dibuat sempit; gunakan rewrite atau regenerasi jika makna atau struktur dokumen harus berubah.
+
+### Verifikasi rewrite dan regenerasi
+
+Tunggu run aktif selesai sebelum menerapkan perubahan lain. Bandingkan versi baru dengan versi sebelumnya, tinjau semua dokumen terdampak, dan selesaikan review note baru. Jika Credit AI tidak cukup, pertahankan proposal lalu coba kembali setelah top up; jangan membuat proposal duplikat.
 
 ## Proposal tunggal dan multiple
 
-Gunakan satu proposal untuk perubahan terisolasi, seperti mengganti nama aktor atau memperbaiki satu aturan. Tumpuk proposal ketika keputusan saling terkait, misalnya mengubah approval flow, permission, dan acceptance criteria bersamaan.
+Gunakan satu proposal untuk perubahan terisolasi, seperti mengganti nama aktor atau memperbaiki satu aturan. Siapkan beberapa proposal terkait ketika satu keputusan memengaruhi permission, workflow, dan acceptance criteria bersamaan.
 
 <Tip>
   Kumpulkan proposal terkait sebelum Apply. Satu batch menjaga dokumen tetap selaras dan menghindari siklus regenerasi terpisah.
@@ -51,6 +69,13 @@ Direct edit literal yang tidak memanggil AI gratis. Proposal atau rewrite berbas
 - **Blueprint versions** mencatat seluruh rangkaian dokumen sebagai satu versi yang dapat dipulihkan.
 
 Gunakan Blueprint versions ketika Anda perlu mengembalikan seluruh dokumen ke kondisi lama yang konsisten.
+
+## Sebelum Apply
+
+- Proposal hanya draft; hanya **Apply** yang dapat mengubah dokumen atau mengantrekan rewrite.
+- Jangan sertakan password, API key, token, OTP, atau data pribadi customer di chat Assistant.
+- Versi dokumen sebelumnya tetap tersedia di version history setelah rewrite.
+- Setelah development dimulai, perubahan yang diterapkan dapat menjadi Change Management request yang dilindungi, bukan mengganti signed baseline. Tinjau request tersebut dan dampak implementasinya sebelum melanjutkan.
 
 <Warning>
   Menerapkan proposal dapat mengubah beberapa dokumen downstream. Jangan approve Blueprint kembali sebelum generasi selesai dan semua versi terbaru yang berubah sudah ditinjau.

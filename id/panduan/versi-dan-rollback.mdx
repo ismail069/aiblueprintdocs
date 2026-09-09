@@ -13,6 +13,10 @@ Versi dapat dicatat setelah generasi pertama, revisi, regenerasi, repair, atau r
 
 ## Pulihkan versi lama
 
+<Frame caption="Versions menampilkan set dokumen lengkap untuk setiap state Blueprint yang tersimpan dan versi yang sedang dipakai.">
+  <img src="/images/blueprint-versions-restore.png" alt="Dialog Blueprint versions dengan versi saat ini dan tindakan Restore untuk versi lama" />
+</Frame>
+
 <Steps>
   <Step title="Buka Versions">
     Dari **Blueprint Summary**, pilih **Versions**.
@@ -27,6 +31,15 @@ Versi dapat dicatat setelah generasi pertama, revisi, regenerasi, repair, atau r
     Restore membuat entry baru dalam riwayat append-only dan membatalkan approval global set sebelumnya. Buka setiap kartu dokumen saat ini sampai seluruh set berstatus **Ditinjau**, termasuk stub **Tidak Diperlukan**, lalu pilih **Sign Approve Blueprint**.
   </Step>
 </Steps>
+
+## Perubahan setelah Restore
+
+- Restore memindahkan seluruh set dokumen Blueprint; tindakan ini bukan undo untuk satu dokumen.
+- Versi yang Anda tinggalkan tetap berada dalam riwayat append-only sehingga dapat dipulihkan lagi nanti.
+- Set hasil restore menjadi versi saat ini dan harus ditinjau sebagai satu rangkaian.
+- Approval global sebelumnya tidak lagi berlaku. Project ZIP tetap terkunci sampai seluruh dokumen aktif memenuhi pemeriksaan review dan Anda melakukan **Sign Approve Blueprint** lagi.
+
+Sebelum restore, catat keputusan apa pun yang dibuat setelah versi target. Restore tidak menggabungkan perubahan tertentu dari versi yang lebih baru ke dalam set lama.
 
 <Note>
   Restore tidak menghapus versi yang Anda tinggalkan. Anda dapat kembali maju dengan memulihkan versi yang lebih baru, tetapi set hasil restore tetap perlu ditinjau dan disetujui kembali.

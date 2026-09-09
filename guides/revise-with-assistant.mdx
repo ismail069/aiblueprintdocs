@@ -3,39 +3,57 @@ title: "Revise with the Blueprint Assistant"
 description: "Ask questions, stage one or several proposals, and regenerate only affected documents."
 ---
 
-The Blueprint Assistant uses the approved context for the current project. A chat response does not silently change your documents. Changes are staged as proposals for your review.
+The Blueprint Assistant uses the current authoritative Blueprint context. A chat answer is advice only: it never silently changes a document. Any requested change is first staged as a proposal that you can inspect, decline, or apply.
 
 <Note>
   The ordinary free preview is read-only and does not include the Blueprint Assistant. An active paid plan or valid trial-credit access is required. Direct edits remain free when that workspace access is active.
 </Note>
 
+<Frame caption="The in-product revision guide summarizes the five supported revision paths and the checks to make before applying.">
+  <img src="/images/assistant-safe-revision-workflow.png" alt="How to revise your Blueprint guide with proposal, direct edit, rewrite, major revision, and regeneration workflows" />
+</Frame>
+
 ## Ask, review, apply
 
 <Steps>
   <Step title="Ask a question or request a change">
-    Be explicit about the outcome and constraint. You can ask for a recommendation first, then say **draft this as a proposal**.
+    State the desired outcome, target document or feature, reason, and anything that must remain unchanged. If the Assistant gives advice instead of a proposal card, say **make this a proposal**.
   </Step>
   <Step title="Review the proposal card">
-    Check the rationale, proposed actions, and affected documents. Nothing changes at this stage.
+    Open **Review proposal**. Check its summary, scope, impact, action type, affected documents, and displayed credit cost. Nothing changes at this stage.
   </Step>
   <Step title="Decline or keep it pending">
     Decline proposals you do not want. You can leave valid proposals pending while you add related changes.
   </Step>
   <Step title="Apply one or apply all">
-    Open **Review proposal** and use **Apply proposal** for one proposal. When two or more proposals are waiting, use **Apply all** so affected documents regenerate once as a consistent batch.
+    Use **Apply proposal** for one correct proposal. When two or more related proposals are waiting, review each card, decline unwanted items, then use **Apply all** so the accepted set runs as one consistent batch.
   </Step>
   <Step title="Review regenerated documents">
     Regeneration supersedes the whole-Blueprint approval and locks Project ZIP. Open every changed current version so it becomes **Reviewed**, then return to Blueprint Summary and use **Sign Approve Blueprint** once for the complete current set.
   </Step>
 </Steps>
 
-<Frame caption="Sanitized example: two proposals are staged before one regeneration.">
-  <img src="/images/assistant-proposals.svg" alt="Blueprint Assistant with two pending proposals and Apply all" />
-</Frame>
+## Choose the correct revision path
+
+| Revision path | Use it for | What to verify before Apply |
+| --- | --- | --- |
+| **Create a proposal** | A change whose result is known but must not change a document yet. | The proposal matches the requested outcome, target, reason, and preserved scope. |
+| **Minor revision (direct edit)** | One precise value, label, typo, duration, or colour in one leaf document. | The card says **Direct edit**, quotes the exact old and replacement values, and does not rewrite another document. |
+| **Rewrite one document** | New wording or reasoning within one named document. | The impact list is expected, and the proposal states what must improve and what must stay unchanged. |
+| **Major revision and regeneration** | Changes to actors, features, business rules, integrations, or product scope. | Related proposals are reviewed together; unwanted cards are declined before **Apply all**. |
+| **Regeneration from a proposal** | Rewriting an approved target—such as Application Journey, App Map, affected downstream documents, or the full document set—from the current Blueprint authority. | The exact target and affected documents are correct before applying once. |
+
+### Direct edit verification
+
+After a direct edit completes, open the current document and confirm that the old value is gone from both the readable document and any structured field shown by the workspace. A direct edit is deliberately narrow; use a rewrite or regeneration when the meaning or document structure must change.
+
+### Rewrite and regeneration verification
+
+Wait for the active run to finish before applying another change. Compare the new version with the previous one, review every affected document, and resolve any new review notes. If credits are insufficient, keep the proposal and retry it after adding credits; do not create duplicate proposals.
 
 ## Single and multiple proposals
 
-Use a single proposal for an isolated change, such as renaming an actor or correcting one rule. Stack proposals when decisions are related, such as changing an approval flow, permissions, and acceptance criteria together.
+Use a single proposal for an isolated change, such as renaming an actor or correcting one rule. Stage several related proposals when one decision affects permissions, workflow, and acceptance criteria together.
 
 <Tip>
   Batch related proposals before applying them. One batch keeps the document set aligned and avoids separate regeneration cycles.
@@ -51,6 +69,13 @@ A literal direct edit that does not call AI is free. An AI proposal or rewrite c
 - **Blueprint versions** records the whole set of generated documents as one recoverable version.
 
 Use Blueprint versions when you need to restore the complete document set to an earlier consistent state.
+
+## Before you apply
+
+- A proposal is only a draft; only **Apply** can change a document or queue a rewrite.
+- Never include passwords, API keys, tokens, OTPs, or customer personal data in Assistant chat.
+- Previous document versions remain available from version history after a rewrite.
+- After development has started, an applied change can become a protected Change Management request instead of replacing the signed baseline. Review that request and its implementation impact before continuing.
 
 <Warning>
   Applying a proposal can change more than one downstream document. Do not approve the Blueprint again until generation finishes and every changed current version has been reviewed.

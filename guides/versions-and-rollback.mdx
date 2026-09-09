@@ -11,6 +11,10 @@ A version can be recorded after the first generation, a revision, regeneration, 
 
 ## Restore an earlier version
 
+<Frame caption="Versions shows the complete document set for each saved Blueprint state and the version currently in use.">
+  <img src="/images/blueprint-versions-restore.png" alt="Blueprint versions dialog with the current version and Restore action for an earlier version" />
+</Frame>
+
 <Steps>
   <Step title="Open Versions">
     From **Blueprint Summary**, select **Versions**.
@@ -28,6 +32,15 @@ A version can be recorded after the first generation, a revision, regeneration, 
     Resolve any repair or blocker, then select **Sign Approve Blueprint** in **Blueprint Documents**.
   </Step>
 </Steps>
+
+## What changes after Restore
+
+- Restore switches the complete Blueprint document set; it is not a single-document undo.
+- The version you leave remains in append-only history, so you can restore it again later.
+- The restored set becomes the current version and must be reviewed as a set.
+- Previous global approval no longer applies. Project ZIP remains locked until the restored current documents meet the review checks and you complete **Sign Approve Blueprint** again.
+
+Before restoring, record any decision made after the target version. Restore does not merge selected later changes into the older set.
 
 <Note>
   Restore does not delete the version you are leaving. It invalidates approval of the previous current set and locks **Project ZIP** until you review and approve the restored set. You can move forward again by restoring a later version.
