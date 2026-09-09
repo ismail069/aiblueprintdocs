@@ -1,0 +1,71 @@
+---
+title: "Product and workspace overview"
+description: "Understand what AI Blueprint produces, how the workspace is organized, and which states control review, revision, and export."
+---
+
+AI Blueprint turns an application idea into a connected planning package that can be reviewed before implementation. It helps align product intent, users, journeys, requirements, data, access rules, MVP boundaries, and UI direction. It does not produce a finished application or replace professional review.
+
+## What the product produces
+
+One **Blueprint** is a package of related documents built from the same approved product context. The current workspace can include:
+
+- Idea Review or Smart Requirement Summary;
+- Application Journey;
+- Technical Foundation;
+- Database Schema;
+- App Structure or App Map;
+- Access & Security;
+- Lean Canvas;
+- MVP Scope;
+- Requirement Coverage; and
+- UI/UX Design.
+
+Some artifacts can be marked **Not Required** when they are not relevant to the idea. That is a valid result, not a generation failure. Open and review the current stub just like any other current document.
+
+<Note>
+  The number of cards in the workspace is not the number of files in Project ZIP. The export also contains consolidated PRDs, a manifest, workflow instructions, and conditional artifacts.
+</Note>
+
+## The two approval moments
+
+| Moment | What you approve | What happens next |
+| --- | --- | --- |
+| **Idea Review / VPC Sign Approve** | The structured product context. | Generation starts for the connected Blueprint documents. |
+| **Sign Approve Blueprint** | The complete set of current document versions after review. | The approved set becomes eligible for Project ZIP export. |
+
+Opening a current document changes its review state to **Reviewed**. Review is not the same as either approval. Applying a revision, regenerating affected documents, or restoring an earlier Blueprint can create a new current set that must be reviewed and approved again.
+
+## How to read Blueprint Summary
+
+Blueprint Summary is the control point for the package:
+
+- **Current Status** describes what the project needs now.
+- **Blueprint Documents** shows readiness and review state for the current documents.
+- **Review Progress** counts current documents that have been opened and reviewed.
+- **Next Action** points to the next useful customer action.
+- **Project Health** separates review notes, before-go-live work, repair states, and blockers.
+
+A review note is not automatically a blocker. Read the owning document and decide whether the note is a clarification, assumption, risk, or true stop condition.
+
+## Language, interface, and export
+
+The dominant language of the idea controls the generated document language. The **ID/EN** interface control changes navigation and interface copy; it does not rewrite an already generated Blueprint. The implementation kit in Project ZIP follows the PRD language.
+
+The web interface supports responsive layouts, light and dark appearance, keyboard-friendly controls, labels, and reduced-motion considerations. These are product design characteristics, not a claim of independent accessibility certification.
+
+## Available now and Coming soon
+
+The planning workspace, document review, Blueprint Assistant proposals, targeted revisions, version history, downloads, and approved Project ZIP handoff are the current planning experience. Areas labelled **Development Planning**, **Project Management**, **Deployment Assist**, and the **Pro** plan remain **Coming soon** until the product says otherwise.
+
+Planning documents can describe a feature for your future application without that feature existing inside AI Blueprint. Likewise, the coding-agent instructions in Project ZIP run in your chosen coding environment; they do not activate a Coming soon delivery module.
+
+## Safe working habits
+
+1. Keep one product language and one source of truth for each decision.
+2. Review assumptions, access boundaries, data rules, and acceptance criteria before approval.
+3. Use a proposal for changes whose impact is not yet clear.
+4. Apply one reviewed change set, then inspect the new current versions.
+5. Export Project ZIP only from the version set you intend to hand to developers.
+6. Do not paste passwords, API keys, tokens, payment credentials, or unnecessary personal data into ideas, Assistant chat, support requests, or coding-agent prompts.
+
+For exact lifecycle steps, continue to [Blueprint lifecycle](/concepts/blueprint-lifecycle). For naming, see the [glossary](/reference/glossary).

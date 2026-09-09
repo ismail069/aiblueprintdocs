@@ -13,6 +13,35 @@ description: "Understand the static, language-matched implementation kit and mov
 
 The ZIP keeps the product decisions, document versions, implementation handoff, and agent workflow together. Project-specific filenames include a safe form of the Blueprint title. Use the actual `manifest.json` in the archive as the authoritative inventory because conditional implementation-source artifacts can vary.
 
+<Frame caption="Example contents after extracting a Project ZIP. Project-specific names and conditional artifacts can differ in your package.">
+  <img src="/images/project-zip-example-file-list.png" alt="Example Project ZIP containing a docs folder, PRDs, schema, manifest, agent files, five prompts, and a UI mockup summary" />
+</Frame>
+
+The example in the image contains one folder and 14 root files. File Explorer may hide extensions: an `AGENTS` item with type **Markdown Source File** is `AGENTS.md`, while a `manifest` item with type **JSON Source File** is `manifest.json`.
+
+```text
+docs/
+.env.local
+.gitignore
+AGENT.md
+AGENTS.md
+AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md
+Blueprint-PRD-<Project>.md
+Complete-Database-Schema.md
+Complete-Human-PRD-<Project>.md
+manifest.json
+PROMPT_1.md
+PROMPT_2.md
+PROMPT_3.md
+PROMPT_4.md
+PROMPT_5.md
+UI-MOCKUP-DIRECTION-SUMMARY-<Project>.md
+```
+
+<Note>
+  This is an English-language package example. An Indonesian package uses the Indonesian guide and may use Indonesian artifact names. The `manifest.json` inside your own ZIP is always the authoritative inventory.
+</Note>
+
 ### Product and document files
 
 | File or folder | Purpose and authority |
@@ -24,6 +53,27 @@ The ZIP keeps the product decisions, document versions, implementation handoff, 
 | `docs/01-....md` through the current document set | Individual Blueprint documents, numbered in pipeline order for focused reading and traceability. |
 | `docs/implementation-sources/`, when present | Stable intermediate decisions and implementation-source records used for audit and consistency checks. |
 | `manifest.json` | Machine-readable index of the package, document versions and statuses, paths, language, environment parameter names, and prompt sequence. Read this first instead of guessing filenames. |
+
+### What each example item is for
+
+| Item | Read or use it when | Do not treat it as |
+| --- | --- | --- |
+| `docs/` | The agent needs focused detail about journeys, security, MVP boundaries, requirement coverage, or UI/UX. | Application source code. |
+| `.env.local` | You need the names of environment variables to fill locally. | A place to store real secrets in the ZIP or Git. Values must remain placeholders. |
+| `.gitignore` | Before the Git baseline, to keep local files and secrets out of commits. | A replacement for checking `git status`. |
+| `AGENT.md` | A tool only looks for this singular filename; it points the agent to the canonical contract. | A second independent rule set that may diverge from `AGENTS.md`. |
+| `AGENTS.md` | Before the agent edits the repository; it defines source order, scope limits, safety rules, and quality gates. | A new product requirement. |
+| Implementation guide | When opening the ZIP for the first time; it explains the workflow for a non-technical user. | A command to run every prompt at once. |
+| Consolidated PRD | When planning scope, acceptance criteria, and traceability. | Permission to invent unwritten features. |
+| Human PRD | When founders, reviewers, or developers need a faster cross-document reading path. | A silent replacement for the consolidated PRD when they conflict. |
+| Complete Database Schema | When building migrations, tables, relationships, constraints, indexes, and data rules. | A running database or already-applied migration. |
+| UI mockup direction summary | When deciding initial screens, hierarchy, states, and visual direction. | A high-fidelity mockup or ready-to-use frontend source. |
+| `manifest.json` | First after extraction and whenever you verify package completeness. | A configuration file that can be freely edited without affecting traceability. |
+| `PROMPT_1.md` | Creating or reconciling the foundation and initial plan. | A command to build the entire application immediately. |
+| `PROMPT_2.md` | Building a bounded prototype after the plan is reviewed. | Automatic approval for production work. |
+| `PROMPT_3.md` | Completing one eligible production task per run; reuse it as work advances. | A request to batch every task at once. |
+| `PROMPT_4.md` | Coordinating multiple agents only for genuinely independent tasks. | A mandatory step for every project. |
+| `PROMPT_5.md` | Resuming interrupted work from state recorded in the repository. | A rollback button or a command that deletes failed changes. |
 
 At the archive root, the implementation kit adds exactly eight Markdown files:
 

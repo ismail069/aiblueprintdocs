@@ -1,0 +1,71 @@
+---
+title: "Ringkasan produk dan workspace"
+description: "Pahami hasil AI Blueprint, susunan workspace, serta state yang mengendalikan review, revisi, dan export."
+---
+
+AI Blueprint mengubah ide aplikasi menjadi paket perencanaan terhubung yang dapat ditinjau sebelum implementasi. Produk ini membantu menyelaraskan tujuan, pengguna, journey, requirement, data, aturan akses, batas MVP, dan arah UI. AI Blueprint tidak menghasilkan aplikasi siap pakai dan tidak menggantikan review profesional.
+
+## Apa yang dihasilkan
+
+Satu **Blueprint** adalah paket dokumen yang memakai konteks produk yang sama dan sudah disetujui. Workspace saat ini dapat mencakup:
+
+- Idea Review atau Smart Requirement Summary;
+- Application Journey;
+- Technical Foundation;
+- Database Schema;
+- App Structure atau App Map;
+- Access & Security;
+- Lean Canvas;
+- MVP Scope;
+- Requirement Coverage; dan
+- UI/UX Design.
+
+Artefak yang tidak relevan untuk suatu ide dapat berstatus **Tidak Diperlukan**. Itu hasil yang valid, bukan kegagalan generation. Buka dan tinjau stub versi saat ini seperti dokumen lainnya.
+
+<Note>
+  Jumlah kartu di workspace bukan jumlah file di Project ZIP. Export juga berisi PRD terkonsolidasi, manifest, instruksi workflow, dan artefak kondisional.
+</Note>
+
+## Dua momen approval
+
+| Momen | Yang Anda setujui | Dampak berikutnya |
+| --- | --- | --- |
+| **Idea Review / VPC Sign Approve** | Konteks produk yang sudah disusun. | Generation dokumen Blueprint yang terhubung dimulai. |
+| **Sign Approve Blueprint** | Seluruh set versi dokumen saat ini setelah review. | Set yang disetujui memenuhi syarat untuk export Project ZIP. |
+
+Membuka dokumen saat ini mengubah status review menjadi **Ditinjau**. Review tidak sama dengan kedua approval tersebut. Revisi yang diterapkan, regeneration dokumen terdampak, atau restore Blueprint lama dapat membuat set aktif baru yang perlu ditinjau dan disetujui lagi.
+
+## Cara membaca Blueprint Summary
+
+Blueprint Summary adalah pusat kendali paket:
+
+- **Current Status** menjelaskan kebutuhan project sekarang.
+- **Blueprint Documents** menampilkan kesiapan dan status review dokumen saat ini.
+- **Review Progress** menghitung dokumen aktif yang sudah dibuka dan ditinjau.
+- **Next Action** menunjukkan tindakan customer yang paling relevan.
+- **Project Health** memisahkan review note, pekerjaan before go-live, state repair, dan blocker.
+
+Review note tidak otomatis menjadi blocker. Baca dokumen pemiliknya untuk menentukan apakah catatan tersebut merupakan klarifikasi, asumsi, risiko, atau kondisi yang benar-benar menghentikan pekerjaan.
+
+## Bahasa, interface, dan export
+
+Bahasa dominan ide menentukan bahasa dokumen yang dihasilkan. Kontrol interface **ID/EN** mengubah navigasi dan copy interface; kontrol ini tidak menulis ulang Blueprint yang sudah dibuat. Implementation kit di dalam Project ZIP mengikuti bahasa PRD.
+
+Interface web mendukung layout responsive, tampilan terang dan gelap, kontrol ramah keyboard, label, dan pertimbangan reduced motion. Ini adalah karakteristik desain produk, bukan klaim sertifikasi aksesibilitas independen.
+
+## Tersedia sekarang dan Coming soon
+
+Workspace perencanaan, review dokumen, proposal Blueprint Assistant, revisi terarah, riwayat versi, download, dan handoff Project ZIP yang sudah disetujui merupakan pengalaman perencanaan saat ini. Area berlabel **Development Planning**, **Project Management**, **Deployment Assist**, dan paket **Pro** tetap **Coming soon** sampai produk menyatakan sebaliknya.
+
+Dokumen perencanaan dapat mendeskripsikan fitur untuk aplikasi masa depan Anda tanpa berarti fitur tersebut tersedia di AI Blueprint. Demikian pula, instruksi coding agent dalam Project ZIP dijalankan di lingkungan coding pilihan Anda; instruksi itu tidak mengaktifkan modul delivery yang masih Coming soon.
+
+## Kebiasaan kerja yang aman
+
+1. Pertahankan satu bahasa produk dan satu sumber kebenaran untuk setiap keputusan.
+2. Tinjau asumsi, batas akses, aturan data, dan acceptance criteria sebelum approval.
+3. Gunakan proposal jika dampak perubahan belum jelas.
+4. Terapkan satu set perubahan yang sudah ditinjau, lalu periksa versi aktif baru.
+5. Export Project ZIP hanya dari set versi yang benar-benar ingin diserahkan ke developer.
+6. Jangan masukkan password, API key, token, credential pembayaran, atau data pribadi yang tidak diperlukan ke ide, chat Assistant, laporan support, atau prompt coding agent.
+
+Untuk langkah lifecycle lengkap, lanjutkan ke [Alur Blueprint](/id/konsep/alur-blueprint). Gunakan menu **Referensi → Glosarium** untuk membaca definisi istilah produk.

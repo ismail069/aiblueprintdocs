@@ -13,6 +13,35 @@ description: "Pahami implementation kit statis yang sesuai bahasa dan pindahkan 
 
 ZIP menyatukan keputusan produk, versi dokumen, handoff implementasi, dan workflow agent. Nama file yang spesifik untuk project memakai bentuk aman dari judul Blueprint. Gunakan `manifest.json` yang benar-benar ada di arsip sebagai daftar acuan karena artifact implementation source kondisional dapat berbeda menurut project.
 
+<Frame caption="Contoh isi Project ZIP setelah diekstrak. Nama project dan file artefak dapat berbeda mengikuti Blueprint Anda.">
+  <img src="/images/project-zip-example-file-list.png" alt="Daftar folder docs, PRD, schema, manifest, file agent, lima prompt, dan ringkasan mockup di dalam contoh Project ZIP" />
+</Frame>
+
+Contoh pada gambar berisi satu folder dan 14 file root. Ekstensi dapat disembunyikan oleh File Explorer; misalnya `AGENTS` yang bertipe **Markdown Source File** adalah `AGENTS.md`, sedangkan `manifest` bertipe **JSON Source File** adalah `manifest.json`.
+
+```text
+docs/
+.env.local
+.gitignore
+AGENT.md
+AGENTS.md
+AI_CODING_AGENT_IMPLEMENTATION_GUIDE_FOR_USERS.md
+Blueprint-PRD-<Project>.md
+Complete-Database-Schema.md
+Complete-Human-PRD-<Project>.md
+manifest.json
+PROMPT_1.md
+PROMPT_2.md
+PROMPT_3.md
+PROMPT_4.md
+PROMPT_5.md
+UI-MOCKUP-DIRECTION-SUMMARY-<Project>.md
+```
+
+<Note>
+  Daftar di atas adalah contoh paket berbahasa Inggris. Paket berbahasa Indonesia memakai nama panduan dan beberapa nama artefak versi Indonesia. `manifest.json` pada ZIP Anda selalu menjadi daftar yang paling otoritatif.
+</Note>
+
 ### File produk dan dokumen
 
 | File atau folder | Kegunaan dan otoritas |
@@ -24,6 +53,27 @@ ZIP menyatukan keputusan produk, versi dokumen, handoff implementasi, dan workfl
 | `docs/01-....md` sampai set dokumen saat ini | Dokumen Blueprint individual yang diberi nomor sesuai urutan pipeline agar mudah dibaca dan ditelusuri. |
 | `docs/implementation-sources/`, jika ada | Keputusan antara dengan ID stabil dan catatan sumber implementasi untuk audit serta pemeriksaan konsistensi. |
 | `manifest.json` | Index yang dapat dibaca mesin untuk file paket, versi dan status dokumen, path, bahasa, nama parameter environment, dan urutan prompt. Baca file ini terlebih dahulu, bukan menebak nama file. |
+
+### Fungsi setiap item pada contoh arsip
+
+| Item | Baca atau gunakan ketika | Jangan diperlakukan sebagai |
+| --- | --- | --- |
+| `docs/` | Agent memerlukan detail satu area seperti journey, security, MVP, requirement coverage, atau UI/UX. | Folder source code aplikasi. |
+| `.env.local` | Anda perlu mengetahui nama environment variable yang harus diisi secara lokal. | Tempat menyimpan secret di ZIP atau Git. Nilainya harus tetap placeholder. |
+| `.gitignore` | Sebelum Git baseline, untuk memastikan file lokal dan secret tidak ikut tercatat. | Pengganti pemeriksaan `git status`. |
+| `AGENT.md` | Tool hanya mencari nama file tunggal ini. File tersebut mengarahkan agent ke kontrak kanonik. | Salinan aturan independen yang boleh berbeda dari `AGENTS.md`. |
+| `AGENTS.md` | Sebelum agent mengubah repository; berisi urutan sumber, batas scope, safety, dan quality gate. | Requirement produk baru. |
+| Panduan implementasi | Saat pertama kali membuka ZIP; menjelaskan urutan kerja untuk pengguna non-teknis. | Prompt yang harus dijalankan seluruhnya sekaligus. |
+| PRD terkonsolidasi | Saat menyusun plan, scope, acceptance criteria, dan traceability. | Izin untuk mengarang fitur yang tidak tertulis. |
+| Human PRD | Saat founder, reviewer, atau developer perlu membaca rangkuman lintas dokumen dengan lebih cepat. | Pengganti PRD terkonsolidasi bila keduanya bertentangan. |
+| Complete Database Schema | Saat membuat migration, tabel, relationship, constraint, index, dan aturan data. | Database siap jalan atau migration yang sudah diterapkan. |
+| UI mockup direction summary | Saat menentukan layar, hierarki, state, dan arah visual awal. | Mockup high-fidelity atau source frontend siap pakai. |
+| `manifest.json` | Pertama kali setelah ekstraksi dan setiap kali memeriksa kelengkapan paket. | File konfigurasi yang bebas diubah tanpa dampak traceability. |
+| `PROMPT_1.md` | Foundation dan plan awal. | Perintah untuk langsung membuat seluruh aplikasi. |
+| `PROMPT_2.md` | Prototype terbatas setelah plan ditinjau. | Persetujuan otomatis untuk production. |
+| `PROMPT_3.md` | Satu task production per run; dapat dijalankan berulang. | Batch semua task sekaligus. |
+| `PROMPT_4.md` | Koordinasi beberapa agent untuk task yang benar-benar independen. | Langkah wajib pada semua project. |
+| `PROMPT_5.md` | Melanjutkan pekerjaan setelah interupsi dari state repository yang tercatat. | Tombol rollback atau penghapus perubahan gagal. |
 
 Di root arsip, implementation kit menambahkan tepat delapan file Markdown:
 
